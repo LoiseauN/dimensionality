@@ -11,4 +11,4 @@ analyses/: contains R scripts to run analyses
 
 ## Notes
 All required packages will be installed (if necessary) and loaded.
-Figures will be stored in figures/
+
