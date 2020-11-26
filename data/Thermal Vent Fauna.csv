@@ -1,0 +1,647 @@
+UniqueID;Relative.Adult.Mobility;Estimated.Max.Body.Size;Gregariousness;Foundation.Species;Habitat.Complexity;Abundance;Chemosynthesis.Obligate;Position.of.Symbiont;Min.Depth.Range.Lower.Bound;Min.Depth.Range.Upper.Bound;Max.Depth.Range.Lower.Bound;Max.Depth.Range.Upper.Bound;Substratum;Zonation.From.Vent;Nutritional.Source;Trophic.Mode
+Aby1;1;100;Always;No;Open bush forming;High;No;None;1500;2000;2500;3000;Hard;Low;Fauna;Carnivore O
+Aby2;1;100;NA;NA;NA;NA;Vent;NA;2500;3000;2500;3000;Hard;Low;Fauna;Carnivore O
+Aby3;1;100;Sometimes;NA;NA;NA;No;NA;2000;2500;2500;3000;Hard;Low;NA;NA
+Aby4;2;1000;Sometimes;Yes;Bed forming;High;Other CBE;Endosymbiont;2500;3000;4500;5000;Soft;Low;Symbiont;Bacterivore
+Aby5;3;10;Sometimes;No;Does not add;High;No;None;500;1000;4000;4500;NA;Low;Fauna;Carnivore S
+Aby6;3;10;Sometimes;No;Does not add;High;No;None;2500;3000;5001;NA;NA;Low;Fauna;Carnivore S
+Aby7;2;1;NA;NA;NA;High;Vent;None;2500;3000;2500;3000;Hard;Low;NA;NA
+Aca8;4;100;NA;No;Does not add;NA;No;None;0;500;1500;2000;Soft;Medium;Fauna;Carnivore O
+Ach9;2;1000;Never;No;Burrow forming;Low;Other CBE;Endosymbiont;1500;2000;1500;2000;Soft;Low;Symbiont;Bacterivore
+Ach10;2;1000;Never;No;Burrow forming;Low;Other CBE;Endosymbiont;0;500;5001;NA;Soft;Low;Symbiont;Bacterivore
+Act11;2;100;Sometimes;No;NA;Low;No;None;0;500;2500;3000;Hard;Low;Water column;Carnivore O
+Act12;1;100;NA;NA;NA;NA;Vent;NA;2000;2500;2500;3000;Hard;Medium;Fauna;Carnivore O
+Act13;1;100;NA;NA;NA;NA;Vent;NA;2000;2500;2500;3000;Hard;Medium;Fauna;Carnivore O
+Act14;1;100;NA;NA;NA;High;Vent;NA;2000;2500;2500;3000;Hard;Medium;Fauna;Carnivore O
+Act15;1;100;NA;NA;NA;High;Vent;NA;2000;2500;2500;3000;Hard;Medium;Fauna;Carnivore O
+Act16;1;100;NA;NA;NA;Low;Vent;NA;2500;3000;2500;3000;NA;Low;Sediment or rock surface;Carnivore O
+Ake17;3;1000;Always;Yes;Bed forming;High;Other CBE;Endosymbiont;0;500;1500;2000;Soft;Low;Symbiont;Bacterivore
+Ala18;1;100;Sometimes;Yes;Dense bush forming;High;Other CBE;Endosymbiont;500;1000;1500;2000;Hard;Medium;Symbiont;Bacterivore
+Alt19;1;10;Always;No;Does not add;Low;Vent;None;2000;2500;2000;2500;Hard;Low;Water column;NA
+Alv20;1;100;NA;No;NA;NA;No;None;NA;NA;NA;NA;Hard;Low;Fauna;NA
+Alv21;2;100;Always;Yes;Burrow forming;High;Vent;Episymbiont;2000;2500;2500;3000;Hard;High;Sediment or rock surface;Bacterivore
+Alv22;2;100;Always;Yes;Burrow forming;High;Vent;Episymbiont;2000;2500;2500;3000;Hard;High;Sediment or rock surface;Bacterivore
+Alv23;3;100;Always;Yes;Bed forming;High;Vent;Endosymbiont;0;500;0;500;Hard;High;Symbiont;Bacterivore
+Alv24;3;100;Always;Yes;Mat forming;High;Vent;Endosymbiont;1000;1500;2500;3000;Hard;High;Symbiont;Bacterivore
+Alv25;3;100;Sometimes;Yes;Mat forming;High;Vent;Endosymbiont;1000;1500;3500;4000;Hard;Medium;Symbiont;Bacterivore
+Alv26;3;100;Always;Yes;Mat forming;High;Vent;Endosymbiont;1000;1500;2500;3000;Hard;High;Symbiont;Bacterivore
+Alv27;3;100;Always;No;Does not add;High;Vent;Endosymbiont;2000;2500;3000;3500;Hard;High;Symbiont;Bacterivore
+Alv28;3;100;Always;Yes;Mat forming;High;Vent;Endosymbiont;1500;2000;1500;2000;Hard;High;Symbiont;Bacterivore
+Alv29;3;100;Always;No;Does not add;High;Vent;None;0;500;1000;1500;Hard;NA;Sediment or rock surface;Carnivore S
+Alv30;4;100;Always;No;Does not add;Low;Vent;Episymbiont;1000;1500;1500;2000;Hard;High;Sediment or rock surface;Bacterivore
+Alv31;4;100;Sometimes;No;Does not add;Low;No;None;1500;2000;2000;2500;Hard;Medium;Fauna;Detritivore
+Alv32;3;100;Always;No;Does not add;High;Other CBE;Episymbiont;0;500;1500;2000;Soft;Low;Fauna;Bacterivore
+Alv33;3;100;Never;No;Does not add;Low;Vent;None;2500;3000;2500;3000;NA;NA;Sediment or rock surface;Bacterivore
+Alv34;3;100;Never;No;Does not add;Low;Vent;None;1500;2000;3500;4000;Hard;Low;Fauna;Carnivore O
+Alv35;3;100;Always;No;Does not add;High;Vent;None;0;500;1000;1500;Hard;NA;Sediment or rock surface;Carnivore S
+Alv36;3;100;Never;No;Does not add;Low;Vent;None;2500;3000;2500;3000;NA;NA;Fauna;NA
+Alv37;3;100;NA;NA;NA;NA;Vent;None;2000;2500;4500;5000;NA;NA;Sediment or rock surface;Bacterivore
+Alv38;3;100;Never;No;Does not add;High;Vent;None;500;1000;500;1000;Hard;Medium;Fauna;Carnivore S
+Amb39;4;1;NA;No;NA;Low;Vent;NA;2000;2500;2000;2500;Hard;NA;NA;NA
+Amp40;3;10;Never;No;Does not add;Low;Other CBE;None;0;500;0;500;Soft;Medium;Sediment or rock surface;Detritivore
+Amp41;3;100;Sometimes;No;NA;Low;No;None;0;500;2000;2500;Soft;Low;Sediment or rock surface;Detritivore
+Amp42;1;100;NA;No;NA;NA;No;None;NA;NA;NA;NA;Hard;Low;NA;NA
+Amp43;4;10;NA;NA;NA;NA;No;None;NA;NA;NA;NA;NA;NA;Sediment or rock surface;Detritivore
+Amp44;3;10;Never;No;NA;Low;Vent;None;NA;NA;NA;NA;NA;NA;Fauna;Carnivore O
+Amp45;2;100;Sometimes;No;Mat forming;High;Vent;None;1500;2000;2000;2500;Hard;High;Sediment or rock surface;Detritivore
+Amp46;2;10;Never;No;Does not add;High;Vent;None;2000;2500;2500;3000;Hard;Medium;Sediment or rock surface;Detritivore
+Amp47;3;100;Sometimes;No;Mat forming;High;Vent;None;500;1000;4000;4500;Hard;Medium;Sediment or rock surface;Detritivore
+Ane48;1;100;NA;NA;NA;NA;Vent;None;1000;1500;1000;1500;NA;NA;Water column;Carnivore O
+Aph49;4;10;Sometimes;No;Does not add;High;No;None;2000;2500;2500;3000;Hard;Medium;Sediment or rock surface;Bacterivore
+Aph50;4;10;NA;No;Does not add;High;Vent;None;1000;1500;3500;4000;Hard;Medium;Sediment or rock surface;Bacterivore
+Aph51;4;10;Never;No;Does not add;High;Vent;None;500;1000;3500;4000;Hard;Medium;Sediment or rock surface;Bacterivore
+Aph52;4;10;NA;NA;NA;High;Vent;NA;1000;1500;3500;4000;NA;NA;NA;NA
+Aph53;4;10;Sometimes;No;Does not add;High;Vent;None;2000;2500;2500;3000;Hard;Medium;Sediment or rock surface;Bacterivore
+Aph54;4;10;Never;No;Does not add;High;Vent;None;1500;2000;2000;2500;Hard;Medium;Fauna;Bacterivore
+Aph55;4;10;Sometimes;No;Does not add;High;Vent;None;2000;2500;2500;3000;Hard;Medium;Sediment or rock surface;Bacterivore
+Aph56;4;10;NA;No;Does not add;High;Vent;None;1000;1500;3500;4000;Hard;Medium;Sediment or rock surface;Bacterivore
+Aph57;4;10;NA;No;Does not add;High;Vent;None;1000;1500;3500;4000;Hard;Medium;Sediment or rock surface;Bacterivore
+Aph58;4;10;NA;No;Does not add;High;Vent;None;1000;1500;3500;4000;Hard;Medium;Sediment or rock surface;Bacterivore
+Apo59;4;100;Never;No;Does not add;Low;Vent;None;2000;2500;2500;3000;Water column;Low;Fauna;Carnivore S
+Apr60;4;1000;Never;No;Does not add;Low;No;NA;500;1000;1500;2000;Water column;Low;Fauna;Carnivore O
+Arc61;4;1;Never;No;Does not add;Low;Vent;None;2000;2500;2000;2500;Hard;Medium;NA;NA
+Arc62;3;100;Sometimes;No;Does not add;High;Vent;None;2000;2500;3000;3500;Hard;Medium;Sediment or rock surface;NA
+Arc63;3;100;Never;No;Does not add;Low;Vent;None;1000;1500;3000;3500;Hard;Medium;Fauna;Carnivore O
+Arc64;3;1000;Sometimes;Yes;Bed forming;High;Other CBE;Endosymbiont;1500;2000;3500;4000;Soft;Low;Symbiont;Bacterivore
+Arc65;3;1000;Sometimes;Yes;Bed forming;High;Other CBE;Endosymbiont;2500;3000;3000;3500;Soft;Low;Symbiont;Bacterivore
+Arc66;3;1000;Sometimes;Yes;Bed forming;Low;Other CBE;Endosymbiont;1000;1500;2000;2500;Soft;Low;Symbiont;Bacterivore
+Arc67;1;100;Always;Yes;Dense bush forming;High;Vent;Endosymbiont;1500;2000;2000;2500;Hard;Medium;Symbiont;Bacterivore
+Asb68;1;100;Always;No;Open bush forming;High;No;NA;500;1000;3000;3500;Hard;Medium;Fauna;Carnivore O
+Asb69;1;100;NA;NA;NA;NA;Vent;NA;2500;3000;2500;3000;Hard;NA;Fauna;Carnivore O
+Asb70;1;100;NA;NA;NA;NA;No;NA;NA;NA;NA;NA;NA;NA;Fauna;Carnivore O
+Ash71;1;10;Sometimes;No;Does not add;Low;Other CBE;None;500;1000;1000;1500;Hard;Low;Water column;Detritivore
+Aus72;3;100;Never;No;Does not add;Low;Vent;None;1000;1500;2500;3000;Hard;High;Sediment or rock surface;Carnivore O
+Aus73;4;100;Sometimes;No;Does not add;High;Vent;None;2000;2500;3000;3500;Hard;Medium;Fauna;Carnivore O
+Aus74;4;100;NA;No;NA;Low;Vent;None;1500;2000;3500;4000;Hard;Medium;Fauna;Carnivore O
+Aut75;3;10;Sometimes;No;NA;Low;Vent;None;1000;1500;1500;2000;Hard;Medium;Sediment or rock surface;Detritivore
+Bar76;4;1;NA;No;Does not add;Low;No;None;1500;2000;1500;2000;Hard;Low;Sediment or rock surface;Bacterivore
+Bat77;3;100;Sometimes;No;Does not add;Low;Vent;None;1000;1500;2000;2500;Hard;Medium;Sediment or rock surface;Detritivore
+Bat78;3;100;Sometimes;No;Does not add;High;Vent;None;500;1000;2000;2500;Hard;Medium;Sediment or rock surface;Bacterivore
+Bat79;2;100;Always;Yes;Bed forming;High;Vent;Endosymbiont;0;500;0;500;Soft;Medium;Symbiont;Bacterivore
+Bat80;3;10;NA;NA;NA;High;Vent;NA;2000;2500;2500;3000;NA;NA;Fauna;Carnivore O
+Bat81;4;100;Never;No;Does not add;Low;Other CBE;None;2500;3000;2500;3000;Hard;Low;Fauna;Carnivore O
+Bat82;4;10;NA;NA;NA;NA;No;NA;NA;NA;NA;NA;NA;NA;Water column;NA
+Bat83;4;1;NA;NA;NA;NA;No;NA;NA;NA;NA;NA;NA;NA;Water column;NA
+Bat84;4;10;Never;No;Does not add;Low;Other CBE;None;NA;NA;NA;NA;Hard;Low;Fauna;Carnivore O
+Bat85;4;1;NA;No;Does not add;NA;No;None;2000;2500;2500;3000;Hard;Medium;NA;NA
+Bat86;3;10;Never;No;Does not add;Low;Vent;None;1000;1500;2500;3000;Hard;Low;Sediment or rock surface;Bacterivore
+Bat87;3;10;Never;No;Does not add;Low;Vent;None;2000;2500;2000;2500;Hard;Medium;Fauna;Carnivore O
+Bat88;2;100;Sometimes;Yes;Bed forming;High;Other CBE;Endosymbiont;0;500;1000;1500;Hard;Low;Symbiont;Bacterivore
+Bat89;2;100;Always;Yes;Bed forming;High;Vent;Endosymbiont;2000;2500;2000;2500;Hard;Medium;Symbiont;Bacterivore
+Bat90;2;1000;Always;Yes;Bed forming;High;Vent;Endosymbiont;500;1000;3000;3500;Hard;Medium;Symbiont;Bacterivore
+Bat91;2;100;Always;Yes;Bed forming;High;Other CBE;Endosymbiont;500;1000;1500;2000;Hard;Medium;Symbiont;Bacterivore
+Bat92;2;100;Always;Yes;Bed forming;High;Vent;Endosymbiont;1000;1500;1500;2000;Hard;Medium;Symbiont;Bacterivore
+Bat93;2;1000;Always;Yes;Bed forming;High;Other CBE;Endosymbiont;500;1000;2000;2500;Hard;Medium;Symbiont;Bacterivore
+Bat94;2;1000;Always;Yes;Bed forming;High;Vent;Endosymbiont;3000;3500;3500;4000;Hard;Medium;Symbiont;Bacterivore
+Bat95;2;1000;Always;Yes;Bed forming;High;Vent;Endosymbiont;1000;1500;3500;4000;Hard;High;Symbiont;Bacterivore
+Bat96;2;1000;Sometimes;Yes;Bed forming;High;Vent;Endosymbiont;2000;2500;2500;3000;Hard;Medium;Symbiont;Detritivore
+Bat97;3;100;NA;NA;NA;NA;Vent;NA;0;500;1000;1500;Soft;NA;Fauna;Carnivore S
+Ben98;4;10;NA;No;NA;NA;Vent;None;1500;2000;2000;2500;Water column;NA;Sediment or rock surface;Bacterivore
+Ben99;4;10;Sometimes;No;Does not add;High;Vent;None;2000;2500;2500;3000;Hard;Medium;Sediment or rock surface;Bacterivore
+Ber100;4;100;NA;No;Does not add;Low;No;None;0;500;1000;1500;Water column;Low;Fauna;Carnivore O
+Bol101;1;1000;Never;NA;NA;NA;No;NA;2000;2500;2500;3000;Hard;Low;Fauna;Carnivore O
+Bon102;2;100;Sometimes;No;Burrow forming;High;Vent;None;1500;2000;1500;2000;Hard;Medium;Sediment or rock surface;Detritivore
+Bon103;2;10;Sometimes;No;Does not add;Low;Vent;None;1500;2000;2000;2500;Hard;Medium;Sediment or rock surface;Detritivore
+Bou104;4;10;Always;No;Does not add;High;Vent;None;1500;2000;1500;2000;Hard;High;Sediment or rock surface;Detritivore
+Bra105;4;100;Never;No;Does not add;Low;Vent;None;2000;2500;2500;3000;Hard;Medium;Fauna;Carnivore O
+Bra106;4;100;Never;No;Does not add;High;Vent;None;1500;2000;2500;3000;Hard;Medium;Fauna;Carnivore O
+Bra107;4;100;Never;No;Does not add;High;Vent;None;2000;2500;2500;3000;Hard;Medium;Fauna;Carnivore O
+Bra108;2;10;Sometimes;No;Does not add;Low;Vent;None;500;1000;500;1000;Hard;NA;NA;NA
+Bra109;4;10;Never;No;Does not add;Low;Vent;None;1500;2000;3000;3500;Hard;Medium;Fauna;Carnivore O
+Bra110;3;100;Never;NA;Does not add;Low;Vent;NA;1500;2000;1500;2000;Hard;Medium;Fauna;Carnivore O
+Bra111;3;100;Never;No;Does not add;High;Vent;None;1000;1500;2000;2500;Hard;High;Fauna;Carnivore O
+Bra112;3;100;Never;No;Does not add;High;Vent;None;1000;1500;2500;3000;Hard;High;Fauna;Carnivore O
+Bra113;4;100;Never;No;Does not add;High;Vent;None;1500;2000;2000;2500;Hard;Medium;Fauna;Carnivore O
+Bra114;4;100;Never;No;Does not add;High;Vent;None;2000;2500;2500;3000;Hard;Medium;Fauna;Carnivore O
+Bra115;3;100;Never;No;Does not add;High;Vent;None;500;1000;3000;3500;Hard;Medium;Water column;Detritivore
+Bra116;2;100;Never;No;Does not add;Low;Vent;None;2000;2500;2500;3000;Hard;Medium;Fauna;Carnivore O
+Bra117;3;100;NA;NA;NA;NA;Vent;NA;2000;2500;3000;3500;NA;Medium;NA;NA
+Bra118;2;10;Sometimes;No;Does not add;High;Vent;None;500;1000;3500;4000;Hard;Medium;Water column;Detritivore
+Bra119;3;100;Sometimes;No;Does not add;High;Other CBE;None;1500;2000;3500;4000;Hard;Medium;Water column;Detritivore
+Bra120;2;100;Never;No;Does not add;High;Vent;None;2000;2500;2500;3000;Hard;Medium;Water column;Detritivore
+Bra121;1;10;Sometimes;No;Does not add;Low;No;NA;0;500;500;1000;Hard;Medium;Water column;NA
+Bru122;3;10;NA;NA;NA;NA;Vent;NA;1500;2000;2000;2500;NA;NA;Sediment or rock surface;NA
+Bru123;3;10;NA;No;Does not add;Low;Vent;NA;2000;2500;2500;3000;Hard;Medium;NA;NA
+Bru124;3;10;Sometimes;No;Does not add;Low;Vent;None;2000;2500;3000;3500;Hard;Low;Sediment or rock surface;Detritivore
+Buc125;3;100;Sometimes;No;Does not add;Low;Vent;None;2000;2500;2000;2500;Hard;Medium;Fauna;Carnivore S
+Buc126;4;100;Sometimes;No;Does not add;Low;Vent;None;1500;2000;2000;2500;NA;NA;Fauna;Carnivore O
+Byt127;4;100;NA;NA;NA;NA;Vent;NA;NA;NA;NA;NA;Hard;NA;Fauna;Carnivore S
+Byt128;3;100;Sometimes;No;Does not add;High;Vent;None;2000;2500;2500;3000;Hard;Medium;Fauna;Carnivore S
+Byt129;4;10;NA;NA;NA;NA;Vent;NA;2000;2500;2000;2500;NA;NA;Fauna;Carnivore S
+Byt130;4;100;Sometimes;No;Does not add;High;Vent;None;2000;2500;2500;3000;Hard;High;Fauna;Carnivore S
+Byt131;3;100;Sometimes;No;Does not add;High;Vent;None;2000;2500;2000;2500;Hard;Medium;Fauna;Carnivore S
+Cal132;3;100;Sometimes;Yes;Bed forming;High;Other CBE;Endosymbiont;0;500;2000;2500;Soft;Low;Symbiont;Bacterivore
+Cal133;3;100;Sometimes;Yes;Bed forming;High;Other CBE;Endosymbiont;500;1000;2000;2500;Hard;Low;Symbiont;Bacterivore
+Cal134;3;100;Sometimes;Yes;Bed forming;High;Other CBE;Endosymbiont;500;1000;2000;2500;Hard;Low;Symbiont;Bacterivore
+Cal135;3;100;Sometimes;Yes;Bed forming;High;Other CBE;Endosymbiont;500;1000;1500;2000;Soft;Low;Symbiont;Bacterivore
+Cal136;3;1000;Sometimes;Yes;Bed forming;High;Vent;Endosymbiont;2000;2500;2500;3000;Hard;Medium;Symbiont;Bacterivore
+Can137;1;10;Sometimes;No;Does not add;Low;No;None;1500;2000;2000;2500;Hard;Low;Fauna;Carnivore O
+Can138;1;10;NA;NA;NA;NA;Vent;NA;NA;NA;NA;NA;NA;NA;Fauna;Carnivore O
+Can139;1;100;Never;No;Does not add;High;Vent;None;2000;2500;2000;2500;Hard;Low;Water column;Carnivore O
+Can140;2;10;Sometimes;No;Does not add;Low;Vent;None;500;1000;1000;1500;Hard;Medium;Sediment or rock surface;Bacterivore
+Car141;3;1000;NA;No;Does not add;NA;Vent;NA;2500;3000;2500;3000;NA;NA;Fauna;NA
+Cat142;4;1000;Sometimes;No;Does not add;Low;No;None;500;1000;2500;3000;Water column;High;Fauna;Carnivore O
+Cat143;3;100;NA;NA;NA;High;Vent;NA;2500;3000;2500;3000;Hard;Low;Water column;Detritivore
+Cau144;1;100;Sometimes;No;Open bush forming;Low;No;None;2500;3000;2500;3000;Hard;Low;Water column;Detritivore
+Cen145;4;1000;Never;No;Does not add;Low;No;None;0;500;3500;4000;Water column;Low;Fauna;Carnivore O
+Ceu146;4;10;NA;No;Does not add;High;Vent;None;1000;1500;3500;4000;Hard;Medium;Sediment or rock surface;Carnivore O
+Ceu147;4;10;NA;No;Does not add;High;Vent;None;1000;1500;3500;4000;Hard;Medium;Sediment or rock surface;Carnivore O
+Ceu148;4;10;NA;NA;NA;High;Vent;NA;1000;1500;3500;4000;NA;NA;Sediment or rock surface;Carnivore O
+Ceu149;4;10;NA;No;Does not add;High;Vent;None;1000;1500;3500;4000;Hard;Medium;Sediment or rock surface;Carnivore O
+Cha150;3;100;Sometimes;No;Does not add;Low;No;None;0;500;1500;2000;Hard;Low;Fauna;Carnivore O
+Cha151;4;10;NA;No;NA;NA;Vent;NA;1500;2000;3500;4000;Water column;NA;Water column;NA
+Che152;3;10;Sometimes;No;Does not add;NA;Vent;NA;2500;3000;2500;3000;NA;NA;Water column;NA
+Chi153;3;1000;NA;No;NA;NA;Vent;None;NA;NA;NA;NA;Hard;Low;Sediment or rock surface;Detritivore
+Chi154;3;1000;Never;No;Does not add;Low;Other CBE;None;0;500;2500;3000;Hard;Medium;Sediment or rock surface;Detritivore
+Cho155;1;1000;NA;Yes;NA;NA;Vent;NA;2500;3000;2500;3000;Hard;NA;Fauna;Carnivore O
+Cho156;2;10;Never;No;NA;Low;Vent;None;500;1000;2500;3000;Hard;Low;Fauna;Carnivore O
+Cho157;1;100;NA;No;NA;NA;No;None;2500;3000;2500;3000;Hard;Low;Fauna;NA
+Chr158;3;100;Always;NA;Mat forming;High;Vent;Endosymbiont;2000;2500;2500;3000;Hard;High;Symbiont;Bacterivore
+Cir159;4;1000;NA;NA;NA;Low;No;NA;1000;1500;3000;3500;NA;NA;Fauna;Carnivore S
+Cir160;4;1000;Never;No;Does not add;NA;No;NA;0;500;4500;5000;Water column;NA;Fauna;Carnivore O
+Cla161;1;100;NA;NA;NA;NA;No;None;1500;2000;1500;2000;NA;NA;Fauna;Carnivore O
+Cla162;1;1000;NA;NA;NA;NA;Vent;NA;NA;NA;NA;NA;NA;NA;Fauna;NA
+Cla163;1;100;NA;NA;NA;NA;Vent;NA;2500;3000;2500;3000;Hard;NA;Fauna;Carnivore O
+Cla164;1;1000;Always;NA;Open bush forming;High;Vent;None;2000;2500;2500;3000;Hard;Low;Water column;Carnivore O
+Cla165;1;10;Always;No;Does not add;Low;No;NA;0;500;2500;3000;Hard;Medium;Water column;NA
+Cly166;3;10;Sometimes;No;Does not add;Low;Vent;None;1500;2000;2000;2500;Hard;Medium;Sediment or rock surface;Detritivore
+Cly167;3;10;NA;No;Does not add;NA;Vent;NA;2000;2500;2500;3000;Hard;Low;Fauna;Bacterivore
+Coe168;4;1000;Never;No;Does not add;Low;No;NA;0;500;2000;2500;Water column;Low;Fauna;Carnivore O
+Col169;3;1;NA;No;NA;NA;Vent;None;NA;NA;NA;NA;NA;NA;NA;NA
+Con170;2;1000;Sometimes;Yes;Burrow forming;High;Other CBE;Endosymbiont;0;500;1500;2000;Soft;Low;Symbiont;Bacterivore
+Cop171;3;10;Never;No;Does not add;Low;Vent;None;1500;2000;1500;2000;Hard;Low;Sediment or rock surface;Detritivore
+Cop172;3;10;Never;No;Does not add;Low;Vent;None;3000;3500;4000;4500;Hard;Low;Sediment or rock surface;Detritivore
+Cop173;3;1;NA;No;Does not add;Low;Vent;None;2000;2500;2000;2500;Hard;High;Fauna;Carnivore O
+Cor174;2;1;Never;No;Does not add;Low;Vent;None;1500;2000;1500;2000;Hard;Low;Sediment or rock surface;Detritivore
+Cor175;4;1000;Never;No;Does not add;Low;No;None;0;500;5001;NA;Water column;Low;Fauna;Carnivore O
+Cte176;3;10;Never;No;Does not add;Low;Vent;Endosymbiont;2000;2500;2500;3000;Hard;High;Sediment or rock surface;Bacterivore
+Cya177;1;100;NA;No;NA;NA;No;None;2000;2500;2500;3000;Hard;Low;Fauna;NA
+Cya178;2;10;Sometimes;No;Does not add;High;Vent;None;2500;3000;2500;3000;Hard;Medium;Fauna;Carnivore O
+Cya179;3;10;Sometimes;No;Does not add;High;Vent;Episymbiont;1500;2000;2500;3000;Hard;High;Fauna;Bacterivore
+Cyc180;4;100;Never;No;Does not add;Low;No;None;0;500;2000;2500;Water column;Low;Fauna;Carnivore S
+Dah181;4;10;NA;No;Does not add;NA;Vent;NA;2000;2500;2500;3000;NA;NA;Water column;NA
+Den182;3;100;Never;No;Does not add;Low;No;None;1500;2000;1500;2000;Hard;Low;Fauna;Carnivore O
+Dep183;3;10;Sometimes;No;Does not add;High;Vent;None;1500;2000;2000;2500;Hard;High;Sediment or rock surface;Detritivore
+Des184;3;10;Sometimes;No;Does not add;Low;Vent;None;1500;2000;1500;2000;Hard;NA;Sediment or rock surface;Detritivore
+Des185;3;10;Sometimes;No;Does not add;Low;Vent;None;1500;2000;3500;4000;Hard;Low;Sediment or rock surface;Detritivore
+Des186;3;100;Sometimes;No;Does not add;Low;Vent;None;2000;2500;2000;2500;Hard;Low;Sediment or rock surface;Detritivore
+Des187;3;10;NA;NA;Does not add;NA;Vent;NA;1500;2000;1500;2000;NA;NA;Sediment or rock surface;Detritivore
+Des188;3;10;NA;NA;Does not add;NA;Vent;NA;1500;2000;2500;3000;NA;NA;Sediment or rock surface;Detritivore
+Dul189;1;10;Always;No;Does not add;Low;No;None;3500;4000;3500;4000;Hard;Low;Sediment or rock surface;Detritivore
+Ecb190;4;1;NA;No;Does not add;NA;Vent;None;2000;2500;2500;3000;Hard;High;Sediment or rock surface;NA
+Ech191;3;100;Never;No;Does not add;NA;Vent;NA;2500;3000;2500;3000;Hard;Medium;Sediment or rock surface;NA
+Eoc192;1;100;Always;No;Does not add;High;Vent;None;1000;1500;2000;2500;Hard;Medium;Water column;Detritivore
+Eoc193;1;10;NA;NA;NA;NA;Vent;NA;NA;NA;NA;NA;NA;NA;Water column;NA
+Eoc194;1;10;Always;No;Mat forming;Low;Vent;None;2500;3000;2500;3000;Hard;Medium;Water column;NA
+Eos195;3;100;NA;NA;NA;NA;Vent;None;NA;NA;NA;NA;NA;NA;Fauna;Carnivore O
+Epi196;4;1000;Never;No;Does not add;Low;No;NA;0;500;1000;1500;Water column;Low;Fauna;Carnivore O
+Ere197;3;1;NA;NA;NA;NA;Vent;NA;2000;2500;2000;2500;NA;NA;Water column;NA
+Esc198;1;1000;Sometimes;Yes;Open bush forming;High;Other CBE;Endosymbiont;1000;1500;2000;2500;Soft;Medium;Symbiont;Bacterivore
+Etm199;4;100;Never;No;Does not add;Low;No;None;0;500;2000;2500;Water column;Low;Fauna;Carnivore O
+Etm200;4;100;Never;No;Does not add;Low;No;None;0;500;500;1000;Water column;Low;Fauna;Carnivore O
+Euc201;1;100;NA;NA;NA;NA;Vent;NA;NA;NA;NA;NA;NA;NA;Fauna;NA
+Eul202;3;10;Never;No;Does not add;NA;Vent;None;2500;3000;2500;3000;Hard;Medium;Fauna;Carnivore O
+Eul203;3;100;Never;No;Does not add;Low;Vent;None;2000;2500;2500;3000;Hard;Medium;Sediment or rock surface;Bacterivore
+Eun204;3;100;NA;NA;NA;NA;Vent;NA;NA;NA;NA;NA;NA;NA;Fauna;Carnivore O
+Eun205;3;100;NA;NA;NA;NA;Vent;NA;NA;NA;NA;NA;NA;NA;Fauna;Carnivore O
+Eun206;3;100;Never;No;Does not add;NA;Vent;None;2500;3000;2500;3000;Hard;High;Fauna;Carnivore O
+Eup207;4;10;Never;No;Does not add;Low;Vent;None;1500;2000;2000;2500;Hard;Medium;Sediment or rock surface;Detritivore
+Exa208;3;1;NA;NA;NA;High;Vent;None;NA;NA;NA;NA;Soft;NA;Sediment or rock surface;Bacterivore
+Exi209;3;100;Always;No;Does not add;High;Vent;Episymbiont;2000;2500;2000;2500;Hard;High;Symbiont;Bacterivore
+Exr210;4;10;Sometimes;No;Does not add;High;Vent;None;2500;3000;2500;3000;NA;NA;Sediment or rock surface;Bacterivore
+Exr211;4;10;Sometimes;No;Does not add;High;Vent;None;2500;3000;2500;3000;NA;NA;Sediment or rock surface;Bacterivore
+Fis212;4;10;Sometimes;No;Does not add;NA;Vent;NA;2500;3000;2500;3000;NA;NA;Sediment or rock surface;Bacterivore
+Fre213;3;1000;NA;NA;NA;NA;No;NA;NA;NA;NA;NA;NA;Low;Fauna;NA
+Fre214;3;1000;NA;No;NA;NA;No;None;NA;NA;NA;NA;Hard;Low;NA;NA
+Fuc215;3;10;Never;No;Does not add;Low;Vent;None;2000;2500;2000;2500;Hard;Low;Sediment or rock surface;Detritivore
+Gai216;3;1000;Never;No;Does not add;Low;Vent;None;0;500;1500;2000;Hard;Medium;Fauna;Carnivore O
+Gal217;3;10;NA;No;NA;NA;Vent;NA;NA;NA;NA;NA;Hard;NA;Fauna;Carnivore O
+Gan218;3;100;Never;No;Does not add;Low;Vent;None;0;500;1500;2000;Hard;NA;Fauna;Carnivore S
+Gan219;4;100;Never;No;Does not add;High;Vent;None;0;500;3500;4000;Hard;Medium;Fauna;Carnivore O
+Gig220;1;1000;Always;Yes;Bed forming;High;Vent;Endosymbiont;0;500;500;1000;Hard;Medium;Symbiont;Detritivore
+Gig221;1;1000;Always;Yes;Bed forming;High;Vent;Endosymbiont;0;500;500;1000;Soft;Medium;Symbiont;Bacterivore
+Gig222;1;1000;NA;Yes;Bed forming;NA;Other CBE;Endosymbiont;500;1000;1000;1500;NA;Medium;Symbiont;Bacterivore
+Gig223;3;100;Always;NA;Mat forming;High;Vent;Endosymbiont;2500;3000;2500;3000;Hard;Medium;Symbiont;Bacterivore
+Gig224;3;100;Always;Yes;Mat forming;High;Vent;Endosymbiont;2500;3000;2500;3000;Hard;Medium;Symbiont;Bacterivore
+Git225;4;10;Never;No;Does not add;Low;Vent;None;1500;2000;1500;2000;Hard;Medium;Sediment or rock surface;NA
+Gly226;3;10;NA;NA;Burrow forming;NA;No;NA;NA;NA;NA;NA;Soft;NA;NA;NA
+Gly227;3;10;Never;No;Does not add;Low;No;NA;500;1000;1500;2000;Soft;Medium;Fauna;Carnivore O
+Gor228;3;10;Never;No;Does not add;Low;Vent;None;2000;2500;2500;3000;Hard;Medium;Fauna;Bacterivore
+Gor229;3;10;NA;NA;NA;NA;Vent;NA;2000;2500;2500;3000;NA;NA;Sediment or rock surface;NA
+Gor230;3;10;Never;No;Does not add;Low;Vent;None;1500;2000;2500;3000;Hard;Medium;Sediment or rock surface;Bacterivore
+Gor231;2;100;Always;Yes;Open bush forming;High;No;NA;0;500;500;1000;Hard;Low;Water column;NA
+Gra232;1;1;Sometimes;No;Does not add;Low;No;NA;0;500;500;1000;Hard;Medium;Water column;NA
+Gra233;1;1;Sometimes;No;Does not add;High;Vent;NA;0;500;500;1000;Hard;Medium;Water column;NA
+Gra234;2;10;NA;NA;NA;NA;Other CBE;NA;NA;NA;NA;NA;NA;NA;Sediment or rock surface;NA
+Gym235;3;100;Never;No;Does not add;High;Vent;NA;2000;2500;3000;3500;Hard;Medium;NA;NA
+Hal236;3;10;Never;No;Does not add;Low;Vent;None;1500;2000;3000;3500;Hard;Low;Fauna;Carnivore O
+Hal237;3;10;Never;No;Does not add;Low;Vent;None;500;1000;500;1000;Hard;Low;Fauna;Carnivore O
+Hal238;4;10;Always;No;Does not add;High;Vent;None;2000;2500;2500;3000;Water column;Medium;Water column;Detritivore
+Hal239;1;10;NA;NA;NA;NA;Vent;NA;NA;NA;NA;NA;NA;NA;Water column;NA
+Hal240;3;1;NA;No;Does not add;High;No;None;2000;2500;2500;3000;Hard;Medium;Sediment or rock surface;Bacterivore
+Har241;4;10;Never;No;Does not add;Low;No;None;500;1000;500;1000;Hard;Low;Fauna;Carnivore O
+Har242;4;10;Never;No;Does not add;Low;No;None;2500;3000;2500;3000;Hard;Low;Fauna;Carnivore O
+Har243;4;100;Never;No;Does not add;Low;No;None;2000;2500;2500;3000;Soft;Low;Fauna;Carnivore O
+Har244;3;10;Sometimes;No;Does not add;Low;Vent;None;2000;2500;2000;2500;Water column;Low;Water column;NA
+Har245;3;10;Sometimes;No;Does not add;Low;No;None;0;500;2000;2500;Soft;Medium;Sediment or rock surface;Detritivore
+Hel246;2;10;Sometimes;No;Does not add;Low;Vent;Episymbiont;2000;2500;3000;3500;Hard;Medium;Symbiont;Bacterivore
+Hel247;3;10;Never;No;Does not add;Low;Vent;None;1500;2000;2000;2500;Hard;Medium;Fauna;Carnivore S
+Hel248;3;10;NA;NA;NA;NA;Vent;NA;1500;2000;1500;2000;NA;NA;Sediment or rock surface;NA
+Hel249;2;100;Always;Yes;Open bush forming;High;No;None;0;500;500;1000;Hard;Low;Water column;Detritivore
+Hep250;4;10;Never;No;Does not add;Low;Vent;None;1500;2000;1500;2000;Water column;Low;Water column;Bacterivore
+Hes251;4;10;Sometimes;No;NA;Low;Vent;None;NA;NA;NA;NA;NA;NA;Fauna;Carnivore O
+Hes252;3;100;Never;No;Does not add;NA;Vent;None;2500;3000;NA;NA;Hard;Medium;Sediment or rock surface;Bacterivore
+Hes253;4;100;Never;No;Does not add;Low;Vent;None;NA;NA;NA;NA;Hard;High;Fauna;Carnivore O
+Hir254;3;10;NA;No;Does not add;NA;Vent;Endosymbiont;2500;3000;2500;3000;NA;Medium;Symbiont;Bacterivore
+Hya255;3;10;NA;NA;NA;NA;Vent;NA;1500;2000;1500;2000;NA;NA;Sediment or rock surface;NA
+Hya256;3;1;NA;No;NA;NA;Vent;None;2000;2500;2000;2500;Hard;NA;Sediment or rock surface;Detritivore
+Hya257;3;1;NA;NA;NA;NA;Vent;NA;2000;2500;2000;2500;NA;NA;Fauna;NA
+Hyd258;4;1000;Never;No;Does not add;Low;No;None;0;500;2500;3000;Water column;Low;Fauna;Carnivore O
+Hyd259;4;1000;Never;No;Does not add;Low;No;None;0;500;2500;3000;Water column;Low;Fauna;Carnivore O
+Hyd260;4;1000;Never;No;Does not add;Low;No;None;500;1000;2500;3000;Water column;Low;Fauna;Carnivore O
+Hyp261;3;1;NA;NA;NA;NA;No;NA;500;1000;2000;2500;NA;NA;Fauna;NA
+Hyp262;2;1;Never;No;Does not add;High;Vent;None;2500;3000;2500;3000;NA;Low;Fauna;Carnivore O
+Ida263;1;10;Sometimes;Yes;Bed forming;High;Other CBE;Endosymbiont;500;1000;2000;2500;Hard;Medium;Symbiont;Bacterivore
+Ifr264;3;100;Always;Yes;Bed forming;High;Other CBE;Endosymbiont;1000;1500;2500;3000;Hard;High;Symbiont;Bacterivore
+Ihe265;3;10;Sometimes;No;Does not add;NA;Vent;None;2000;2500;2000;2500;Hard;Medium;Sediment or rock surface;Bacterivore
+Ihe266;2;10;Sometimes;No;Does not add;Low;Vent;None;500;1000;1500;2000;Hard;Medium;Sediment or rock surface;Bacterivore
+Ihe267;1;100;NA;No;Does not add;Low;Vent;None;1000;1500;1000;1500;NA;Medium;Fauna;NA
+Ily268;4;1000;Never;No;Does not add;Low;No;NA;1000;1500;2000;2500;Water column;Low;Fauna;Carnivore O
+Ily269;4;100;NA;No;Does not add;Low;No;None;2500;3000;2500;3000;Hard;Low;Fauna;Carnivore O
+Imb270;1;10;Never;No;Does not add;Low;Vent;None;1500;2000;1500;2000;Hard;Low;Water column;Detritivore
+Iph271;2;100;Never;No;Does not add;Low;Vent;None;2000;2500;2000;2500;Hard;Low;Fauna;Carnivore O
+Iph272;4;100;Never;No;Does not add;Low;Vent;None;1500;2000;2500;3000;Hard;Low;Fauna;Carnivore O
+Isa273;3;1;Sometimes;No;Does not add;NA;Vent;NA;2500;3000;2500;3000;NA;NA;Fauna;NA
+Jas274;1;100;NA;No;NA;NA;No;None;2500;3000;2500;3000;Hard;Low;Fauna;Carnivore O
+Kiw275;4;100;NA;NA;NA;NA;Vent;Episymbiont;2000;2500;2000;2500;NA;NA;Symbiont;Bacterivore
+Kiw276;3;100;NA;NA;NA;Low;Vent;NA;2500;3000;2500;3000;Hard;Medium;Symbiont;Bacterivore
+Kiw277;3;100;Always;Yes;Bed forming;High;Vent;Episymbiont;2000;2500;2500;3000;Hard;High;Symbiont;Bacterivore
+Kyp278;3;1;Sometimes;No;Does not add;Low;Vent;None;1500;2000;2000;2500;Hard;Medium;NA;NA
+Lac279;3;10;NA;NA;NA;NA;Vent;NA;2000;2500;2500;3000;NA;NA;Sediment or rock surface;NA
+Lac280;2;1;Never;No;NA;Low;Vent;None;1500;2000;2000;2500;Hard;Medium;Water column;Bacterivore
+Lae281;3;10;Never;No;Does not add;Low;Vent;None;500;1000;2000;2500;Hard;Medium;Sediment or rock surface;Bacterivore
+Lae282;3;10;NA;NA;NA;NA;Vent;NA;0;500;0;500;NA;NA;NA;NA
+Lai283;3;1;NA;NA;NA;NA;Vent;NA;1500;2000;1500;2000;NA;NA;Sediment or rock surface;NA
+Lam284;1;1000;Always;Yes;Open bush forming;NA;Other CBE;Endosymbiont;500;1000;2500;3000;Hard;NA;Symbiont;Bacterivore
+Lam285;1;1000;Always;Yes;Open bush forming;NA;Other CBE;Endosymbiont;NA;NA;NA;NA;Soft;Medium;Symbiont;Bacterivore
+Lam286;1;1000;Never;Yes;Open bush forming;Low;Vent;Endosymbiont;NA;NA;NA;NA;Hard;Medium;Symbiont;Bacterivore
+Lam287;1;1000;Always;Yes;Open bush forming;Low;Vent;Endosymbiont;1500;2000;1500;2000;Soft;Low;Symbiont;Bacterivore
+Lam288;1;1000;Always;Yes;Dense bush forming;High;Other CBE;Endosymbiont;500;1000;500;1000;Hard;Medium;Symbiont;Bacterivore
+Lam289;1;1000;Sometimes;Yes;Open bush forming;High;Other CBE;Endosymbiont;2000;2500;1000;1500;Soft;Medium;Symbiont;Bacterivore
+Lam290;1;100;Sometimes;No;Does not add;High;Vent;None;2000;2500;2500;3000;Hard;Low;Water column;Detritivore
+Lao291;3;100;NA;NA;NA;NA;Vent;NA;1500;2000;3000;3500;NA;NA;NA;NA
+Lau292;3;100;Sometimes;Yes;Bed forming;Low;Other CBE;Endosymbiont;1000;1500;1000;1500;Soft;Low;Symbiont;Bacterivore
+Lau293;2;10;NA;Yes;NA;NA;Vent;NA;NA;NA;NA;NA;Hard;NA;Sediment or rock surface;Detritivore
+Leb294;4;100;NA;NA;NA;NA;Vent;NA;2500;3000;2500;3000;NA;NA;Sediment or rock surface;Bacterivore
+Leb295;3;100;Sometimes;No;Does not add;Low;Vent;None;500;1000;1000;1500;Soft;Low;Fauna;Carnivore O
+Leb296;4;100;Never;No;Does not add;Low;Vent;None;2000;2500;2000;2500;Hard;Medium;Sediment or rock surface;Bacterivore
+Leb297;4;10;NA;NA;NA;High;No;None;0;500;1000;1500;NA;Medium;Sediment or rock surface;Bacterivore
+Leb298;4;100;Always;No;Does not add;High;Vent;None;1000;1500;1000;1500;Hard;Low;Sediment or rock surface;Detritivore
+Lei299;3;10;Never;No;Does not add;Low;Vent;None;2000;2500;2000;2500;Soft;Medium;Sediment or rock surface;Detritivore
+Lep300;3;10;NA;No;Does not add;High;Vent;None;500;1000;4000;4500;Hard;Low;Sediment or rock surface;Bacterivore
+Lep301;3;10;NA;NA;NA;NA;Vent;Endosymbiont;2000;2500;2000;2500;Hard;High;Sediment or rock surface;Detritivore
+Lep302;3;10;Never;No;Does not add;Low;Vent;None;2000;2500;2500;3000;Hard;Medium;Fauna;Bacterivore
+Lep303;3;10;Sometimes;No;Does not add;High;Vent;None;2000;2500;2500;3000;Hard;Medium;Sediment or rock surface;Bacterivore
+Lep304;3;100;Always;Yes;Open bush forming;High;Vent;Episymbiont;1500;2000;2000;2500;Hard;High;Sediment or rock surface;Detritivore
+Lep305;3;10;NA;NA;NA;NA;Vent;NA;500;1000;500;1000;NA;NA;Sediment or rock surface;Detritivore
+Lep306;2;10;Always;No;Does not add;High;Vent;None;500;1000;2000;2500;Hard;High;Sediment or rock surface;Bacterivore
+Lep307;3;10;Sometimes;No;Does not add;High;Other CBE;None;2000;2500;3000;3500;Hard;Medium;Sediment or rock surface;Bacterivore
+Lep308;3;10;Never;No;Does not add;High;Other CBE;None;2000;2500;2500;3000;Hard;Medium;Fauna;Bacterivore
+Lep309;3;10;Sometimes;No;Does not add;High;Vent;None;1000;1500;2500;3000;Hard;High;Sediment or rock surface;Detritivore
+Lep310;3;10;Sometimes;No;Does not add;High;Vent;None;2000;2500;2500;3000;Hard;Medium;Sediment or rock surface;NA
+Lep311;3;10;Sometimes;No;Does not add;High;Vent;None;2000;2500;2000;2500;Hard;Medium;Sediment or rock surface;NA
+Lep312;3;10;NA;NA;NA;NA;Vent;NA;2500;3000;2500;3000;NA;Medium;NA;NA
+Lep313;3;10;Always;No;Does not add;High;Vent;NA;1000;1500;2500;3000;Hard;High;Sediment or rock surface;Bacterivore
+Lep314;3;10;Sometimes;No;Does not add;High;Vent;None;2000;2500;2500;3000;Hard;High;Sediment or rock surface;Bacterivore
+Lep315;4;1000;Never;No;Does not add;Low;No;None;0;500;1500;2000;Water column;High;Fauna;Carnivore S
+Lep316;4;100;Never;No;Does not add;High;Vent;Episymbiont;2000;2500;2500;3000;Hard;High;Fauna;Carnivore O
+Lep317;3;100;NA;NA;Does not add;Low;Vent;NA;1500;2000;1500;2000;NA;NA;Fauna;Carnivore O
+Lep318;4;10;Never;No;Does not add;Low;Vent;None;1000;1500;2000;2500;Hard;Medium;Fauna;Carnivore O
+Lep319;3;100;Never;No;Does not add;High;Vent;None;2000;2500;2500;3000;Hard;Medium;Fauna;Carnivore O
+Lep320;4;100;Never;No;Does not add;Low;Vent;None;2000;2500;2500;3000;Hard;Medium;Fauna;Carnivore O
+Lep321;4;100;Never;No;Does not add;High;Vent;None;2000;2500;2500;3000;Hard;Medium;Fauna;Carnivore O
+Lep322;2;100;Never;No;Does not add;Low;Vent;None;500;1000;1500;2000;Hard;Medium;Sediment or rock surface;Bacterivore
+Lep323;3;10;NA;NA;NA;NA;Vent;NA;1500;2000;1500;2000;NA;NA;Sediment or rock surface;NA
+Leu324;1;100;Always;Yes;Open bush forming;High;Vent;None;1000;1500;2000;2500;Hard;Medium;Water column;Detritivore
+Leu325;3;10;Never;No;Does not add;Low;Vent;None;500;1000;500;1000;Hard;Medium;Sediment or rock surface;NA
+Lev326;4;100;Never;No;Does not add;Low;Vent;None;2000;2500;2500;3000;Hard;Medium;Fauna;Carnivore O
+Lev327;3;100;NA;NA;NA;NA;Vent;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Lev328;4;100;Never;No;Does not add;Low;Vent;None;2000;2500;2500;3000;Hard;Medium;Fauna;Carnivore O
+Lev329;4;100;Never;No;Does not add;High;Vent;None;1000;1500;2000;2500;Hard;High;Fauna;Carnivore O
+Lin330;3;10;NA;No;NA;NA;Vent;None;NA;NA;NA;NA;Soft;NA;Sediment or rock surface;Detritivore
+Lin331;3;100;Never;No;NA;Low;Vent;NA;2000;2500;2000;2500;Soft;Low;Sediment or rock surface;Detritivore
+Lin332;3;1;NA;No;Does not add;Low;No;None;2000;2500;2500;3000;Hard;Medium;Sediment or rock surface;Omnivore
+Lir333;3;10;Never;No;Does not add;Low;Vent;None;1500;2000;4000;4500;Hard;Medium;Sediment or rock surface;Bacterivore
+Lir334;3;1;NA;No;Does not add;NA;Vent;NA;2500;3000;2500;3000;Hard;Medium;Sediment or rock surface;Detritivore
+Lir335;3;10;NA;No;Does not add;NA;Vent;NA;2500;3000;2500;3000;NA;NA;Sediment or rock surface;Bacterivore
+Luc336;1;100;Sometimes;No;Does not add;Low;No;NA;0;500;2500;3000;Hard;Medium;Fauna;Carnivore O
+Luc337;4;100;NA;No;Does not add;Low;Vent;None;1500;2000;2000;2500;Water column;Medium;Sediment or rock surface;Detritivore
+Lur338;3;10;Never;No;Does not add;High;Vent;None;500;1000;1500;2000;Hard;Medium;Sediment or rock surface;Bacterivore
+Lyc339;3;10;NA;NA;NA;NA;No;NA;NA;NA;NA;NA;NA;NA;Sediment or rock surface;NA
+Lyc340;1;100;Always;No;Open bush forming;High;No;NA;0;500;1500;2000;Hard;Medium;Fauna;Carnivore O
+Lyc341;1;100;NA;No;Does not add;NA;No;NA;NA;NA;NA;NA;NA;NA;Fauna;Carnivore O
+Lyc342;1;100;Always;No;Open bush forming;High;No;NA;0;500;1000;1500;Hard;Medium;Fauna;Carnivore O
+Lyc343;1;10;Always;No;Open bush forming;Low;No;NA;0;500;1000;1500;Hard;Medium;Fauna;Carnivore O
+Mac344;4;10;Never;No;Does not add;Low;Other CBE;None;2000;2500;2000;2500;Hard;Low;Fauna;Carnivore O
+Mal345;4;100;Never;No;Does not add;Low;Vent;None;2000;2500;2000;2500;Soft;Medium;Sediment or rock surface;Detritivore
+Mar346;1;100;Always;Yes;Bed forming;High;Vent;None;1500;2000;4000;4500;Hard;High;Fauna;Carnivore O
+Mar347;2;100;Never;No;Does not add;Low;Vent;None;500;1000;2000;2500;Hard;Medium;Sediment or rock surface;Bacterivore
+Mar348;2;100;Never;No;Does not add;Low;Other CBE;None;500;1000;1000;1500;Hard;Medium;Sediment or rock surface;Bacterivore
+Mar349;1;100;Sometimes;NA;Open bush forming;High;Vent;None;3500;4000;3500;4000;Hard;Low;Fauna;Carnivore O
+Mar350;1;1000;Always;No;Does not add;High;Vent;None;2000;2500;3000;3500;Hard;Low;Fauna;Carnivore O
+Mel351;3;10;Sometimes;No;Does not add;High;Vent;NA;2500;3000;2500;3000;Hard;Medium;Sediment or rock surface;Detritivore
+Mel352;2;10;Never;No;Does not add;Low;Vent;None;2000;2500;2000;2500;Hard;Medium;Sediment or rock surface;Detritivore
+Met353;3;10;Sometimes;No;Does not add;Low;No;None;1000;1500;1500;2000;Hard;Medium;Sediment or rock surface;Detritivore
+Mir354;4;100;Always;No;Does not add;High;Vent;None;500;1000;4000;4500;Hard;High;Fauna;Carnivore S
+Mir355;4;100;Always;Yes;Does not add;High;Vent;None;2000;2500;3000;3500;Hard;High;Sediment or rock surface;Carnivore O
+Mis356;3;1;NA;No;NA;NA;Vent;None;NA;NA;NA;NA;NA;NA;NA;NA
+Mon357;1;10;NA;NA;NA;NA;Vent;NA;2500;3000;2500;3000;NA;NA;Water column;Carnivore O
+Mon358;3;10;Never;No;Does not add;Low;Vent;None;2000;2500;2000;2500;Hard;Medium;Fauna;Carnivore O
+Mon359;4;10;Always;No;Does not add;High;Vent;NA;2000;2500;2000;2500;Hard;High;NA;NA
+Mor360;4;1000;Never;No;Does not add;Low;No;None;0;500;2000;2500;Water column;Low;Fauna;Carnivore O
+Mun361;4;100;NA;NA;NA;NA;No;NA;1500;2000;1500;2000;NA;NA;Fauna;NA
+Mun362;4;100;Never;No;Does not add;Low;Vent;None;1500;2000;2000;2500;Hard;Low;Fauna;Carnivore S
+Mun363;3;100;NA;NA;NA;NA;Other CBE;NA;0;500;4500;5000;NA;NA;NA;NA
+Mun364;4;100;Never;No;Does not add;NA;Vent;None;1500;2000;1500;2000;Hard;NA;Fauna;Carnivore S
+Mun365;4;100;Never;No;Does not add;Low;Vent;NA;2000;2500;2500;3000;Hard;Low;Fauna;NA
+Mun366;4;100;Never;No;Does not add;Low;Vent;None;1000;1500;2000;2500;Hard;Medium;Fauna;Carnivore S
+Mun367;3;10;NA;NA;NA;NA;Vent;NA;2500;3000;2500;3000;NA;NA;Fauna;NA
+Mun368;4;100;Never;No;Does not add;Low;Vent;None;1000;1500;1000;1500;Hard;Low;Fauna;NA
+Mun369;4;100;NA;No;Does not add;NA;No;NA;1500;2000;1500;2000;NA;NA;Fauna;NA
+Mun370;3;100;Sometimes;No;Does not add;Low;Vent;None;1000;1500;1000;1500;Soft;Low;Fauna;Carnivore O
+Mun371;4;100;Never;No;Does not add;NA;Vent;None;1500;2000;1500;2000;Hard;NA;Fauna;Carnivore S
+Mun372;3;100;NA;NA;NA;NA;Vent;NA;2500;3000;2500;3000;NA;Low;NA;NA
+Mun373;4;100;NA;No;Does not add;NA;Vent;NA;NA;NA;NA;NA;NA;NA;Fauna;NA
+Mun374;4;100;Sometimes;NA;NA;High;Vent;None;NA;NA;NA;NA;NA;Low;Fauna;Carnivore O
+Myt375;3;10;NA;No;Does not add;NA;Vent;NA;NA;NA;NA;NA;Hard;NA;Fauna;NA
+Myt376;3;10;NA;No;NA;NA;Vent;NA;NA;NA;NA;NA;Hard;NA;Fauna;NA
+Nau377;4;100;Always;No;Does not add;High;Vent;None;1500;2000;1500;2000;Hard;NA;Sediment or rock surface;Bacterivore
+Neo378;1;10;Never;No;Does not add;Low;Vent;None;1500;2000;1500;2000;Hard;Low;Water column;NA
+Neo379;3;1;NA;No;Does not add;Low;No;None;2000;2500;2500;3000;Hard;Medium;Sediment or rock surface;NA
+Neo380;4;100;Never;No;Does not add;Low;No;NA;500;1000;1500;2000;Water column;Low;Fauna;NA
+Neo381;1;100;Always;Yes;Open bush forming;High;Vent;NA;2500;3000;2500;3000;Hard;Low;Water column;NA
+Neo382;1;1000;Always;Yes;Open bush forming;High;Vent;None;2000;2500;2500;3000;Hard;Medium;Water column;Bacterivore
+Neo383;1;100;Always;NA;Open bush forming;High;Vent;NA;2500;3000;2500;3000;Hard;Medium;Water column;Detritivore
+Neo384;1;100;Always;No;Does not add;High;Vent;None;2000;2500;3000;3500;Hard;Medium;Water column;Bacterivore
+Neo385;1;100;Always;NA;NA;Low;Vent;None;2000;2500;2500;3000;Hard;Low;Water column;Detritivore
+Neo386;3;10;Never;No;Does not add;NA;Vent;None;2500;3000;2500;3000;Hard;Low;Sediment or rock surface;Bacterivore
+Neo387;3;10;NA;No;Does not add;NA;Other CBE;NA;3000;3500;3000;3500;Hard;Low;Sediment or rock surface;Detritivore
+Neo388;3;10;Never;No;Does not add;NA;Vent;None;1500;2000;2500;3000;Hard;Low;Sediment or rock surface;Bacterivore
+Neo389;3;10;Never;No;Does not add;NA;Vent;None;2500;3000;2500;3000;Hard;Low;Sediment or rock surface;Bacterivore
+Neo390;3;10;Always;NA;NA;High;Vent;None;2000;2500;2500;3000;Hard;Medium;Sediment or rock surface;Detritivore
+Neo391;1;10;Always;No;Mat forming;High;Vent;None;3000;3500;3500;4000;Hard;Medium;Water column;Detritivore
+Neo392;1;10;Always;No;Mat forming;High;Vent;Episymbiont;500;1000;1500;2000;Hard;Medium;Symbiont;Bacterivore
+Ner393;3;1;NA;No;NA;NA;Vent;NA;NA;NA;NA;NA;NA;NA;Fauna;Carnivore S
+Ner394;4;100;Never;No;Does not add;Low;Vent;None;1500;2000;2000;2500;Hard;High;Fauna;Carnivore O
+Ner395;3;100;Never;No;Does not add;Low;Vent;None;1500;2000;2500;3000;Hard;NA;Fauna;Carnivore O
+Nic396;3;100;Always;Yes;Bed forming;High;Vent;None;2000;2500;2000;2500;Soft;Low;Sediment or rock surface;Bacterivore
+Nic397;2;100;NA;No;NA;NA;Vent;NA;NA;NA;NA;NA;Hard;Medium;NA;NA
+Nic398;3;100;NA;No;Does not add;NA;Vent;NA;NA;NA;NA;NA;Hard;High;NA;NA
+Nic399;2;100;Sometimes;No;Open bush forming;High;Vent;None;1500;2000;2000;2500;Hard;Medium;Sediment or rock surface;Detritivore
+Nil400;4;10;NA;No;Does not add;High;Vent;None;1000;1500;3500;4000;Hard;Medium;Sediment or rock surface;Carnivore O
+Nod401;3;100;Never;No;Does not add;Low;Vent;None;2000;2500;2500;3000;Hard;High;Sediment or rock surface;Bacterivore
+Nod402;3;10;Never;No;Does not add;Low;Vent;None;2000;2500;2500;3000;Hard;High;Sediment or rock surface;Bacterivore
+Oas403;1;100;Sometimes;Yes;Dense bush forming;NA;Vent;Endosymbiont;2500;3000;2000;2500;Hard;Medium;Symbiont;Bacterivore
+Oas404;1;100;Always;Yes;Dense bush forming;High;Vent;Endosymbiont;1500;2000;1500;2000;Hard;Medium;Symbiont;Bacterivore
+Oed405;3;10;Never;No;Does not add;Low;Vent;None;1500;2000;1500;2000;Hard;Medium;Fauna;Carnivore O
+Oen406;3;10;Sometimes;No;Does not add;High;Vent;None;0;500;1000;1500;Soft;Low;Sediment or rock surface;NA
+Olg407;3;10;Sometimes;No;Does not add;High;Vent;None;1000;1500;2500;3000;Hard;High;Sediment or rock surface;Bacterivore
+Onc408;3;1;NA;NA;NA;NA;No;NA;2000;2500;2500;3000;NA;NA;NA;NA
+Opa409;4;10;Always;No;Does not add;High;Vent;None;500;1000;1500;2000;Hard;Medium;Sediment or rock surface;Bacterivore
+Oph410;3;10;Never;No;Does not add;Low;No;None;500;1000;500;1000;Hard;Medium;NA;NA
+Oph411;3;10;Never;No;Does not add;Low;No;None;1500;2000;2500;3000;Hard;Low;NA;NA
+Oph412;3;100;Always;No;NA;High;Other CBE;None;1500;2000;4000;4500;Hard;High;Sediment or rock surface;Bacterivore
+Oph413;3;10;Sometimes;No;Does not add;Low;Vent;None;2500;3000;2500;3000;Soft;Medium;Sediment or rock surface;Detritivore
+Oph414;3;10;Never;No;Does not add;Low;No;None;2000;2500;3000;3500;Hard;Low;NA;NA
+Oph415;3;10;Sometimes;No;Does not add;High;No;None;500;1000;1000;1500;Hard;Medium;NA;Detritivore
+Oph416;3;10;Never;No;Does not add;Low;No;None;1500;2000;3000;3500;Soft;Low;Fauna;Carnivore S
+Oph417;3;10;Sometimes;No;Does not add;High;Vent;None;1500;2000;2500;3000;Hard;Medium;Sediment or rock surface;Detritivore
+Oph418;3;10;NA;NA;NA;NA;Vent;NA;1500;2000;1500;2000;NA;NA;NA;NA
+Oph419;3;10;Never;No;Does not add;Low;Vent;None;1500;2000;2000;2500;Hard;High;Fauna;Bacterivore
+Oph420;3;10;NA;NA;NA;NA;Vent;NA;2500;3000;2500;3000;NA;NA;NA;NA
+Oph421;4;10;NA;NA;NA;NA;Other CBE;None;NA;NA;NA;NA;Soft;Low;Sediment or rock surface;Bacterivore
+Oph422;3;10;NA;NA;NA;NA;Vent;None;500;1000;500;1000;NA;Low;Sediment or rock surface;Bacterivore
+Opi423;4;10;Never;No;Does not add;High;Vent;None;2000;2500;2500;3000;Hard;Medium;Fauna;Carnivore O
+Ora424;4;10;Never;No;Does not add;Low;No;None;1000;1500;2000;2500;Hard;Medium;Fauna;Carnivore S
+Orb425;3;10;NA;No;NA;NA;Vent;NA;NA;NA;NA;NA;Soft;NA;Sediment or rock surface;Detritivore
+Orb426;2;10;NA;No;NA;NA;Vent;None;NA;NA;NA;NA;Soft;NA;Sediment or rock surface;Detritivore
+Pac427;4;1000;Never;No;Does not add;Low;Other CBE;None;1000;1500;2000;2500;Hard;Medium;Fauna;Carnivore O
+Pac428;4;100;Never;No;Does not add;Low;Vent;None;2000;2500;2000;2500;Hard;Medium;Fauna;Carnivore O
+Pac429;4;100;Never;No;Does not add;Low;Vent;NA;3500;4000;3500;4000;Water column;Medium;Fauna;Carnivore O
+Pac430;3;10;NA;No;Does not add;NA;Vent;NA;2000;2500;2500;3000;Hard;Medium;Sediment or rock surface;Detritivore
+Pac431;3;10;NA;No;Does not add;NA;Vent;NA;1500;2000;1500;2000;Hard;High;Sediment or rock surface;Detritivore
+Pac432;1;100;NA;No;NA;NA;No;None;NA;NA;NA;NA;Hard;Low;Fauna;Carnivore O
+Par433;1;1000;Never;No;Does not add;NA;Vent;Endosymbiont;1500;2000;1500;2000;Soft;Low;Symbiont;Bacterivore
+Par434;3;10;Never;No;Does not add;High;Vent;None;1500;2000;3000;3500;Hard;Low;Sediment or rock surface;Detritivore
+Par435;3;NA;NA;NA;NA;NA;Vent;NA;1000;1500;1000;1500;NA;NA;NA;NA
+Par436;2;10;Never;No;Does not add;Low;Vent;None;2000;2500;2000;2500;Hard;Medium;Sediment or rock surface;Bacterivore
+Par437;3;100;Sometimes;No;Does not add;Low;Vent;None;1500;2000;2000;2500;Hard;Low;Fauna;Carnivore S
+Par438;4;100;NA;No;Does not add;Low;Vent;NA;500;1000;500;1000;NA;High;Fauna;NA
+Par439;3;100;NA;NA;NA;NA;Vent;None;NA;NA;NA;NA;NA;NA;Fauna;Carnivore O
+Par440;2;100;Always;No;Burrow forming;High;Vent;None;2000;2500;2500;3000;Hard;Medium;Sediment or rock surface;Detritivore
+Par441;2;100;Always;No;Burrow forming;High;Vent;None;2000;2500;2500;3000;Hard;Medium;Sediment or rock surface;Detritivore
+Par442;2;100;Always;No;Mat forming;High;Vent;None;1000;1500;2500;3000;Hard;High;Sediment or rock surface;Detritivore
+Par443;2;100;Always;No;Burrow forming;Low;Vent;None;2000;2500;2500;3000;Hard;High;Sediment or rock surface;Bacterivore
+Par444;2;10;Always;No;Burrow forming;High;Vent;None;1000;1500;3500;4000;Hard;High;Symbiont;Detritivore
+Par445;3;100;Always;No;Open bush forming;High;Vent;None;1500;2000;2500;3000;Hard;High;Sediment or rock surface;Bacterivore
+Par446;2;100;Always;No;Burrow forming;High;Vent;None;1500;2000;2500;3000;Hard;Medium;Sediment or rock surface;Detritivore
+Par447;2;100;Always;Yes;Burrow forming;High;Vent;None;1500;2000;3000;3500;Hard;High;Sediment or rock surface;Detritivore
+Par448;2;100;Always;No;Mat forming;High;Vent;None;1000;1500;2500;3000;Hard;High;Sediment or rock surface;Detritivore
+Par449;3;100;Always;Yes;Mat forming;High;Vent;NA;2000;2500;2000;2500;Soft;Low;Sediment or rock surface;NA
+Par450;1;100;Always;NA;NA;NA;Vent;None;2000;2500;2000;2500;Soft;High;Fauna;Carnivore O
+Par451;2;10;NA;NA;NA;NA;Vent;None;1000;1500;3000;3500;Hard;Low;Fauna;Carnivore S
+Par452;2;10;Never;No;Burrow forming;Low;No;None;1000;1500;1000;1500;Soft;Medium;Water column;Detritivore
+Par453;4;10;Never;No;Does not add;Low;Vent;None;1500;2000;2000;2500;Hard;Medium;Fauna;Detritivore
+Par454;3;100;NA;NA;NA;NA;No;NA;0;500;500;1000;Soft;NA;Fauna;Carnivore S
+Par455;3;10;NA;No;NA;NA;Vent;None;NA;NA;NA;NA;NA;High;Fauna;Carnivore O
+Pau456;3;100;Never;No;Does not add;Low;Vent;None;2000;2500;2500;3000;Hard;Medium;Fauna;Carnivore O
+Pav457;3;100;Always;Yes;Mat forming;High;Vent;NA;2000;2500;2000;2500;Soft;Low;Sediment or rock surface;NA
+Pei458;3;100;NA;NA;NA;NA;Vent;NA;2500;3000;2500;3000;NA;NA;NA;NA
+Pel459;3;10;NA;No;Does not add;NA;Vent;None;2000;2500;2500;3000;Hard;High;Sediment or rock surface;Detritivore
+Pel460;3;10;NA;No;Does not add;NA;Vent;NA;2500;3000;2500;3000;Hard;High;Sediment or rock surface;Detritivore
+Pel461;3;100;Never;No;Does not add;Low;Vent;None;1500;2000;2500;3000;Hard;High;Sediment or rock surface;Bacterivore
+Pel462;3;10;Never;No;Does not add;Low;Vent;None;500;1000;1500;2000;Hard;Low;Sediment or rock surface;Detritivore
+Phr463;3;1000;Always;Yes;Bed forming;High;Other CBE;Endosymbiont;1000;1500;1000;1500;Soft;Low;Symbiont;Bacterivore
+Phr464;3;1000;Sometimes;Yes;Bed forming;High;Other CBE;Endosymbiont;1000;1500;1500;2000;Soft;Low;Symbiont;Bacterivore
+Phr465;2;100;Sometimes;Yes;Bed forming;High;Other CBE;Endosymbiont;500;1000;2000;2500;Soft;Low;Symbiont;Bacterivore
+Phr466;3;1000;Sometimes;Yes;Bed forming;High;Other CBE;Endosymbiont;500;1000;2000;2500;Soft;Low;Symbiont;Bacterivore
+Phy467;NA;100;NA;NA;NA;High;Vent;None;4000;4500;4000;4500;Soft;NA;Water column;Detritivore
+Phy468;3;100;Never;No;Does not add;Low;Vent;None;3000;3500;4000;4500;Hard;Low;Sediment or rock surface;Detritivore
+Phy469;3;100;NA;NA;NA;NA;Vent;NA;2000;2500;2000;2500;NA;Low;Fauna;Carnivore O
+Phy470;3;100;Never;No;Does not add;Low;Vent;None;2000;2500;4000;4500;Hard;Low;Sediment or rock surface;Detritivore
+Phy471;3;100;Never;No;Does not add;Low;No;None;1500;2000;4000;4500;Hard;Low;Sediment or rock surface;Detritivore
+Phy472;3;100;Sometimes;No;Does not add;High;Vent;None;2000;2500;3000;3500;Hard;Medium;Sediment or rock surface;Carnivore O
+Phy473;3;100;Never;No;Does not add;Low;Vent;None;2500;3000;2500;3000;Hard;Medium;Fauna;Carnivore O
+Phy474;3;100;NA;NA;NA;NA;Vent;NA;NA;NA;NA;NA;NA;NA;NA;NA
+Pla475;3;10;NA;No;NA;NA;Vent;NA;1500;2000;1500;2000;Hard;High;Sediment or rock surface;Detritivore
+Pli476;3;100;Sometimes;Yes;Bed forming;Low;Other CBE;Endosymbiont;1000;1500;2500;3000;Soft;Low;Symbiont;Bacterivore
+Pli477;3;100;Sometimes;Yes;Bed forming;Low;Other CBE;Endosymbiont;500;1000;500;1000;Soft;Low;Symbiont;Bacterivore
+Pod478;3;10;Never;No;Does not add;Low;Vent;None;1500;2000;1500;2000;Hard;Medium;Fauna;Carnivore O
+Pol479;4;100;Never;No;Does not add;Low;No;NA;500;1000;2500;3000;Water column;Low;Fauna;Carnivore O
+Pol480;4;1;Never;No;Does not add;Low;Vent;None;2000;2500;2500;3000;Hard;Medium;Sediment or rock surface;Detritivore
+Pol481;3;100;NA;NA;NA;NA;Vent;NA;2500;3000;2500;3000;NA;NA;Fauna;NA
+Pri482;3;1;NA;NA;NA;NA;Vent;NA;1500;2000;2500;3000;NA;NA;NA;NA
+Pri483;3;1;NA;NA;NA;NA;No;None;500;1000;500;1000;NA;Low;Sediment or rock surface;Detritivore
+Pri484;3;10;NA;NA;NA;NA;Vent;NA;NA;NA;NA;NA;NA;NA;Water column;Detritivore
+Pri485;4;10;Never;No;Does not add;Low;Vent;None;2000;2500;2500;3000;Water column;Medium;Sediment or rock surface;Bacterivore
+Pro486;1;100;NA;NA;NA;NA;Vent;NA;2500;3000;2500;3000;NA;NA;NA;NA
+Pro487;3;10;Never;No;Does not add;High;Other CBE;None;500;1000;4000;4500;Hard;Low;Sediment or rock surface;Detritivore
+Pro488;3;10;Never;No;Does not add;Low;Vent;None;500;1000;3000;3500;Hard;Low;Sediment or rock surface;Detritivore
+Pro489;3;100;Sometimes;No;Does not add;Low;Vent;None;2000;2500;2000;2500;Hard;Medium;Fauna;Carnivore O
+Pro490;3;10;NA;NA;Does not add;NA;Vent;NA;1500;2000;2500;3000;NA;NA;Sediment or rock surface;Detritivore
+Pro491;2;10;Always;No;Does not add;High;Vent;None;500;1000;2000;2500;Hard;Medium;Sediment or rock surface;Bacterivore
+Pro492;3;10;Always;NA;Does not add;High;Vent;NA;2000;2500;2500;3000;NA;NA;Sediment or rock surface;Detritivore
+Pro493;3;10;NA;No;Does not add;High;Other CBE;None;0;500;1500;2000;NA;NA;Sediment or rock surface;Detritivore
+Pro494;2;10;Always;No;Does not add;Low;Vent;None;500;1000;1500;2000;Hard;Medium;Sediment or rock surface;Bacterivore
+Pro495;3;10;Always;NA;Does not add;High;Vent;NA;2000;2500;2500;3000;NA;NA;Sediment or rock surface;Detritivore
+Pro496;2;10;NA;NA;Does not add;NA;Vent;None;1000;2500;3500;4000;Hard;Medium;Sediment or rock surface;Detritivore
+Pro497;3;10;NA;NA;Does not add;NA;Vent;NA;1500;2000;1500;2000;NA;NA;Sediment or rock surface;Detritivore
+Pro498;3;10;Sometimes;NA;Does not add;NA;Vent;NA;2000;2500;2500;3000;Hard;High;Sediment or rock surface;Bacterivore
+Pro499;2;10;Always;No;Does not add;High;Other CBE;None;500;1000;2000;2500;Hard;Medium;Sediment or rock surface;Bacterivore
+Pro500;3;10;Sometimes;No;Does not add;High;Other CBE;None;0;500;2000;2500;Hard;Medium;Sediment or rock surface;Detritivore
+Pse501;3;100;NA;NA;NA;NA;No;NA;NA;NA;NA;NA;NA;NA;Fauna;NA
+Pse502;3;10;Sometimes;No;Does not add;NA;Vent;NA;2500;3000;3500;4000;Hard;Medium;Sediment or rock surface;Detritivore
+Pse503;3;10;Never;No;Does not add;High;Vent;None;1500;2000;4000;4500;Hard;High;Sediment or rock surface;Detritivore
+Pse504;3;1;Always;No;Does not add;High;Other CBE;None;500;1000;2000;2500;Hard;Medium;Sediment or rock surface;Bacterivore
+Pun505;2;10;Never;No;Does not add;Low;Vent;None;500;1000;1500;2000;Hard;Medium;Sediment or rock surface;Bacterivore
+Pun506;2;10;Never;No;Does not add;Low;Vent;None;500;1000;1500;2000;Hard;Medium;Sediment or rock surface;Bacterivore
+Pun507;3;10;NA;NA;Does not add;NA;Vent;NA;1000;1500;1000;1500;NA;NA;NA;NA
+Pyr508;3;10;NA;No;Does not add;NA;Vent;NA;1000;1500;1000;1500;Hard;Medium;Sediment or rock surface;Detritivore
+Pyr509;3;1;NA;No;Does not add;NA;Other CBE;NA;NA;NA;NA;NA;Hard;NA;NA;NA
+Pyr510;2;10;Sometimes;No;Does not add;Low;Other CBE;None;1000;1500;2000;2500;Hard;Low;Sediment or rock surface;Detritivore
+Pyr511;2;10;Sometimes;No;Does not add;Low;Vent;None;500;1000;1500;2000;Hard;Medium;Sediment or rock surface;Bacterivore
+Rar512;3;10;Sometimes;NA;Does not add;High;Other CBE;NA;2000;2500;3000;3500;NA;NA;NA;NA
+Ret513;3;10;NA;NA;NA;NA;Other CBE;None;0;500;4500;5000;NA;NA;Sediment or rock surface;Bacterivore
+Rho514;4;10;NA;No;Does not add;High;Vent;None;1000;1500;3500;4000;Hard;Medium;Sediment or rock surface;Bacterivore
+Rho515;4;10;NA;NA;NA;High;Vent;NA;1000;1500;3500;4000;NA;NA;NA;NA
+Rhy516;3;100;NA;No;Does not add;NA;Vent;None;1500;2000;2500;3000;Hard;Medium;Sediment or rock surface;Bacterivore
+Rid517;1;1000;Always;Yes;Dense bush forming;High;Vent;Endosymbiont;1500;2000;2000;2500;Hard;High;Symbiont;Bacterivore
+Rif518;1;1000;Always;Yes;Dense bush forming;High;Vent;Endosymbiont;2000;2500;2500;3000;Hard;High;Symbiont;Bacterivore
+Rim519;4;100;Always;No;Does not add;High;Vent;Episymbiont;1500;2000;4000;4500;Hard;High;Fauna;Bacterivore
+Rim520;4;100;Always;Yes;Does not add;High;Vent;Episymbiont;1500;2000;4000;4500;Hard;High;Symbiont;Bacterivore
+Rim521;4;100;Always;No;Does not add;High;Vent;Episymbiont;2000;2500;4500;5000;Hard;High;Symbiont;Bacterivore
+Rim522;4;100;Always;Yes;Does not add;High;Vent;Episymbiont;2000;2500;3000;3500;Hard;High;Symbiont;Bacterivore
+Rim523;3;100;NA;NA;NA;NA;Vent;NA;2500;3000;2500;3000;Hard;NA;NA;NA
+Rim524;4;100;NA;No;NA;Low;Vent;None;1500;2000;3500;4000;Hard;Medium;Sediment or rock surface;Bacterivore
+Rim525;4;100;Always;No;Does not add;High;Vent;None;1500;2000;2000;2500;Hard;High;Sediment or rock surface;Detritivore
+Rim526;4;10;Never;No;Does not add;High;Vent;None;1000;1500;3500;4000;Hard;High;Water column;Bacterivore
+Sax527;3;100;NA;No;Does not add;NA;Vent;NA;2000;2500;2500;3000;Hard;Low;NA;NA
+Scl528;1;100;Always;Yes;Dense bush forming;High;Other CBE;Endosymbiont;2000;2500;2000;2500;Soft;Medium;Symbiont;Bacterivore
+Sco529;3;10;NA;No;NA;NA;Vent;NA;NA;NA;NA;NA;Soft;NA;Sediment or rock surface;Detritivore
+Sco530;4;10;Sometimes;No;Does not add;High;Vent;None;2000;2500;2500;3000;Hard;High;Sediment or rock surface;Bacterivore
+Seb531;2;10;Sometimes;No;Does not add;Low;Vent;None;1500;2000;2000;2500;Hard;Medium;Sediment or rock surface;Carnivore S
+Seg532;3;100;Never;No;Does not add;Low;Vent;None;500;1000;4000;4500;Hard;High;Fauna;Carnivore S
+Ser533;3;100;Sometimes;No;NA;High;Vent;NA;1000;1500;1000;1500;Hard;Medium;NA;NA
+Ser534;3;10;NA;NA;NA;NA;Vent;NA;3500;4000;3500;4000;NA;NA;NA;NA
+Ser535;3;100;Sometimes;NA;NA;NA;Vent;NA;1000;1500;2000;2500;Hard;Medium;NA;NA
+Ser536;3;100;Sometimes;No;Does not add;NA;Vent;NA;2500;3000;2500;3000;Hard;Medium;Fauna;Carnivore O
+Ser537;3;100;Sometimes;NA;NA;NA;Vent;NA;2000;2500;2000;2500;Hard;Medium;NA;NA
+Ser538;3;100;Never;No;Does not add;Low;Vent;None;2000;2500;2000;2500;Hard;Medium;Fauna;Bacterivore
+Ser539;3;100;Never;No;Does not add;Low;Vent;None;500;1000;4000;4500;Hard;Medium;Fauna;Carnivore O
+Ser540;3;NA;NA;NA;NA;NA;No;NA;0;500;3000;3500;NA;NA;Fauna;Carnivore S
+Ser541;3;100;Never;No;Does not add;Low;Vent;None;2000;2500;2000;2500;Hard;Medium;Sediment or rock surface;Bacterivore
+Ser542;3;100;Sometimes;No;Does not add;High;Vent;None;1500;2000;3000;3500;Hard;Medium;Sediment or rock surface;Carnivore O
+Shi543;1;100;Sometimes;No;Does not add;Low;Vent;None;1000;1500;1000;1500;Hard;Low;Fauna;NA
+Shi544;1;100;NA;No;Does not add;Low;Vent;None;500;1000;500;1000;Hard;Low;Fauna;NA
+Shi545;3;100;Always;No;Does not add;High;Other CBE;Episymbiont;500;1000;1000;1500;Soft;Medium;Sediment or rock surface;Bacterivore
+Shi546;3;100;Always;Yes;Does not add;High;Vent;None;0;500;1000;1500;Hard;High;Fauna;NA
+Shi547;3;10;Never;No;Does not add;Low;Vent;None;500;1000;4000;4500;Hard;Medium;Sediment or rock surface;Bacterivore
+Shi548;2;10;Sometimes;No;Does not add;High;Vent;None;0;500;1000;1500;Hard;Medium;Sediment or rock surface;Bacterivore
+Shi549;2;10;Sometimes;No;Does not add;High;Vent;None;0;500;1500;2000;Hard;Medium;Sediment or rock surface;Bacterivore
+Shi550;2;100;Never;No;Does not add;Low;Vent;None;2000;2500;3000;3500;Hard;Medium;Sediment or rock surface;Bacterivore
+Shi551;3;10;Sometimes;No;Does not add;Low;Vent;None;1000;1500;2500;3000;Hard;High;Sediment or rock surface;Detritivore
+Sim552;4;1000;Never;No;Does not add;Low;No;NA;0;500;2500;3000;Water column;Low;Fauna;Carnivore S
+Sip553;1;100;Always;Yes;Open bush forming;NA;Vent;Endosymbiont;NA;NA;NA;NA;Soft;Medium;Symbiont;Bacterivore
+Sir554;3;100;NA;NA;NA;High;Vent;None;1500;2000;2000;2500;Soft;NA;Fauna;Carnivore O
+Sir555;3;10;NA;NA;NA;Low;Other CBE;NA;3500;4000;5001;NA;NA;NA;NA;NA
+Ske556;3;1;Always;No;Does not add;High;Other CBE;NA;1000;1500;2500;3000;Hard;Medium;Sediment or rock surface;Bacterivore
+Ske557;3;1;Always;No;Does not add;Low;Vent;NA;2000;2500;2000;2500;Hard;Medium;Sediment or rock surface;Bacterivore
+Sma558;4;1;NA;No;Does not add;NA;No;None;2000;2500;2500;3000;Hard;Low;NA;NA
+Sol559;2;100;Never;No;Burrow forming;Low;Vent;Endosymbiont;1000;1500;1500;2000;Soft;Low;Symbiont;Bacterivore
+Sol560;3;1;NA;No;Does not add;NA;Vent;NA;2000;2500;2500;3000;Hard;Medium;Sediment or rock surface;Detritivore
+Sph561;4;10;Never;No;Does not add;Low;Vent;None;2000;2500;2000;2500;Soft;Medium;Sediment or rock surface;Detritivore
+Sph562;3;10;Never;No;Does not add;Low;Vent;None;2000;2500;2000;2500;Hard;Medium;Fauna;Carnivore O
+Spi563;2;100;Never;No;Burrow forming;Low;Vent;Endosymbiont;1000;1500;1000;1500;Soft;Medium;Symbiont;Bacterivore
+Spi564;3;10;Sometimes;No;Does not add;High;Vent;None;2000;2500;2500;3000;Hard;Medium;Fauna;Carnivore S
+Ste565;3;1;Sometimes;No;Does not add;Low;Vent;None;3000;3500;3500;4000;Hard;Medium;Fauna;Carnivore S
+Ste566;3;10;Never;No;Does not add;Low;Vent;None;2000;2500;2000;2500;Hard;Low;Sediment or rock surface;NA
+Ste567;3;10;Sometimes;No;Does not add;Low;Vent;None;500;1000;500;1000;Hard;Medium;NA;NA
+Ste568;3;1;Sometimes;No;Does not add;Low;Vent;None;2500;3000;2500;3000;Hard;Medium;NA;NA
+Ste569;3;10;Sometimes;No;Does not add;Low;Vent;None;500;1000;500;1000;Hard;Medium;NA;NA
+Ste570;4;100;Never;No;Does not add;Low;Vent;None;2000;2500;2500;3000;Hard;Low;Fauna;Carnivore S
+Sty571;4;10;Sometimes;No;Does not add;High;Vent;None;2500;3000;2500;3000;NA;NA;Sediment or rock surface;Bacterivore
+Sty572;4;10;NA;No;NA;NA;Vent;NA;1500;2000;3500;4000;Water column;NA;NA;NA
+Sty573;4;10;Sometimes;No;Does not add;High;Vent;None;2500;3000;2500;3000;NA;NA;Sediment or rock surface;Bacterivore
+Sty574;4;10;Never;No;Does not add;High;Vent;None;1000;1500;3500;4000;Hard;High;Sediment or rock surface;Bacterivore
+Sty575;4;10;NA;No;Does not add;High;Vent;None;1000;1500;2500;3000;Hard;High;Sediment or rock surface;Bacterivore
+Sty576;4;10;Sometimes;No;Does not add;High;No;None;2000;2500;2500;3000;Hard;High;Sediment or rock surface;Bacterivore
+Sty577;4;10;Never;No;Does not add;High;Vent;None;1000;1500;3500;4000;Hard;High;Sediment or rock surface;Bacterivore
+Sty578;4;10;NA;No;NA;NA;Vent;NA;1500;2000;2500;3000;Water column;NA;NA;NA
+Sty579;4;10;Never;No;Does not add;High;Vent;None;3000;3500;3000;3500;Hard;High;Sediment or rock surface;Bacterivore
+Sty580;4;10;NA;No;Does not add;High;Vent;None;1000;1500;2500;3000;Hard;Medium;Sediment or rock surface;Bacterivore
+Sty581;4;10;Sometimes;No;Does not add;High;Vent;None;2000;2500;2500;3000;Hard;High;Sediment or rock surface;Bacterivore
+Sty582;4;10;Never;No;Does not add;High;Vent;None;1000;1500;3500;4000;Hard;High;Sediment or rock surface;Bacterivore
+Sty583;4;10;NA;No;Does not add;High;Vent;None;1000;1500;3000;3500;Hard;High;Sediment or rock surface;Bacterivore
+Sty584;4;10;Never;No;Does not add;High;Vent;None;1000;1500;3500;4000;Hard;High;Sediment or rock surface;Bacterivore
+Sty585;4;10;Never;No;Does not add;High;Vent;None;500;1000;3000;3500;Hard;High;Sediment or rock surface;Bacterivore
+Sty586;4;10;Sometimes;No;Does not add;High;Vent;None;2000;2500;2500;3000;Hard;High;Sediment or rock surface;Bacterivore
+Sty587;4;10;Never;No;Does not add;High;Vent;None;1000;1500;3500;4000;Hard;High;Sediment or rock surface;Bacterivore
+Sty588;4;10;NA;No;Does not add;High;Vent;None;1500;2000;3500;4000;Hard;High;Sediment or rock surface;Bacterivore
+Sty589;4;10;Never;No;Does not add;High;Vent;None;1000;1500;3500;4000;Hard;High;Sediment or rock surface;Bacterivore
+Sty590;4;10;Sometimes;No;Does not add;High;Vent;None;2500;3000;2500;3000;NA;NA;Sediment or rock surface;Bacterivore
+Sut591;3;10;Never;No;Does not add;High;Vent;None;1500;2000;4000;4500;Hard;Medium;Sediment or rock surface;Detritivore
+Syc592;1;10;Sometimes;No;Does not add;Low;No;NA;0;500;3500;4000;Soft;Medium;Water column;NA
+Sym593;3;10;Always;NA;Mat forming;High;Vent;Endosymbiont;2000;2500;2000;2500;Hard;High;Symbiont;Bacterivore
+Sym594;3;10;Always;NA;Mat forming;High;Vent;Endosymbiont;3500;4000;3500;4000;Hard;High;Symbiont;Bacterivore
+Sym595;4;100;Always;No;Does not add;High;Vent;None;0;500;500;1000;Soft;High;Fauna;Carnivore O
+Sym596;4;100;Always;No;Does not add;High;Vent;None;500;1000;1000;1500;Soft;Medium;Fauna;Carnivore O
+Syn597;4;1000;Never;No;Does not add;Low;No;NA;0;500;4500;5000;Water column;Low;Fauna;Carnivore O
+Tec598;4;10;Never;No;Does not add;Low;Vent;None;2500;3000;2500;3000;Hard;Low;Fauna;Carnivore S
+Tec599;4;10;Never;No;Does not add;Low;Vent;None;2500;3000;2500;3000;Hard;Low;Fauna;Carnivore S
+Tem600;2;1;NA;No;NA;NA;Vent;None;1500;2000;2000;2500;NA;NA;Sediment or rock surface;Detritivore
+Tem601;3;1;Never;No;Does not add;NA;Vent;None;2500;3000;2500;3000;NA;NA;Sediment or rock surface;Bacterivore
+Tev602;1;100;Always;Yes;Dense bush forming;High;Vent;Endosymbiont;2000;2500;2500;3000;Hard;High;Symbiont;Bacterivore
+Tha603;3;1;NA;NA;NA;NA;No;NA;1500;2000;1500;2000;NA;NA;Fauna;Carnivore O
+Tha604;3;1;NA;No;Does not add;High;No;None;2000;2500;2500;3000;Hard;Medium;Sediment or rock surface;Bacterivore
+Tha605;3;1;NA;No;Does not add;Low;Vent;None;1500;2000;1500;2000;Hard;Medium;NA;NA
+The606;4;10;Always;No;Does not add;High;No;NA;500;1000;2000;2500;Water column;Medium;Fauna;Carnivore O
+The607;3;100;Sometimes;No;NA;NA;Vent;None;1500;2000;2000;2500;Hard;Medium;Fauna;Carnivore S
+The608;4;1000;NA;No;Does not add;NA;Vent;None;NA;NA;NA;NA;NA;NA;Fauna;Carnivore O
+The609;4;100;Never;No;Does not add;Low;Vent;Episymbiont;1500;2000;2500;3000;Hard;Low;Fauna;Carnivore O
+The610;4;100;Never;No;Does not add;Low;Vent;None;1500;2000;2500;3000;Hard;Low;Fauna;Carnivore O
+The611;4;1000;NA;No;Does not add;NA;Vent;None;1500;2000;1500;2000;Water column;High;NA;NA
+The612;2;10;Never;No;Does not add;Low;Vent;None;500;1000;1000;1500;Hard;Medium;Sediment or rock surface;Bacterivore
+The613;1;100;Always;Yes;Open bush forming;High;Vent;NA;NA;NA;NA;NA;Hard;Low;NA;NA
+The614;3;100;Never;No;Does not add;Low;Vent;None;1000;1500;2500;3000;Hard;High;Fauna;Carnivore O
+The615;3;1000;Sometimes;No;Does not add;Low;No;None;500;1000;2500;3000;Hard;Medium;Fauna;Carnivore O
+Tho616;4;1;Never;No;Does not add;Low;Vent;None;2000;2500;2500;3000;Hard;Medium;Sediment or rock surface;Bacterivore
+Tho617;4;1;Never;No;Does not add;Low;Vent;None;2000;2500;2500;3000;Hard;Medium;Sediment or rock surface;Bacterivore
+Tho618;4;1;Never;No;Does not add;Low;Vent;None;500;1000;500;1000;Hard;Medium;Fauna;Detritivore
+Thr619;3;NA;NA;No;NA;NA;No;None;1500;2000;2000;2500;Hard;NA;NA;NA
+Thy620;2;100;Never;No;Burrow forming;Low;Vent;Endosymbiont;3000;3500;3000;3500;Soft;Low;Symbiont;Bacterivore
+Tin621;3;100;NA;NA;NA;NA;Vent;None;1500;2000;2000;2500;Soft;NA;Sediment or rock surface;Detritivore
+Tra622;4;1000;Never;No;Does not add;Low;No;None;0;500;2000;2500;Hard;High;Fauna;Carnivore O
+Tra623;4;10;Never;No;Does not add;Low;Vent;None;2500;3000;2500;3000;Hard;Low;Fauna;Carnivore S
+Upt624;2;1;NA;No;NA;NA;Vent;None;NA;NA;NA;NA;NA;NA;Sediment or rock surface;Detritivore
+Uro625;4;10;NA;NA;NA;NA;Vent;NA;2000;2500;2500;3000;NA;NA;NA;NA
+Uro626;4;10;NA;NA;NA;NA;Vent;NA;2000;2500;2000;2500;NA;Medium;NA;NA
+Urt627;1;100;Always;Yes;Bed forming;High;No;NA;0;500;500;1000;Hard;High;Fauna;Carnivore O
+Vel628;3;100;Never;No;Does not add;Low;Vent;None;500;1000;500;1000;Hard;Low;Sediment or rock surface;Detritivore
+Ven629;4;10;Always;No;Does not add;High;Vent;Episymbiont;2000;2500;2500;3000;Hard;High;Fauna;Carnivore S
+Ven630;3;10;NA;NA;NA;NA;Vent;None;1500;2000;1500;2000;NA;Low;NA;NA
+Vul631;1;1000;Always;Yes;Bed forming;High;Vent;Endosymbiont;0;500;0;500;Hard;Medium;Symbiont;Bacterivore
+Vul632;4;100;NA;No;NA;NA;Vent;NA;2500;3000;2500;3000;Hard;High;Fauna;Carnivore O
+Vul633;1;1000;Always;Yes;Open bush forming;High;Vent;Episymbiont;1000;1500;1500;2000;Hard;Medium;Symbiont;Detritivore
+Vul634;1;100;Always;No;Does not add;High;Vent;None;1000;1500;2000;2500;Hard;Medium;Water column;Detritivore
+Wai635;3;100;Sometimes;Yes;Bed forming;Low;Other CBE;Endosymbiont;1000;1500;1000;1500;Soft;Low;Symbiont;Bacterivore
+War636;3;100;Sometimes;Yes;Bed forming;High;Vent;Endosymbiont;1000;1500;2000;2500;Soft;Low;Symbiont;Bacterivore
+Xan637;2;10;NA;No;NA;NA;Vent;NA;NA;NA;NA;NA;Hard;NA;Sediment or rock surface;Detritivore
+Xen638;3;10;Never;No;Does not add;Low;Vent;None;2000;2500;2000;2500;Hard;Medium;Sediment or rock surface;NA
+Xen639;3;100;Never;No;Does not add;Low;Vent;None;0;500;0;500;Hard;Medium;Fauna;Carnivore S
+Xen640;3;10;NA;NA;NA;NA;Vent;Endosymbiont;0;500;0;500;Hard;NA;Symbiont;Bacterivore
+Xyl641;3;1;Never;No;Does not add;Low;Vent;None;2000;2500;2500;3000;Hard;Medium;Symbiont;Bacterivore
+Xyl642;3;10;Never;No;Does not add;High;Vent;None;500;1000;2000;2500;Hard;Medium;Sediment or rock surface;Detritivore
+Xyl643;3;10;NA;NA;NA;NA;Vent;None;2000;2500;2000;2500;NA;NA;NA;NA
+Xyl644;4;1;NA;No;Does not add;NA;No;None;2000;2500;2500;3000;Hard;Medium;NA;NA
+Zyg645;1;100;Always;Yes;Open bush forming;High;Vent;NA;500;1000;1500;2000;NA;Low;NA;NA
+Arc646;3;1000;Sometimes;Yes;Bed forming;High;Vent;Endosymbiont;1000;1500;1000;1500;Hard;Medium;Symbiont;Bacterivore
