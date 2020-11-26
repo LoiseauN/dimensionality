@@ -4,9 +4,9 @@
 #' (listed in the R directory) and packages.
 #'
 #' @author Nicolas Loiseau, \email{nicolas.loiseau1@@gmail.com},
-#'         Nicolas Casajus , \email{nicolas.casajus@@fondationbiodiversite.fr},
 #'         Michele Allegra, \email{micheleallegra85@gmail.com},
-#'         Matthias Grenié, \email{Matthias.grenie@cefe.cnrs.fr}
+#'         Matthias Grenié, \email{Matthias.grenie@cefe.cnrs.fr},
+#'         Nicolas Casajus , \email{nicolas.casajus@@fondationbiodiversite.fr},
 #'
 #' @date 2020/06/10
 
