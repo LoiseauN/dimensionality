@@ -752,3 +752,4 @@ pdf(file=file.path(fig_dir,"Figure2.pdf"), width = 11.7, height = 8.3)
   
   plot_FR  <- grid.arrange(S_plot,NT_plot,NA_plot,Quanti_plot,cor_plot,ncol=3)
   
+
