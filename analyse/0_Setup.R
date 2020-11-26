@@ -14,7 +14,7 @@
 ## Install Missing Packages  ----
 
 pkgs <- c("vegan", "cluster", "ape", "FD", "data.table", "coRanking","parallel","gridExtra","grid",
-          "ggplot2","dplyr","ade4","mistr","dendextend","pbmcapply","usethis")
+          "ggplot2","dplyr","ade4","mistr","dendextend","pbmcapply","usethis","png")
 
 nip  <- pkgs[!(pkgs %in% installed.packages())]
 nip  <- lapply(nip, install.packages, dependencies = TRUE)
