@@ -1,5 +1,5 @@
 # dimensionality
-R code and data to reproduce figures of Loiseau, Mouquet et al.'s 2020 article.
+R code and data to reproduce figures of ___________ article.
 
 ## General
 This repository is structured as follow:
