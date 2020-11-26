@@ -3,8 +3,8 @@
 #' This R script installs missing packages and loads required R functions
 #' (listed in the R directory) and packages.
 #'
-#' @author Nicolas Casajus, \email{nicolas.casajus@@fondationbiodiversite.fr},
-#'         Nicolas Loiseau, \email{nicolas.loiseau1@@gmail.com},
+#' @author Nicolas Loiseau, \email{nicolas.loiseau1@@gmail.com},
+#'         Nicolas Casajus , \email{nicolas.casajus@@fondationbiodiversite.fr},
 #'         Nicolas Mouquet, \email{nicolas.mouquet@@cnrs.fr}
 #'
 #' @date 2020/06/10
@@ -12,14 +12,11 @@
 
 ## Install Missing Packages (listed in DESCRIPTION file) ----
 
-if (!("remotes" %in% installed.packages())) install.packages("remotes")
-if (!("devtools" %in% installed.packages())) install.packages("devtools")
+pkgs <- c("vegan", "cluster", "ape", "FD", "data.table", "coRanking","parallel","gridExtra","grid",
+          "ggplot2","dplyr","ade4","mistr","dendextend","pbmcapply","usethis")
 
-remotes::install_deps(upgrade = "never")
+nip  <- pkgs[!(pkgs %in% installed.packages())]
+nip <- lapply(nip, install.packages, dependencies = TRUE)
+ip   <- unlist(lapply(pkgs, require, character.only = TRUE, quietly = TRUE))
 
-if (!("ggtree" %in% installed.packages())) BiocManager::install("ggtree")
 
-
-## Load Project Addings (R functions and packages) ----
-
-devtools::load_all()
