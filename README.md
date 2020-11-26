@@ -6,8 +6,9 @@ This repository is structured as follow:
 
 data/: contains all dataset required to reproduce figures
 R/: contains R functions developed for this project
-man/: contains R functions documentation
 analyses/: contains R scripts to run analyses
+results/: contains output from analyses
+figures/: contains figures 
 
 ## Notes
 All required packages will be installed (if necessary) and loaded.
