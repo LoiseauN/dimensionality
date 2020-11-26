@@ -40,3 +40,7 @@ results_dir <-  here::here('results')
 data_dir    <-  here::here('data')
 png_dir     <-  here::here('icons')
 fig_dir     <-  here::here('figures')
+
+
+## Fix depletion percetage  ----
+percent_list = seq(0.1, 0.8, by = 0.1)
