@@ -4,10 +4,10 @@ R code and data to reproduce figures of ___________ article.
 ## General
 This repository is structured as follow:
 
-data/: contains all data required to reproduce figures
+data/: contains all dataset required to reproduce figures
 R/: contains R functions developed for this project
 man/: contains R functions documentation
-analyses/: contains R scripts (one per figure) and a setup file defining parameters
+analyses/: contains R scripts to run analyses
 
 ## Notes
 All required packages will be installed (if necessary) and loaded.
