@@ -2,7 +2,7 @@
 # Load Png
 files <- list.files(path = png_dir, pattern = "*.png", full.names=TRUE)
 all_im <- lapply(files, readPNG )
-names(all_im) <- gsub("/Users/nloiseau/Dropbox/Clustering&Dimensionality/Dimension&Depletion/Pic_for_fig/", "", files) 
+names(all_im) <- gsub(".*/icons/", "", files) 
 names(all_im)  <- gsub(".png", "",names(all_im)) 
 
 #function to add picture in wrap  
