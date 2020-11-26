@@ -5,7 +5,8 @@
 #'
 #' @author Nicolas Loiseau, \email{nicolas.loiseau1@@gmail.com},
 #'         Nicolas Casajus , \email{nicolas.casajus@@fondationbiodiversite.fr},
-#'         Nicolas Mouquet, \email{nicolas.mouquet@@cnrs.fr}
+#'         Michele Allegra, \email{micheleallegra85@gmail.com},
+#'         Matthias Grenié, \email{Matthias.grenie@cefe.cnrs.fr}
 #'
 #' @date 2020/06/10
 
