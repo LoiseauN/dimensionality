@@ -14,7 +14,7 @@ names(all_im)  <- gsub(".png", "",names(all_im))
 
 # --------------------------------------------------------------------
 # Results for model
-files <- list.files(path=results_final_dir,pattern = "_res.RData",full.names = T)
+files <- list.files(path=results_dir,pattern = "_res.RData",full.names = T)
 list_res <- lapply(files, function(x) mget(load(x)))
 files <- list.files(path=results_dir,pattern = "cor_",full.names = T)
 list_res_cor <- lapply(files, function(x) mget(load(x)))
