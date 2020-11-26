@@ -11,16 +11,16 @@
 #' @date 2020/06/10
 
 
-## Install Missing Packages (listed in DESCRIPTION file) ----
+## Install Missing Packages  ----
 
 pkgs <- c("vegan", "cluster", "ape", "FD", "data.table", "coRanking","parallel","gridExtra","grid",
           "ggplot2","dplyr","ade4","mistr","dendextend","pbmcapply","usethis")
 
 nip  <- pkgs[!(pkgs %in% installed.packages())]
-nip <- lapply(nip, install.packages, dependencies = TRUE)
+nip  <- lapply(nip, install.packages, dependencies = TRUE)
 ip   <- unlist(lapply(pkgs, require, character.only = TRUE, quietly = TRUE))
 
-
+## Source function  ----
 source(here::here('R', 'dim_plot.R'))
 source(here::here('R','calc_dist.R'))
 source(here::here('R','compute_missing_trait_distance.R'))
@@ -34,3 +34,9 @@ source(here::here('R','parse_miss_trait.R'))
 source(here::here('R','sample_trait_combinations.R'))
 source(here::here('R','singleton.R'))
 source(here::here('R','synth_results.R'))
+
+## Data directory  ----
+results_dir <-  here::here('results')
+data_dir    <-  here::here('data')
+png_dir     <-  here::here('icons')
+fig_dir     <-  here::here('figures')
