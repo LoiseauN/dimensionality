@@ -1,8 +1,3 @@
-
-# Fix depletion percetage
-percent_list = seq(0.1, 0.8, by = 0.1)
-
-
 # Set 1 --------------------------------------------------------------------Bartonova2016
         
           Bartonova2016 <- read.csv2(file.path(data_dir,"Bartonova2016.csv"),  header=TRUE,row.names = 1)
@@ -35,8 +30,8 @@ percent_list = seq(0.1, 0.8, by = 0.1)
 
           #Depletion -----------------------------------------------------------
           Bartonova2016_miss <- compute_missing_trait_distance(Bartonova2016, Bartonova2016_cat,
-                                                               percent_list, max_comb = 20,n_perm = 20,cores = 3, 
-                                                               classical_gower = TRUE,pos= 20)
+                                                               percent_list, max_comb = 100,n_perm = 100,cores = 3, 
+                                                               classical_gower = TRUE,pos= 100)
           save(Bartonova2016_miss,file=file.path(results_dir,"Bartonova2016_miss.RData"))
                   #Plot  --------
                   depletion_plot(Bartonova2016_miss,version=1)
@@ -75,7 +70,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
                                     dimension = Bartonova2016_dim,
                                     cluster = Bartonova2016_sigle)
           
-              save(Bartonova2016_res,file=file.path(results_final_dir,"Bartonova2016_res.RData"))
+              save(Bartonova2016_res,file=file.path(results_dir,"Bartonova2016_res.RData"))
 # Set 2 --------------------------------------------------------------------Clearly2016
         
           Clearly2016 <- read.csv2(file.path(data_dir,"Clearly2016.csv"),  header=TRUE,row.names = 1)
@@ -113,8 +108,8 @@ percent_list = seq(0.1, 0.8, by = 0.1)
           
           #Depletion -----------------------------------------------------------
           Clearly2016_miss <- compute_missing_trait_distance(Clearly2016, Clearly2016_cat,
-                                                               percent_list, max_comb = 200,n_perm = 200,cores = 3, 
-                                                               classical_gower = TRUE,pos= 200)
+                                                               percent_list, max_comb = 100,n_perm = 100,cores = 3, 
+                                                               classical_gower = TRUE,pos= 100)
           save(Clearly2016_miss,file=file.path(results_dir,"Clearly2016_miss.RData"))
           
           #Plot  --------
@@ -154,7 +149,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
                                     dimension = Clearly2016_dim,
                                     cluster = Clearly2016_sigle)
           
-          save(Clearly2016_res,file=file.path(results_final_dir,"Clearly2016_res.RData"))
+          save(Clearly2016_res,file=file.path(results_dir,"Clearly2016_res.RData"))
 # Set 3 --------------------------------------------------------------------Ribera2001
           Ribera2001 <- read.csv2(file.path(data_dir,"Ribera2001.csv"),  header=TRUE,row.names = 1)
           
@@ -192,8 +187,8 @@ percent_list = seq(0.1, 0.8, by = 0.1)
           
           #Depletion -----------------------------------------------------------
           Ribera2001_miss <- compute_missing_trait_distance(Ribera2001, Ribera2001_cat,
-                                                               percent_list, max_comb = 200,n_perm = 200,cores = 3, 
-                                                               classical_gower = TRUE,pos= 200)
+                                                               percent_list, max_comb = 100,n_perm = 100,cores = 3, 
+                                                               classical_gower = TRUE,pos= 100)
           save(Ribera2001_miss,file=file.path(results_dir,"Ribera2001_miss.RData"))
           
           #Plot  --------
@@ -234,7 +229,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
                                     dimension = Ribera2001_dim,
                                     cluster = Ribera2001_sigle)
           
-          save(Ribera2001_res,file=file.path(results_final_dir,"Ribera2001_res.RData"))           
+          save(Ribera2001_res,file=file.path(results_dir,"Ribera2001_res.RData"))           
           
 # Set 4 --------------------------------------------------------------------Pakeman2011
           Pakeman2011 <- read.csv2(file.path(data_dir,"Pakeman2011.csv"),  header=TRUE,row.names = 1)
@@ -272,8 +267,8 @@ percent_list = seq(0.1, 0.8, by = 0.1)
           
           #Depletion -----------------------------------------------------------
           Pakeman2011_miss <- compute_missing_trait_distance(Pakeman2011, Pakeman2011_cat,
-                                                               percent_list, max_comb = 200,n_perm = 200,cores = 3, 
-                                                               classical_gower = TRUE,pos= 200)
+                                                               percent_list, max_comb = 100,n_perm = 100,cores = 3, 
+                                                               classical_gower = TRUE,pos= 100)
           save(Pakeman2011_miss,file=file.path(results_dir,"Pakeman2011_miss.RData"))
           #Plot  --------
           depletion_plot(Pakeman2011_miss,version=1)
@@ -313,7 +308,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
                                     dimension = Pakeman2011_dim,
                                     cluster = Pakeman2011_sigle)
           
-          save(Pakeman2011_res,file=file.path(results_final_dir,"Pakeman2011_res.RData"))
+          save(Pakeman2011_res,file=file.path(results_dir,"Pakeman2011_res.RData"))
           
 # Set 5 --------------------------------------------------------------------Goncalves2014
           Goncalves2014 <- read.csv2(file.path(data_dir,"Goncalves2014.csv"),  header=TRUE,row.names = 1)
@@ -351,8 +346,8 @@ percent_list = seq(0.1, 0.8, by = 0.1)
           
           #Depletion -----------------------------------------------------------
           Goncalves2014_miss <- compute_missing_trait_distance(Goncalves2014, Goncalves2014_cat,
-                                                               percent_list, max_comb = 200,n_perm = 200,cores = 3, 
-                                                               classical_gower = TRUE,pos= 200)
+                                                               percent_list, max_comb = 100,n_perm = 100,cores = 3, 
+                                                               classical_gower = TRUE,pos= 100)
           save(Goncalves2014_miss,file=file.path(results_dir,"Goncalves2014_miss.RData"))
           
           #Plot  --------
@@ -394,7 +389,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
                                     dimension = Goncalves2014_dim,
                                     cluster = Goncalves2014_sigle)
           
-          save(Goncalves2014_res,file=file.path(results_final_dir,"Goncalves2014_res.RData")) 
+          save(Goncalves2014_res,file=file.path(results_dir,"Goncalves2014_res.RData")) 
           
 # Set 6 --------------------------------------------------------------------Diaz2008
           Diaz2008 <- read.csv2(file.path(data_dir,"Diaz2008.csv"),  header=TRUE,row.names = 1)
@@ -429,8 +424,8 @@ percent_list = seq(0.1, 0.8, by = 0.1)
           
           #Depletion -----------------------------------------------------------
           Diaz2008_miss <- compute_missing_trait_distance(Diaz2008, Diaz2008_cat,
-                                                               percent_list, max_comb = 200,n_perm = 200,cores = 3, 
-                                                               classical_gower = TRUE,pos= 200)
+                                                               percent_list, max_comb = 100,n_perm = 100,cores = 3, 
+                                                               classical_gower = TRUE,pos= 100)
           
           save(Diaz2008_miss,file=file.path(results_dir,"Diaz2008_miss.RData"))
           
@@ -473,7 +468,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
                                     dimension = Diaz2008_dim,
                                     cluster = Diaz2008_sigle)
           
-          save(Diaz2008_res,file=file.path(results_final_dir,"Diaz2008_res.RData"))
+          save(Diaz2008_res,file=file.path(results_dir,"Diaz2008_res.RData"))
           
 # Set 7 --------------------------------------------------------------------NorthSeaTraits
    
@@ -519,8 +514,8 @@ percent_list = seq(0.1, 0.8, by = 0.1)
           
           #Depletion -----------------------------------------------------------
           NorthSeaTraits_miss <- compute_missing_trait_distance(NorthSeaTraits, NorthSeaTraits_cat,
-                                                               percent_list, max_comb = 200,n_perm = 200,cores = 2, 
-                                                               classical_gower = TRUE,pos= 200)
+                                                               percent_list, max_comb = 100,n_perm = 100,cores = 2, 
+                                                               classical_gower = TRUE,pos= 100)
           
           save(NorthSeaTraits_miss,file=file.path(results_dir,"NorthSeaTraits_miss.RData"))
           
@@ -561,7 +556,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
                                     dimension = NorthSeaTraits_dim,
                                     cluster = NorthSeaTraits_sigle)
           
-          save(NorthSeaTraits_res,file=file.path(results_final_dir,"NorthSeaTraits_res.RData"))
+          save(NorthSeaTraits_res,file=file.path(results_dir,"NorthSeaTraits_res.RData"))
           
 # Set 8 --------------------------------------------------------------------Invertebrate NZ  
          trait_nz_invertebrate <- read.csv2(file.path(data_dir,"nz_insect.csv"),  header=TRUE)
@@ -598,8 +593,8 @@ percent_list = seq(0.1, 0.8, by = 0.1)
          
          #Depletion -----------------------------------------------------------
          trait_nz_invertebrate_miss <- compute_missing_trait_distance(trait_nz_invertebrate, trait_nz_invertebrate_cat,
-                                                              percent_list, max_comb = 200,n_perm = 200,cores = 3, 
-                                                              classical_gower = TRUE,pos= 200)
+                                                              percent_list, max_comb = 100,n_perm = 100,cores = 3, 
+                                                              classical_gower = TRUE,pos= 100)
          
          save(trait_nz_invertebrate_miss,file=file.path(results_dir,"trait_nz_invertebrate_miss.RData"))
          
@@ -640,7 +635,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
                                    dimension = trait_nz_invertebrate_dim,
                                    cluster = trait_nz_invertebrate_sigle)
          
-         save(trait_nz_invertebrate_res,file=file.path(results_final_dir,"trait_nz_invertebrate_res.RData"))
+         save(trait_nz_invertebrate_res,file=file.path(results_dir,"trait_nz_invertebrate_res.RData"))
                
          
 # Set 9 --------------------------------------------------------------------Krasnov2015
@@ -676,7 +671,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
        
          #Depletion -----------------------------------------------------------
          Krasnov2015_miss <- compute_missing_trait_distance(Krasnov2015, Krasnov2015_cat,
-                                                         percent_list, max_comb = 100,n_perm = 200,cores = 3, 
+                                                         percent_list, max_comb = 100,n_perm = 100,cores = 3, 
                                                          classical_gower = TRUE,pos= 100)
          
          save(Krasnov2015_miss,file=file.path(results_dir,"Krasnov2015_miss.RData"))
@@ -718,7 +713,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
                               dimension = Krasnov2015_dim,
                               cluster = Krasnov2015_sigle)
          
-         save(Krasnov2015_res,file=file.path(results_final_dir,"Krasnov2015_res.RData"))
+         save(Krasnov2015_res,file=file.path(results_dir,"Krasnov2015_res.RData"))
 
 # Set 10 --------------------------------------------------------------------USDA_plant
          
@@ -762,7 +757,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
          
          #Depletion -----------------------------------------------------------
          USDA_plant_miss <- compute_missing_trait_distance(USDA_plant, USDA_plant_cat,
-                                                            percent_list, max_comb = 100,n_perm = 200,cores = 3, 
+                                                            percent_list, max_comb = 100,n_perm = 100,cores = 3, 
                                                             classical_gower = TRUE,pos= 100)
          
          save(USDA_plant_miss,file=file.path(results_dir,"USDA_plant_miss.RData"))
@@ -776,7 +771,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
          
          #Dimension  -----------------------------------------------------------
          
-         USDA_plant_dim <- dimension_funct(USDA_plant, dim_pcoa = 20,  metric_scaled = TRUE, USDA_plant_cat, classical_gower=TRUE,rep=99 ,cores = 3)
+         USDA_plant_dim <- dimension_funct(USDA_plant, dim_pcoa = 20,  metric_scaled = TRUE, USDA_plant_cat, classical_gower=TRUE,rep=999 ,cores = 3)
          save(USDA_plant_dim,file=file.path(results_dir,"USDA_plant_dim.RData"))
          #Plot  --------
          dim_plot(USDA_plant_dim,dim_pcoa = 20)
@@ -804,7 +799,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
                                  dimension = USDA_plant_dim,
                                  cluster = USDA_plant_sigle)
          
-         save(USDA_plant_res,file=file.path(results_final_dir,"USDA_plant_res.RData"))
+         save(USDA_plant_res,file=file.path(results_dir,"USDA_plant_res.RData"))
          
 # Set 11 --------------------------------------------------------------------Palm Tree
          
@@ -847,7 +842,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
          
          #Depletion -----------------------------------------------------------
          PalmTraits_miss <- compute_missing_trait_distance(PalmTraits, PalmTraits_cat,
-                                                           percent_list, max_comb = 100,n_perm = 200,cores = 4, 
+                                                           percent_list, max_comb = 100,n_perm = 100,cores = 4, 
                                                            classical_gower = TRUE,pos= 100)
          
          save(PalmTraits_miss,file=file.path(results_dir,"PalmTraits_miss.RData"))
@@ -861,7 +856,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
          
          #Dimension  -----------------------------------------------------------
          
-         PalmTraits_dim <- dimension_funct(PalmTraits, dim_pcoa = 20,  metric_scaled = TRUE, PalmTraits_cat, classical_gower=TRUE,rep=99 ,cores = 3)
+         PalmTraits_dim <- dimension_funct(PalmTraits, dim_pcoa = 20,  metric_scaled = TRUE, PalmTraits_cat, classical_gower=TRUE,rep=999 ,cores = 3)
          save(PalmTraits_dim,file=file.path(results_dir,"PalmTraits_dim.RData"))
          #Plot  --------
          dim_plot(PalmTraits_dim,dim_pcoa = 20)
@@ -889,7 +884,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
                                 dimension = PalmTraits_dim,
                                 cluster = PalmTraits_sigle)
          
-         save(PalmTraits_res,file=file.path(results_final_dir,"PalmTraits_res.RData"))
+         save(PalmTraits_res,file=file.path(results_dir,"PalmTraits_res.RData"))
          
 # Set 12 --------------------------------------------------------------------Freshwater fish
          
@@ -926,7 +921,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
          
          #Depletion -----------------------------------------------------------
          freshfishtrait_miss <- compute_missing_trait_distance(freshfishtrait, freshfishtrait_cat,
-                                                               percent_list, max_comb = 100,n_perm = 200,cores = 16, 
+                                                               percent_list, max_comb = 100,n_perm = 100,cores = 16, 
                                                                classical_gower = TRUE,pos= 100)
          #Plot  --------
          depletion_plot(freshfishtrait_miss,version=1)
@@ -965,7 +960,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
                                     dimension = freshfish_dim,
                                     cluster = freshfishtrait_sigle)
          
-         save(freshfishtrait_res,file=file.path(results_final_dir,"freshfishtrait_res.RData"))
+         save(freshfishtrait_res,file=file.path(results_dir,"freshfishtrait_res.RData"))
          
     
          
@@ -1035,7 +1030,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
                                 dimension = birds_dim,
                                 cluster = birdstrait_sigle)
          
-         save(birdstrait_res,file=file.path(results_final_dir,"birdstrait_res.RData"))
+         save(birdstrait_res,file=file.path(results_dir,"birdstrait_res.RData"))
       
 # Set 14 --------------------------------------------------------------------Terrestrial mammals
          
@@ -1106,7 +1101,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
                                 dimension = mammalstrait_dim,
                                 cluster = mammalstrait_sigle)
          
-         save(mammalstrait_res,file=file.path(results_final_dir,"mammalstrait_res.RData"))
+         save(mammalstrait_res,file=file.path(results_dir,"mammalstrait_res.RData"))
        
 # Set 15 -------------------------------------------------------------------- Scleratinian corals 
          
@@ -1148,8 +1143,8 @@ percent_list = seq(0.1, 0.8, by = 0.1)
          
          #Depletion -----------------------------------------------------------
          coral_miss <- compute_missing_trait_distance(coral, coral_cat,
-                                                           percent_list, max_comb = 200,n_perm = 200,cores = 3, 
-                                                           classical_gower = TRUE,pos= 200)
+                                                           percent_list, max_comb = 100,n_perm = 100,cores = 3, 
+                                                           classical_gower = TRUE,pos= 100)
          
          save(coral_miss,file=file.path(results_dir,"coral_miss.RData"))
          
@@ -1162,7 +1157,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
          
          #Dimension  -----------------------------------------------------------
          
-         coral_dim <- dimension_funct(coral, dim_pcoa = 20,  metric_scaled = TRUE, coral_cat, classical_gower=TRUE,rep=99 ,cores = 3)
+         coral_dim <- dimension_funct(coral, dim_pcoa = 20,  metric_scaled = TRUE, coral_cat, classical_gower=TRUE,rep=999 ,cores = 3)
          save(coral_dim,file=file.path(results_dir,"coral_dim.RData"))
          #Plot  --------
          dim_plot(coral_dim,dim_pcoa = 20)
@@ -1190,7 +1185,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
                                 dimension = coral_dim,
                                 cluster = coral_sigle)
          
-         save(coral_res,file=file.path(results_final_dir,"coral_res.RData"))
+         save(coral_res,file=file.path(results_dir,"coral_res.RData"))
 # Set 16 --------------------------------------------------------------------
          bacteria <- read.csv2(file.path(data_dir,"data_FULL_bacteria.csv"),  header=TRUE,row.names = 1)
          
@@ -1223,8 +1218,8 @@ percent_list = seq(0.1, 0.8, by = 0.1)
          
          #Depletion -----------------------------------------------------------
          bacteria_miss <- compute_missing_trait_distance(bacteria, bacteria_cat,
-                                                      percent_list, max_comb = 200,n_perm = 200,cores = 3, 
-                                                      classical_gower = TRUE,pos= 200)
+                                                      percent_list, max_comb = 100,n_perm = 100,cores = 3, 
+                                                      classical_gower = TRUE,pos= 100)
          
          save(bacteria_miss,file=file.path(results_dir,"bacteria_miss.RData"))
          
@@ -1237,7 +1232,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
          
          #Dimension  -----------------------------------------------------------
          
-         bacteria_dim <- dimension_funct(bacteria, dim_pcoa = 20,  metric_scaled = TRUE, bacteria_cat, classical_gower=TRUE,rep=99 ,cores = 3)
+         bacteria_dim <- dimension_funct(bacteria, dim_pcoa = 20,  metric_scaled = TRUE, bacteria_cat, classical_gower=TRUE,rep=999 ,cores = 3)
          save(bacteria_dim,file=file.path(results_dir,"bacteria_dim.RData"))
          #Plot  --------
          dim_plot(bacteria_dim,dim_pcoa = 20)
@@ -1265,7 +1260,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
                            dimension = bacteria_dim,
                            cluster = bacteria_sigle)
          
-         save(bacteria_res,file=file.path(results_final_dir,"bacteria_res.RData"))
+         save(bacteria_res,file=file.path(results_dir,"bacteria_res.RData"))
 # Set 17 --------------------------------------------------------------------
          Eallonardo2013 <- read.csv2(file.path(data_dir,"Eallonardo2013.csv"),  header=TRUE,row.names = 1)
          
@@ -1304,8 +1299,8 @@ percent_list = seq(0.1, 0.8, by = 0.1)
          
          #Depletion -----------------------------------------------------------
          Eallonardo2013_miss <- compute_missing_trait_distance(Eallonardo2013, Eallonardo2013_cat,
-                                                         percent_list, max_comb = 200,n_perm = 200,cores = 3, 
-                                                         classical_gower = TRUE,pos= 200)
+                                                         percent_list, max_comb = 100,n_perm = 100,cores = 3, 
+                                                         classical_gower = TRUE,pos= 100)
          
          save(Eallonardo2013_miss,file=file.path(results_dir,"Eallonardo2013_miss.RData"))
          
@@ -1347,7 +1342,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
                               dimension = Eallonardo2013_dim,
                               cluster = Eallonardo2013_sigle)
          
-         save(Eallonardo2013_res,file=file.path(results_final_dir,"Eallonardo2013_res.RData"))
+         save(Eallonardo2013_res,file=file.path(results_dir,"Eallonardo2013_res.RData"))
 # Set 18 --------------------------------------------------------------------
          Yates2014 <- read.csv2(file.path(data_dir,"Yates2014.csv"),  header=TRUE,row.names = 1)
          
@@ -1387,8 +1382,8 @@ percent_list = seq(0.1, 0.8, by = 0.1)
          
          #Depletion -----------------------------------------------------------
          Yates2014_miss <- compute_missing_trait_distance(Yates2014, Yates2014_cat,
-                                                               percent_list, max_comb = 200,n_perm = 200,cores = 3, 
-                                                               classical_gower = TRUE,pos= 200)
+                                                               percent_list, max_comb = 100,n_perm = 100,cores = 3, 
+                                                               classical_gower = TRUE,pos= 100)
          
          save(Yates2014_miss,file=file.path(results_dir,"Yates2014_miss.RData"))
          
@@ -1429,7 +1424,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
                                     dimension = Yates2014_dim,
                                     cluster = Yates2014_sigle)
          
-         save(Yates2014_res,file=file.path(results_final_dir,"Yates2014_res.RData"))
+         save(Yates2014_res,file=file.path(results_dir,"Yates2014_res.RData"))
 # Set 19 --------------------------------------------------------------------Jeliazkov2013
          Jeliazkov2013 <- read.csv2(file.path(data_dir,"Jeliazkov2013.csv"),  header=TRUE,row.names = 1)
          
@@ -1463,8 +1458,8 @@ percent_list = seq(0.1, 0.8, by = 0.1)
          
          #Depletion -----------------------------------------------------------
          Jeliazkov2013_miss <- compute_missing_trait_distance(Jeliazkov2013, Jeliazkov2013_cat,
-                                                          percent_list, max_comb = 200,n_perm = 200,cores = 3, 
-                                                          classical_gower = TRUE,pos= 200)
+                                                          percent_list, max_comb = 100,n_perm = 100,cores = 3, 
+                                                          classical_gower = TRUE,pos= 100)
          
          save(Jeliazkov2013_miss,file=file.path(results_dir,"Jeliazkov2013_miss.RData"))
          
@@ -1506,7 +1501,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
                                dimension = Jeliazkov2013_dim,
                                cluster = Jeliazkov2013_sigle)
          
-         save(Jeliazkov2013_res,file=file.path(results_final_dir,"Jeliazkov2013_res.RData"))
+         save(Jeliazkov2013_res,file=file.path(results_dir,"Jeliazkov2013_res.RData"))
 
 
 
@@ -1542,8 +1537,8 @@ percent_list = seq(0.1, 0.8, by = 0.1)
          
          #Depletion -----------------------------------------------------------
          Gibb2015_miss <- compute_missing_trait_distance(Gibb2015, Gibb2015_cat,
-                                                          percent_list, max_comb = 200,n_perm = 200,cores = 3, 
-                                                          classical_gower = TRUE,pos= 200)
+                                                          percent_list, max_comb = 100,n_perm = 100,cores = 3, 
+                                                          classical_gower = TRUE,pos= 100)
          
          save(Gibb2015_miss,file=file.path(results_dir,"Gibb2015_miss.RData"))
          
@@ -1585,7 +1580,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
                                dimension = Gibb2015_dim,
                                cluster = Gibb2015_sigle)
          
-         save(Gibb2015_res,file=file.path(results_final_dir,"Gibb2015_res.RData"))
+         save(Gibb2015_res,file=file.path(results_dir,"Gibb2015_res.RData"))
          
          
  # Set 21 --------------------------------------------------------------------
@@ -1623,8 +1618,8 @@ percent_list = seq(0.1, 0.8, by = 0.1)
          
          #Depletion -----------------------------------------------------------
          ThermalFauna_miss <- compute_missing_trait_distance(ThermalFauna, ThermalFauna_cat,
-                                                          percent_list, max_comb = 200,n_perm = 200,cores = 3, 
-                                                          classical_gower = TRUE,pos= 200)
+                                                          percent_list, max_comb = 100,n_perm = 100,cores = 3, 
+                                                          classical_gower = TRUE,pos= 100)
          
          save(ThermalFauna_miss,file=file.path(results_dir,"ThermalFauna_miss.RData"))
          
@@ -1666,7 +1661,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
                                dimension = ThermalFauna_dim,
                                cluster = ThermalFauna_sigle)
          
-         save(ThermalFauna_res,file=file.path(results_final_dir,"ThermalFauna_res.RData"))
+         save(ThermalFauna_res,file=file.path(results_dir,"ThermalFauna_res.RData"))
          
          
          
@@ -1722,7 +1717,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
          #Depletion -----------------------------------------------------------
          plant_alps_miss <- compute_missing_trait_distance(plant_alps, plant_alps_cat,
                                                              percent_list, max_comb = 100,n_perm = 100,cores = 3, 
-                                                             classical_gower = TRUE,pos= 200)
+                                                             classical_gower = TRUE,pos= 100)
          
          save(plant_alps_miss,file=file.path(results_dir,"plant_alps_miss.RData"))
          
@@ -1764,7 +1759,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
                                   dimension = plant_alps_dim,
                                   cluster = plant_alps_sigle)
          
-         save(plant_alps_res,file=file.path(results_final_dir,"plant_alps_res.RData"))
+         save(plant_alps_res,file=file.path(results_dir,"plant_alps_res.RData"))
          
          
 # Set 23 --------------------------------------------------------------------CHondricthyens
@@ -1810,8 +1805,8 @@ percent_list = seq(0.1, 0.8, by = 0.1)
          
          #Depletion -----------------------------------------------------------
          Chondri_miss <- compute_missing_trait_distance(Chondri, Chondri_cat,
-                                                        percent_list, max_comb = 200,n_perm = 200,cores = 4, 
-                                                        classical_gower = TRUE,pos= 200)
+                                                        percent_list, max_comb = 100,n_perm = 100,cores = 4, 
+                                                        classical_gower = TRUE,pos= 100)
          #Plot  --------
          depletion_plot(Chondri_miss,version=1)
          save(Chondri_miss,file=file.path(results_dir,"Chondri_miss.RData"))
@@ -1821,7 +1816,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
          
          #Dimension  -----------------------------------------------------------
          
-         Chondri_dim <- dimension_funct(Chondri, dim_pcoa = 20,  metric_scaled = TRUE, Chondri_cat, classical_gower=TRUE,rep=99 ,cores = 3)
+         Chondri_dim <- dimension_funct(Chondri, dim_pcoa = 20,  metric_scaled = TRUE, Chondri_cat, classical_gower=TRUE,rep=999 ,cores = 3)
          save(Chondri_dim,file=file.path(results_dir,"Chondri_dim.RData"))
          
          #Plot  --------
@@ -1850,7 +1845,7 @@ percent_list = seq(0.1, 0.8, by = 0.1)
                              dimension = Chondri_dim,
                              cluster = Chondri_sigle)
          
-         save(Chondri_res,file=file.path(results_final_dir,"Chondri_res.RData"))
+         save(Chondri_res,file=file.path(results_dir,"Chondri_res.RData"))
          
          
 # Set 24 -------------------------------------------------------------------- Phytoplankton
@@ -1894,8 +1889,8 @@ percent_list = seq(0.1, 0.8, by = 0.1)
          
          #Depletion -----------------------------------------------------------
          Phytoplankton_miss <- compute_missing_trait_distance(Phytoplankton, Phytoplankton_cat,
-                                                        percent_list, max_comb = 200,n_perm = 200,cores = 4, 
-                                                        classical_gower = TRUE,pos= 200)
+                                                        percent_list, max_comb = 100,n_perm = 100,cores = 4, 
+                                                        classical_gower = TRUE,pos= 100)
          #Plot  --------
          depletion_plot(Phytoplankton_miss,version=1)
          save(Phytoplankton_miss,file=file.path(results_dir,"Phytoplankton_miss.RData"))
@@ -1934,4 +1929,4 @@ percent_list = seq(0.1, 0.8, by = 0.1)
                              dimension = Phytoplankton_dim,
                              cluster = Phytoplankton_sigle)
          
-         save(Phytoplankton_res,file=file.path(results_final_dir,"Phytoplankton_res.RData"))
+         save(Phytoplankton_res,file=file.path(results_dir,"Phytoplankton_res.RData"))
