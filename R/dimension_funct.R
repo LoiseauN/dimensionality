@@ -71,7 +71,7 @@ dimension_funct<- function(trait_df, dim_pcoa = 10,rep = 99,cores=3,
       ui_done(paste0("Compute null model for AUC, Have a break, Have a kit kat, nbdim = ", i))
       
       if (i == nbdim) { 
-        ui_done(paste0("Last one, Put down this kit kat, with quarantine you're getting faaaat!"))}
+        ui_done(paste0("Last one, end of the kit kat!"))}
       #rand_table = matrix(NA,rep,nbdim)
       
       rand_table =  do.call(rbind, pbmclapply(1:rep, function (j) {
