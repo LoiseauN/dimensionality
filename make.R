@@ -29,4 +29,4 @@ percent_list <- seq(0.1, 0.8, by = 0.1)
 
 ## Run Analyses                                                             ----
 
-source(here::here("analyses", "{{script_name}}.R"))
+source(here::here("analyses", "bartonova_2016.R"))
