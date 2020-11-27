@@ -1,15 +1,35 @@
 # dimensionality
-R code and data to reproduce figures of ___________ article.
 
-## General
+Research Compendium of the ___________ article.
+
+
+## Goal
+
+`__Add content__`
+
+
+
+## Content
+
 This repository is structured as follow:
 
-data/: contains all dataset required to reproduce figures
-R/: contains R functions developed for this project
-analyses/: contains R scripts to run analyses
-results/: contains output from analyses
-figures/: contains figures 
+- :file_folder: &nbsp;[**analyses/**](https://github.com/loiseaun/dimensionality/tree/master/analyses):
+`__Add description__`
+- :file_folder: &nbsp;[**data/**](https://github.com/loiseaun/dimensionality/tree/master/data):
+`__Add description__`
+- :file_folder: &nbsp;[**man/**](https://github.com/loiseaun/dimensionality/tree/master/man):
+`__Add description__`
+- :file_folder: &nbsp;[**R/**](https://github.com/loiseaun/dimensionality/tree/master/R):
+`__Add description__`
+- :file_folder: &nbsp;[**outputs/**](https://github.com/loiseaun/dimensionality/tree/master/outputs):
+`__Add description__`
+- :page_facing_up: &nbsp;[**DESCRIPTION**](https://github.com/loiseaun/dimensionality/tree/master/DESCRIPTION):
+`__Add description__`
+- :page_facing_up: &nbsp;[**make.R**](https://github.com/loiseaun/dimensionality/tree/master/make.R):
+`__Add description__`
 
-## Notes
-All required packages will be installed (if necessary) and loaded.
 
+
+## Usage
+
+`__Add content__`

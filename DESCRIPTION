@@ -1,0 +1,47 @@
+Package: dimensionality
+Title: What the Package Does (One Line, Title Case)
+Version: 1.0.0
+Authors@R: c(
+    person(given  = "Nicolas",
+           family = "Loiseau",
+           role   = c("aut", "cre"),
+           email  = "nicolas.loiseau1@gmail.com"),
+    person(given  = "Michele",
+           family = "Allegra",
+           role   = "aut",
+           email  = "micheleallegra85@gmail.com"),
+    person(given  = "Matthias",
+           family = "Grenie",
+           role   = "aut",
+           email  = "matthias.grenie@cefe.cnrs.fr"),
+    person(given  = "Nicolas",
+           family = "Casajus",
+           role   = "aut",
+           email  = "nicolas.casajus@fondationbiodiversite.fr"))
+Description: What the package does (one paragraph).
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports:
+    ade4,
+    ape,
+    cluster,
+    coRanking,
+    data.table,
+    dendextend,
+    devtools,
+    dplyr,
+    FD,
+    ggplot2,
+    grid,
+    gridExtra,
+    here,
+    igraph,
+    mistr,
+    parallel,
+    pbmcapply,
+    png,
+    usethis,
+    vegan
