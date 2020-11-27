@@ -24,6 +24,8 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+Depends:
+    ggplot2,
 Imports:
     ade4,
     ape,
@@ -34,7 +36,6 @@ Imports:
     devtools,
     dplyr,
     FD,
-    ggplot2,
     grid,
     gridExtra,
     here,
@@ -42,6 +43,9 @@ Imports:
     mistr,
     parallel,
     pbmcapply,
+    plyr,
     png,
+    stats,
     usethis,
-    vegan
+    vegan,
+    viridis
