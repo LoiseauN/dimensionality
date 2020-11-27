@@ -17,7 +17,7 @@
 #'
 #' @export
 #' @import ggplot2
-#' @importFrom igraph graph_from_adjacency_matrix
+#' @importFrom igraph graph_from_adjacency_matrix components
 
 
 DPC <- function(X,metric = "euclidean", radius='automatic', fraction=0.01, mode='automatic', rhomin='automatic',deltamin='automatic', density_filter='saddle', rho_threshold=0, removezeroes=FALSE){
@@ -129,7 +129,7 @@ find_clusters <- function(rho,delta,rhomin,deltamin,imin) {
 
   G=igraph::graph_from_adjacency_matrix(A)
 
-  comp = components(G)
+  comp = igraph::components(G)
 
   cluster=comp$membership
 
