@@ -80,9 +80,8 @@ compute_missing_trait_distance <- function(trait_df, trait_category_df,
 
         # Compute AUC rank ----
 
-        pcoa_miss <- tryCatch(
-          pcoa_miss = ape::pcoa(miss_trait_dist),
-          error     = function(err) result <- "NA"
+        pcoa_miss <- tryCatch({ ape::pcoa(miss_trait_dist) },
+          error = function(e) { "NA" }
         )
 
         if ((is(pcoa_miss)[1] == "character") == "TRUE") {
