@@ -65,16 +65,18 @@ save(Bartonova2016_miss,file = here::here("results", "Bartonova2016_miss.RData")
 
 # Plot  ----
 
-depletion_plot(Bartonova2016_miss, version = 1)
+print(depletion_plot(Bartonova2016_miss, version = 1))
 
 
 # Table Result Depletion  ----
 
 Bartonova2016_miss_final <- Bartonova2016_miss
-Bartonova2016_miss_final <- aggregate(
+Bartonova2016_miss_final <- stats::aggregate(
   x   = Bartonova2016_miss_final,
-  by  = Bartonova2016_miss_final$"miss_percent",
-  FUN = mean)[ , -2]
+  by  = list(miss_percent = Bartonova2016_miss_final$"miss_percent"),
+  FUN = mean
+)
+Bartonova2016_miss_final <- Bartonova2016_miss_final[ , -2]
 
 
 # Dimension  ----
@@ -94,7 +96,7 @@ save(Bartonova2016_dim, file = here::here("results", "Bartonova2016_dim.RData"))
 
 # Plot  ----
 
-dim_plot(Bartonova2016_dim, dim_pcoa = 20)
+print(dim_plot(Bartonova2016_dim, dim_pcoa = 20))
 
 
 # Singleton  ----
