@@ -4,14 +4,12 @@
 \alias{dim_plot}
 \title{\strong{ADD DESCRIPTION}}
 \usage{
-dim_plot(data_miss, dim_pcoa, metric)
+dim_plot(data_miss, dim_pcoa)
 }
 \arguments{
 \item{data_miss}{\strong{ADD DESCRIPTION}}
 
 \item{dim_pcoa}{\strong{ADD DESCRIPTION}}
-
-\item{metric}{\strong{ADD DESCRIPTION}}
 }
 \description{
 \strong{ADD DESCRIPTION}
