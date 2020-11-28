@@ -10,12 +10,14 @@ as_numerical(x, cols = NULL)
 
 as_categorical(x, cols = NULL)
 
-as_ordinal(x, cols = NULL)
+as_ordinal(x, cols = NULL, level = TRUE)
 }
 \arguments{
 \item{x}{a data frame}
 
 \item{cols}{columns names or numbers corresponding to variables to convert}
+
+\item{level}{a boolean}
 }
 \value{
 A data frame.

@@ -6,6 +6,7 @@
 #'
 #' @param x a data frame
 #' @param cols columns names or numbers corresponding to variables to convert
+#' @param level a boolean
 #'
 #' @return A data frame.
 #'
@@ -37,7 +38,7 @@ as_categorical <- function(x, cols = NULL) {
 
 
 #' @describeIn as_numerical Convert to ordinal variable.
-as_ordinal <- function(x, cols = NULL) {
+as_ordinal <- function(x, cols = NULL, level = TRUE) {
 
   if (!is.null(cols)) {
     for (i in cols){

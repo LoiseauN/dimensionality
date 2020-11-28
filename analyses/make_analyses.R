@@ -248,7 +248,7 @@ rm(list = "dataset")
 
 
 #' @header *********************************************************************
-#' @dataset (10) USDA PLANTS
+#' @dataset (10) USDA PLANTS                                                    NOT RUN
 #' @header *********************************************************************
 
 
@@ -279,7 +279,7 @@ rm(list = "dataset")
 
 
 #' @header *********************************************************************
-#' @dataset (11) PALM TRAITS
+#' @dataset (11) PALM TRAITS                                                    NOT RUN
 #' @header *********************************************************************
 
 
@@ -295,6 +295,8 @@ dataset <- read.csv2(
 
 # Traits Preparation and Categorization ----
 
+dataset <- dataset[ , -c(1:4)]
+
 dataset <- as_numerical(dataset, cols = c(7:8, 11:19))
 dataset <- as_categorical(dataset, cols = c(9, 20:ncol(dataset)))
 
@@ -302,4 +304,379 @@ dataset <- as_categorical(dataset, cols = c(9, 20:ncol(dataset)))
 # Run Analysis ----
 
 run_analysis(dataset, name = "palmtraits")
+rm(list = "dataset")
+
+
+
+#' @header *********************************************************************
+#' @dataset (12) FRESHWATER FISHES                                              NOT RUN
+#' @header *********************************************************************
+
+
+
+# Read Dataset ----
+
+load(here::here("data", "freshfishtrait.RData"))
+dataset <- freshfishtrait
+rm(list = "freshfishtrait")
+
+
+# Remove lines with too much NA (i.e. more than 5) ----
+
+dataset <- dataset[rowSums(is.na(dataset)) < 5, ]
+
+
+# Run Analysis ----
+
+run_analysis(dataset, name = "freshfishtrait")
+rm(list = "dataset")
+
+
+
+#' @header *********************************************************************
+#' @dataset (13) BIRDS                                                          NOT RUN
+#' @header *********************************************************************
+
+
+
+# Read Dataset ----
+
+load(here::here("data", "birdstrait.RData"))
+dataset <- birdstrait
+rm(list = "birdstrait")
+
+
+# Run Analysis ----
+
+run_analysis(dataset, name = "birdstrait")
+rm(list = "dataset")
+
+
+
+#' @header *********************************************************************
+#' @dataset (14) MAMMALS                                                        NOT RUN
+#' @header *********************************************************************
+
+
+
+# Read Dataset ----
+
+load(here::here("data", "mammalstrait.RData"))
+dataset <- mammalstrait
+rm(list = "mammalstrait")
+
+
+# Run Analysis ----
+
+run_analysis(dataset, name = "mammalstrait")
+rm(list = "dataset")
+
+
+
+#' @header *********************************************************************
+#' @dataset (15) CORAL                                                          NOT RUN
+#' @header *********************************************************************
+
+
+
+# Read Dataset ----
+
+dataset <- read.csv2(
+  file      = here::here("data", "coraltraitsv3.csv"),
+  header    = TRUE,
+  row.names = 1
+)
+
+
+# Traits Preparation and Categorization ----
+
+dataset <- as_numerical(dataset, cols = c(2:5, 13))
+dataset <- as_categorical(dataset, cols = c(1, 6:12))
+
+dataset <- dataset[ , -10]
+dataset <- dataset[ , -13]
+
+
+# Run Analysis ----
+
+run_analysis(dataset, name = "coral")
+rm(list = "dataset")
+
+
+
+#' @header *********************************************************************
+#' @dataset (16) BACTERIA                                                       NOT RUN
+#' @header *********************************************************************
+
+
+
+# Read Dataset ----
+
+dataset <- read.csv2(
+  file      = here::here("data", "data_FULL_bacteria.csv"),
+  header    = TRUE,
+  row.names = 1
+)
+
+
+# Traits Preparation and Categorization ----
+
+dataset <- as_categorical(dataset, cols = 1)
+
+
+# Run Analysis ----
+
+run_analysis(dataset, name = "bacteria")
+rm(list = "dataset")
+
+
+
+#' @header *********************************************************************
+#' @dataset (17) EALLONARDO 2013                                                NOT RUN
+#' @header *********************************************************************
+
+
+
+# Read Dataset ----
+
+dataset <- read.csv2(
+  file      = here::here("data", "Eallonardo2013.csv"),
+  header    = TRUE,
+  row.names = 1
+)
+
+
+# Traits Preparation and Categorization ----
+
+dataset <- as_numerical(dataset, cols = 6:11)
+dataset <- as_categorical(dataset, cols = 1:5)
+
+
+# Run Analysis ----
+
+run_analysis(dataset, name = "eallonardo2013")
+rm(list = "dataset")
+
+
+
+#' @header *********************************************************************
+#' @dataset (18) YATES 2014                                                     NOT RUN
+#' @header *********************************************************************
+
+
+
+# Read Dataset ----
+
+dataset <- read.csv2(
+  file      = here::here("data", "Yates2014.csv"),
+  header    = TRUE,
+  row.names = 1
+)
+
+
+# Traits Preparation and Categorization ----
+
+dataset <- as_numerical(dataset, cols = 1:11)
+dataset <- as_ordinal(dataset, cols = 11)
+
+
+# Run Analysis ----
+
+run_analysis(dataset, name = "yates2014")
+rm(list = "dataset")
+
+
+
+#' @header *********************************************************************
+#' @dataset (19) JELIAZKOV 2013                                                 NOT RUN
+#' @header *********************************************************************
+
+
+
+# Read Dataset ----
+
+dataset <- read.csv2(
+  file      = here::here("data", "Jeliazkov2013.csv"),
+  header    = TRUE,
+  row.names = 1
+)
+
+
+# Traits Preparation and Categorization ----
+
+dataset <- as_ordinal(dataset, cols = 1:89)
+
+
+# Run Analysis ----
+
+run_analysis(dataset, name = "jeliazkov2013")
+rm(list = "dataset")
+
+
+
+#' @header *********************************************************************
+#' @dataset (20) GIBB 2015                                                      NOT RUN
+#' @header *********************************************************************
+
+
+
+# Read Dataset ----
+
+dataset <- read.csv2(
+  file      = here::here("data", "Gibb2015.csv"),
+  header    = TRUE,
+  row.names = 1
+)
+
+
+# Traits Preparation and Categorization ----
+
+dataset <- as_numerical(dataset, cols = 1:10)
+
+
+# Run Analysis ----
+
+run_analysis(dataset, name = "gibb2015")
+rm(list = "dataset")
+
+
+
+#' @header *********************************************************************
+#' @dataset (21) THERMAL VENT FAUNA                                             NOT RUN
+#' @header *********************************************************************
+
+
+
+# Read Dataset ----
+
+dataset <- read.csv2(
+  file      = here::here("data", "Thermal Vent Fauna.csv"),
+  header    = TRUE,
+  row.names = 1
+)
+
+
+# Traits Preparation and Categorization ----
+
+dataset <- as_ordinal(dataset, cols = c(1, 3:8, 13:16))
+
+
+# Run Analysis ----
+
+run_analysis(dataset, name = "thermal_fauna")
+rm(list = "dataset")
+
+
+
+#' @header *********************************************************************
+#' @dataset (22) PLANTS ALPS                                                    NOT RUN
+#' @header *********************************************************************
+
+
+
+# Read Dataset ----
+
+dataset <- read.csv2(
+  file      = here::here("data", "plant_alps.csv"),
+  header    = TRUE,
+  row.names = 1
+)
+
+
+# Remove traits with too much NA (> 60 %) ----
+
+dataset <- dataset[ , (colSums(is.na(dataset)) < nrow(dataset) * 0.6)]
+
+
+# Remove line with too much NA (> 50%) ----
+
+dataset <- dataset[(rowSums(is.na(dataset)) < ncol(dataset) * 0.5), ]
+
+
+# Traits Preparation and Categorization ----
+
+dataset <- as_numerical(dataset, cols = c(18, 28:30))
+dataset <- as_ordinal(dataset, cols = c(1:3, 5, 7, 10, 13, 15, 17, 20:27, 31:33), level = FALSE)
+dataset <- as_ordinal(dataset, cols = c(4, 6, 8, 9, 11:12, 14, 16, 19))
+
+
+# Run Analysis ----
+
+run_analysis(dataset, name = "plant_alps")
+rm(list = "dataset")
+
+
+
+#' @header *********************************************************************
+#' @dataset (23) CHONDRICHTYENS                                                 NOT RUN
+#' @header *********************************************************************
+
+
+
+# Read Dataset ----
+
+dataset <- read.csv2(
+  file      = here::here("data", "Chondrichtyens_traits.csv"),
+  header    = TRUE,
+  row.names = 1
+)
+
+
+# Remove traits with too much NA ----
+
+dataset <- dataset[ , (colSums(is.na(dataset)) < 672)]
+
+
+# Remove line with too much NA ----
+
+dataset <- dataset[(rowSums(is.na(dataset)) < 7), ]
+
+
+# Traits Preparation and Categorization ----
+
+dataset <- as_numerical(dataset, cols = c(1:7, 11:14))
+dataset <- as_categorical(dataset, cols = 8:10)
+
+
+# Run Analysis ----
+
+run_analysis(dataset, name = "chondrichtyens")
+rm(list = "dataset")
+
+
+
+#' @header *********************************************************************
+#' @dataset (24) PHYTOPLANKTON                                                  NOT RUN
+#' @header *********************************************************************
+
+
+
+# Read Dataset ----
+
+dataset <- read.csv2(
+  file      = here::here("data", "Phytoplankton.csv"),
+  header    = TRUE,
+  row.names = 1
+)
+
+
+# Remove traits with too much NA ----
+
+dataset <- dataset[ , (colSums(is.na(dataset)) < nrow(dataset) * 0.6)]
+
+
+# Remove line with too much NA ----
+
+dataset <- dataset[(rowSums(is.na(dataset)) < ncol(dataset) * 0.5), ]
+
+
+# Traits Preparation and Categorization ----
+
+dataset <- as_numerical(dataset, cols = c(1:3, 5:7))
+dataset <- as_categorical(dataset, cols = c(4, 8:15))
+
+
+# Run Analysis ----
+
+run_analysis(dataset, name = "phytoplankton")
 rm(list = "dataset")
