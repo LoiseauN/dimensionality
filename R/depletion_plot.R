@@ -4,6 +4,7 @@
 #' @param version types of graph (1, 2, or 3)
 #'
 #' @export
+#' @importFrom grid gpar textGrob
 #' @importFrom gridExtra grid.arrange
 #' @importFrom viridis scale_fill_viridis scale_color_viridis
 
@@ -46,10 +47,10 @@ depletion_plot <- function(data, version) {
       labs(y = "AUC") +
       scale_x_continuous(breaks = seq(0.15, 0.9, by = 0.15))
 
-    grid.arrange(mantel_r, MAD, AUC,
+    gridExtra::grid.arrange(mantel_r, MAD, AUC,
                  ncol = 3,
-                 top  = textGrob("Influence of trait depletion",
-                 gp   = gpar(fontsize = 20, font = 3)))
+                 top  = grid::textGrob("Influence of trait depletion",
+                 gp   = grid::gpar(fontsize = 20, font = 3)))
   }
 
 
@@ -84,10 +85,10 @@ depletion_plot <- function(data, version) {
       labs(x = "Percentage of depletion") +
       labs(y = "AUC")
 
-    grid.arrange(mantel_r, MAD, AUC,
+    gridExtra::grid.arrange(mantel_r, MAD, AUC,
                  ncol = 3,
-                 top  = textGrob("Influence of trait depletion",
-                 gp   = gpar(fontsize = 20, font = 3)))
+                 top  = grid::textGrob("Influence of trait depletion",
+                 gp   = grid::gpar(fontsize = 20, font = 3)))
   }
 
 
@@ -127,9 +128,9 @@ depletion_plot <- function(data, version) {
       xlab("Percentage of depletion") +
       ylab("AUC")
 
-    grid.arrange(mantel_r, MAD, AUC,
+    gridExtra::grid.arrange(mantel_r, MAD, AUC,
                  ncol = 3,
-                 top  = textGrob("Influence of trait depletion",
-                 gp   = gpar(fontsize = 20, font = 3)))
+                 top  = grid::textGrob("Influence of trait depletion",
+                 gp   = grid::gpar(fontsize = 20, font = 3)))
   }
 }
