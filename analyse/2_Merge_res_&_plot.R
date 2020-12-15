@@ -1,8 +1,19 @@
 
+# Install and load required packages ---------------------------------------------------------------------
+pkgs <- c("vegan", "grid", "png", "RCurl", "data.table", "coRanking","parallel","gridExtra","grid",
+          "ggplot2","dplyr","ade4","mistr","dendextend","pbmcapply","usethis","harrypotter","ggalt","GGally","tidyverse","plyr")
+
+nip  <- pkgs[!(pkgs %in% installed.packages())]
+nip <- lapply(nip, install.packages, dependencies = TRUE)
+ip   <- unlist(lapply(pkgs, require, character.only = TRUE, quietly = TRUE))
+
+
 # Load Png
 files <- list.files(path = png_dir, pattern = "*.png", full.names=TRUE)
 all_im <- lapply(files, readPNG )
-names(all_im) <- gsub(".*/icons/", "", files) 
+names(all_im) <- gsub("/Users/nicolasloiseau/Dropbox/Clustering&Dimensionality/Dimension&Depletion/Pic_for_fig/", "", files) 
+#names(all_im) <- gsub("/Users/nloiseau/Dropbox/Clustering&Dimensionality/Dimension&Depletion/Pic_for_fig/", "", files) 
+
 names(all_im)  <- gsub(".png", "",names(all_im)) 
 
 #function to add picture in wrap  
@@ -14,7 +25,7 @@ names(all_im)  <- gsub(".png", "",names(all_im))
 
 # --------------------------------------------------------------------
 # Results for model
-files <- list.files(path=results_dir,pattern = "_res.RData",full.names = T)
+files <- list.files(path=results_final_dir,pattern = "_res.RData",full.names = T)
 list_res <- lapply(files, function(x) mget(load(x)))
 files <- list.files(path=results_dir,pattern = "cor_",full.names = T)
 list_res_cor <- lapply(files, function(x) mget(load(x)))
@@ -68,7 +79,7 @@ load(file=file.path(results_dir,"res_for_model.RData"))
 #####################################Results and plot for dimension#############################
 ################################################################################################
 
-#Figure 1 ---
+#Figure 2 ---
       
       files <- list.files(path=results_dir,pattern = "_res.RData",full.names = T)
       list_res <- lapply(files, function(x) mget(load(x)))
@@ -120,7 +131,7 @@ load(file=file.path(results_dir,"res_for_model.RData"))
       
       p <- ggplot(res_for_graph_dim, aes(x=dim, y=AUC,colour = taxa )) + 
         stat_summary(fun = "mean", geom="line",size=1,alpha=0.4)+
-        stat_summary(fun = "mean",size=0.88)+theme_bw()+labs(x = "Number of dimensions")+labs(y = "Quality of species trait space (AUC)")+
+        stat_summary(fun = "mean",size=0.88)+theme_bw()+labs(x = "Number of dimensions(PCoA axes)")+labs(y = "Quality of species trait space (AUC)")+
         #geom_label(data = res_for_model, aes(0.5, 5, hjust = 1, 
          #              "Adj R2 = ",
          #               S,"\n",
@@ -146,9 +157,9 @@ load(file=file.path(results_dir,"res_for_model.RData"))
                         x=0 ,xend=res_for_graph_dim$selec_elbow_graph),color="black",linetype="dotted",size=1) +
       geom_point(data = ddply(res_for_graph_dim, "taxa", summarize, wavg = AUC), 
                       aes(y=res_for_graph_dim$AUCwhenelbow,x=res_for_graph_dim$selec_elbow_graph),color="black",size=4,shape=19)+
-      geom_label(data = res_for_graph_dim, aes(label= paste0("#S = ", SP ,"\n","#T = ",trait), y =0.12,x=5), size=3, hjust = 0) 
-
-      
+      geom_label(data = res_for_graph_dim, aes(label= paste0("Elbow-AUC = ",elbow,"\n", "#S = ", SP ,"\n","#T = ",trait),
+                                               y =0.5,x=10), size=2.1, hjust = 0) + #y =0.12,x=5
+      scale_y_continuous(breaks=seq(0.1,1,0.2))
       
       a1 = annotation_custom2(rasterGrob(all_im$Eallonardo2013, interpolate=TRUE), xmin=15, xmax=21, ymin=0.01, ymax=0.34, data=res_for_graph_dim[res_for_graph_dim$taxa==unique(res_for_graph_dim$taxa)[1],])
       a2 = annotation_custom2(rasterGrob(all_im$Beetle, interpolate=TRUE), xmin=15, xmax=21, ymin=0.01, ymax=0.34, data=res_for_graph_dim[res_for_graph_dim$taxa==unique(res_for_graph_dim$taxa)[2],])
@@ -162,7 +173,7 @@ load(file=file.path(results_dir,"res_for_model.RData"))
       a10 = annotation_custom2(rasterGrob(all_im$Clearly2016, interpolate=TRUE), xmin=15, xmax=21, ymin=0.01, ymax=0.34, data=res_for_graph_dim[res_for_graph_dim$taxa==unique(res_for_graph_dim$taxa)[10],])
       a11 = annotation_custom2(rasterGrob(all_im$Flua, interpolate=TRUE), xmin=15, xmax=21, ymin=0.01, ymax=0.34, data=res_for_graph_dim[res_for_graph_dim$taxa==unique(res_for_graph_dim$taxa)[11],])
       a12 = annotation_custom2(rasterGrob(all_im$Diaz2008, interpolate=TRUE), xmin=15, xmax=21, ymin=0.01, ymax=0.34, data=res_for_graph_dim[res_for_graph_dim$taxa==unique(res_for_graph_dim$taxa)[12],])
-      a13 = annotation_custom2(rasterGrob(all_im$Jeliazkov2013, interpolate=TRUE), xmin=15, xmax=21, ymin=0.01, ymax=0.34, data=res_for_graph_dim[res_for_graph_dim$taxa==unique(res_for_graph_dim$taxa)[13],])
+      a13 = annotation_custom2(rasterGrob(all_im$InvertebrateNZ, interpolate=TRUE), xmin=15, xmax=20, ymin=0.01, ymax=0.31, data=res_for_graph_dim[res_for_graph_dim$taxa==unique(res_for_graph_dim$taxa)[13],])
       a14 = annotation_custom2(rasterGrob(all_im$ThermalFauna, interpolate=TRUE), xmin=15, xmax=21, ymin=0.01, ymax=0.34, data=res_for_graph_dim[res_for_graph_dim$taxa==unique(res_for_graph_dim$taxa)[14],])
       a15 = annotation_custom2(rasterGrob(all_im$coral, interpolate=TRUE), xmin=15, xmax=21, ymin=0.01, ymax=0.34, data=res_for_graph_dim[res_for_graph_dim$taxa==unique(res_for_graph_dim$taxa)[15],])
       a16 = annotation_custom2(rasterGrob(all_im$bacteria, interpolate=TRUE), xmin=15, xmax=21, ymin=0.01, ymax=0.34, data=res_for_graph_dim[res_for_graph_dim$taxa==unique(res_for_graph_dim$taxa)[16],])
@@ -175,7 +186,7 @@ load(file=file.path(results_dir,"res_for_model.RData"))
       a23 = annotation_custom2(rasterGrob(all_im$freshfish, interpolate=TRUE), xmin=15, xmax=21, ymin=0.01, ymax=0.34, data=res_for_graph_dim[res_for_graph_dim$taxa==unique(res_for_graph_dim$taxa)[23],])
       a24 = annotation_custom2(rasterGrob(all_im$birds, interpolate=TRUE), xmin=15, xmax=21, ymin=0.01, ymax=0.34, data=res_for_graph_dim[res_for_graph_dim$taxa==unique(res_for_graph_dim$taxa)[24],])
       
-      pdf(file=file.path(fig_dir,"Figure1.pdf"), width = 11.7, height = 8.3)#SAVE A4
+      pdf(file=file.path(fig_dir,"Figure2.pdf"), width = 11.7, height = 8.3)#SAVE A4
       p + a1 + a2 + a3 + a4 + a5 + a6  + a7 + a8 + a9 + a10 + 
         a11 + a12 + a13 + a14 + a15 + a16  + a17 + a18 + a19 + a20 + 
         a21 + a22 + a23 + a24
@@ -184,7 +195,7 @@ load(file=file.path(results_dir,"res_for_model.RData"))
 
 
  
-#Figure 3 ---
+#Figure 4 ---
 
 files <- list.files(path=results_dir,pattern = "_miss.RData",full.names = T)
 list_res <- lapply(files, function(x) mget(load(x)))
@@ -214,7 +225,7 @@ res_for_graph_miss$taxa <- factor(res_for_graph_miss$taxa, levels=unique(res_for
 res_for_graph_miss <- res_for_graph_miss[order(res_for_graph_miss$taxa,decreasing = F),]
 
 p2 <- ggplot(res_for_graph_miss, aes(x=miss_percent*100, y=AUC,fill=as.factor(miss_percent*100))) + 
-  geom_boxplot()+theme_bw()+labs(x = "Trait depletion (%)",y = "Quality of species trait space (AUC)",size = 14) +
+  geom_boxplot()+theme_bw()+labs(x = "Traits omission (%)",y = "Quality of species trait space (AUC)",size = 14) +
   scale_fill_hp_d(option = "ronweasley2",direction = -1)+
   #geom_vline(data = res_for_model, mapping = aes(xintercept = Perc_miss_AUC_0.5)) +
   #geom_vline(data = res_for_model, mapping = aes(xintercept = Percentage_lostAUC_depleted0.5),linetype="dotted")+
@@ -227,35 +238,36 @@ p2 <- ggplot(res_for_graph_miss, aes(x=miss_percent*100, y=AUC,fill=as.factor(mi
         panel.background = element_blank(),
         axis.title.x = element_text( size=14, face="bold"),
         axis.title.y = element_text( size=14, face="bold"),
-        legend.position = "none")
+        legend.position = "none")+ 
+  scale_y_continuous(breaks=seq(0.1,1,0.2))
 
 
-b1 = annotation_custom2(rasterGrob(all_im$Eallonardo2013, interpolate=TRUE), xmin=60, xmax=85, ymin=0.78, ymax=1, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[1],])
-b2 = annotation_custom2(rasterGrob(all_im$Beetle, interpolate=TRUE), xmin=60, xmax=85, ymin=0.78, ymax=1, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[2],])
-b3 = annotation_custom2(rasterGrob(all_im$Gibb2015, interpolate=TRUE), xmin=60, xmax=85, ymin=0.78, ymax=1, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[3],])
-b4 = annotation_custom2(rasterGrob(all_im$Goncalves2014, interpolate=TRUE), xmin=60, xmax=85, ymin=0.78, ymax=1, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[4],])
-b5 = annotation_custom2(rasterGrob(all_im$Jeliazkov2013, interpolate=TRUE), xmin=60, xmax=85, ymin=0.78, ymax=1, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[5],])
-b6 = annotation_custom2(rasterGrob(all_im$Yates2014, interpolate=TRUE), xmin=60, xmax=85, ymin=0.78, ymax=1, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[6],])
-b7 = annotation_custom2(rasterGrob(all_im$Bartonova2016, interpolate=TRUE), xmin=60, xmax=85, ymin=0.78, ymax=1, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[7],])
-b8 = annotation_custom2(rasterGrob(all_im$NorthSeaTraits, interpolate=TRUE), xmin=60, xmax=85, ymin=0.78, ymax=1, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[8],])
-b9 = annotation_custom2(rasterGrob(all_im$Pakeman2011, interpolate=TRUE), xmin=60, xmax=85, ymin=0.78, ymax=1, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[9],])
-b10 = annotation_custom2(rasterGrob(all_im$Clearly2016, interpolate=TRUE), xmin=60, xmax=85, ymin=0.78, ymax=1, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[10],])
-b11 = annotation_custom2(rasterGrob(all_im$Flua, interpolate=TRUE), xmin=60, xmax=85, ymin=0.78, ymax=1, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[11],])
-b12 = annotation_custom2(rasterGrob(all_im$Diaz2008, interpolate=TRUE), xmin=60, xmax=85, ymin=0.78, ymax=1, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[12],])
-b13 = annotation_custom2(rasterGrob(all_im$Jeliazkov2013, interpolate=TRUE), xmin=60, xmax=85, ymin=0.78, ymax=1, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[13],])
-b14 = annotation_custom2(rasterGrob(all_im$ThermalFauna, interpolate=TRUE), xmin=60, xmax=85, ymin=0.78, ymax=1, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[14],])
-b15 = annotation_custom2(rasterGrob(all_im$coral, interpolate=TRUE), xmin=60, xmax=85, ymin=0.78, ymax=1, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[15],])
-b16 = annotation_custom2(rasterGrob(all_im$bacteria, interpolate=TRUE), xmin=60, xmax=85, ymin=0.78, ymax=1, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[16],])
-b17 = annotation_custom2(rasterGrob(all_im$Chondri, interpolate=TRUE), xmin=60, xmax=85, ymin=0.78, ymax=1, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[17],])
-b18 = annotation_custom2(rasterGrob(all_im$phytoplankton, interpolate=TRUE), xmin=60, xmax=85, ymin=0.78, ymax=1, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[18],])
-b19 = annotation_custom2(rasterGrob(all_im$USDA_plant, interpolate=TRUE), xmin=60, xmax=85, ymin=0.78, ymax=1, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[19],])
-b20 = annotation_custom2(rasterGrob(all_im$PalmTraits, interpolate=TRUE), xmin=60, xmax=85, ymin=0.78, ymax=1, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[20],])
-b21 = annotation_custom2(rasterGrob(all_im$plant_alps, interpolate=TRUE), xmin=60, xmax=85, ymin=0.78, ymax=1, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[21],])
-b22 = annotation_custom2(rasterGrob(all_im$mammalstrait, interpolate=TRUE), xmin=60, xmax=85, ymin=0.78, ymax=1, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[22],])
-b23 = annotation_custom2(rasterGrob(all_im$freshfish, interpolate=TRUE), xmin=60, xmax=85, ymin=0.78, ymax=1, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[23],])
-b24 = annotation_custom2(rasterGrob(all_im$birds, interpolate=TRUE), xmin=60, xmax=85, ymin=0.78, ymax=1, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[24],])
+b1 = annotation_custom2(rasterGrob(all_im$Eallonardo2013, interpolate=TRUE), xmin=60, xmax=85, ymin=0.68, ymax=0.9, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[1],])
+b2 = annotation_custom2(rasterGrob(all_im$Beetle, interpolate=TRUE), xmin=60, xmax=85, ymin=0.68, ymax=0.9, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[2],])
+b3 = annotation_custom2(rasterGrob(all_im$Gibb2015, interpolate=TRUE), xmin=60, xmax=85, ymin=0.68, ymax=0.9, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[3],])
+b4 = annotation_custom2(rasterGrob(all_im$Goncalves2014, interpolate=TRUE), xmin=60, xmax=85, ymin=0.68, ymax=0.9, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[4],])
+b5 = annotation_custom2(rasterGrob(all_im$Jeliazkov2013, interpolate=TRUE), xmin=60, xmax=85, ymin=0.68, ymax=0.9, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[5],])
+b6 = annotation_custom2(rasterGrob(all_im$Yates2014, interpolate=TRUE), xmin=60, xmax=85, ymin=0.68, ymax=0.9, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[6],])
+b7 = annotation_custom2(rasterGrob(all_im$Bartonova2016, interpolate=TRUE), xmin=60, xmax=85, ymin=0.68, ymax=0.9, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[7],])
+b8 = annotation_custom2(rasterGrob(all_im$NorthSeaTraits, interpolate=TRUE), xmin=60, xmax=85, ymin=0.68, ymax=0.9, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[8],])
+b9 = annotation_custom2(rasterGrob(all_im$Pakeman2011, interpolate=TRUE), xmin=60, xmax=85, ymin=0.68, ymax=0.9, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[9],])
+b10 = annotation_custom2(rasterGrob(all_im$Clearly2016, interpolate=TRUE), xmin=60, xmax=85, ymin=0.68, ymax=0.9, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[10],])
+b11 = annotation_custom2(rasterGrob(all_im$Flua, interpolate=TRUE), xmin=60, xmax=85, ymin=0.68, ymax=0.9, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[11],])
+b12 = annotation_custom2(rasterGrob(all_im$Diaz2008, interpolate=TRUE), xmin=60, xmax=85, ymin=0.68, ymax=0.9, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[12],])
+b13 = annotation_custom2(rasterGrob(all_im$InvertebrateNZ, interpolate=TRUE), xmin=65, xmax=85, ymin=0.71, ymax=0.9, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[13],])
+b14 = annotation_custom2(rasterGrob(all_im$ThermalFauna, interpolate=TRUE), xmin=60, xmax=85, ymin=0.68, ymax=0.9, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[14],])
+b15 = annotation_custom2(rasterGrob(all_im$coral, interpolate=TRUE), xmin=60, xmax=85, ymin=0.68, ymax=0.9, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[15],])
+b16 = annotation_custom2(rasterGrob(all_im$bacteria, interpolate=TRUE), xmin=60, xmax=85, ymin=0.68, ymax=0.9, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[16],])
+b17 = annotation_custom2(rasterGrob(all_im$Chondri, interpolate=TRUE), xmin=60, xmax=85, ymin=0.68, ymax=0.9, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[17],])
+b18 = annotation_custom2(rasterGrob(all_im$phytoplankton, interpolate=TRUE), xmin=60, xmax=85, ymin=0.68, ymax=0.9, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[18],])
+b19 = annotation_custom2(rasterGrob(all_im$USDA_plant, interpolate=TRUE), xmin=60, xmax=85, ymin=0.68, ymax=0.9, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[19],])
+b20 = annotation_custom2(rasterGrob(all_im$PalmTraits, interpolate=TRUE), xmin=60, xmax=85, ymin=0.68, ymax=0.9, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[20],])
+b21 = annotation_custom2(rasterGrob(all_im$plant_alps, interpolate=TRUE), xmin=60, xmax=85, ymin=0.68, ymax=0.9, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[21],])
+b22 = annotation_custom2(rasterGrob(all_im$mammalstrait, interpolate=TRUE), xmin=60, xmax=85, ymin=0.68, ymax=0.9, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[22],])
+b23 = annotation_custom2(rasterGrob(all_im$freshfish, interpolate=TRUE), xmin=60, xmax=85, ymin=0.68, ymax=0.9, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[23],])
+b24 = annotation_custom2(rasterGrob(all_im$birds, interpolate=TRUE), xmin=60, xmax=85, ymin=0.68, ymax=0.9, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[24],])
 
-pdf(file=file.path(fig_dir,"Figure3.pdf"), width = 11.7, height = 8.3)#SAVE A4
+pdf(file=file.path(fig_dir,"Figure4.pdf"), width = 11.7, height = 8.3)#SAVE A4
 p2 + b1 + b2 + b3 + b4 + b5 + b6  + b7 + b8 + b9 + b10 + 
   b11 + b12 + b13 + b14 + b15 + b16  + b17 + b18 + b19 + b20 + 
   b21 + b22 + b23 + b24
@@ -264,7 +276,7 @@ dev.off()
 
 
 
-#Figure 6---
+#Figure 7---
     files <- list.files(path=results_dir,pattern = "_sigle.RData",full.names = T)
     list_res_sigle <- lapply(files, function(x) mget(load(x)))
     files <- list.files(path=results_dir,pattern = "_pcoa.RData",full.names = T)
@@ -309,10 +321,6 @@ dev.off()
     res_for_graph_sigle$cluster_ID[res_for_graph_sigle$cluster_ID!=1] <- 0
     
     
-    #jitval=50000
-    #res_for_graph_sigle$Pcoa1 <- jitter(res_for_graph_sigle$Pcoa1,jitval)
-    #res_for_graph_sigle$Pcoa2 <- jitter(res_for_graph_sigle$Pcoa2,jitval)
-    
     # cluster_core = 1 === singleton
     p3 <- ggplot(res_for_graph_sigle, aes(x=Pcoa1, y=Pcoa2,colour = taxa )) + 
         geom_point(aes(alpha=Single,shape=Single),size=0.7)+ #
@@ -325,8 +333,10 @@ dev.off()
         scale_colour_hp_d(option = "LunaLovegood",direction = 1)+
         theme(strip.background = element_blank(),
               strip.text.x = element_blank(),
+              strip.text.y = element_blank(),
               panel.grid.major = element_blank(), 
                panel.background = element_blank(),
+              panel.grid.minor = element_blank(),
               legend.position = "none",
                 axis.text.x = element_blank(),
                 axis.text.y = element_blank(),
@@ -364,7 +374,7 @@ dev.off()
     c10 = annotation_custom2(rasterGrob(all_im$Clearly2016, interpolate=TRUE), xmin=0.26, xmax=0.55, ymin=0.4, ymax=0.6, data=res_for_graph_sigle[res_for_graph_sigle$taxa==unique(res_for_graph_sigle$taxa)[10],])
     c11 = annotation_custom2(rasterGrob(all_im$Flua, interpolate=TRUE), xmin=0.075, xmax=0.22, ymin=-0.32, ymax=-0.18, data=res_for_graph_sigle[res_for_graph_sigle$taxa==unique(res_for_graph_sigle$taxa)[11],])
     c12 = annotation_custom2(rasterGrob(all_im$Diaz2008, interpolate=TRUE), xmin=0.18, xmax=0.32, ymin=0.07, ymax=0.18, data=res_for_graph_sigle[res_for_graph_sigle$taxa==unique(res_for_graph_sigle$taxa)[12],])
-    c13 = annotation_custom2(rasterGrob(all_im$Jeliazkov2013, interpolate=TRUE), xmin=0.1, xmax=0.25, ymin=0.2, ymax=0.35, data=res_for_graph_sigle[res_for_graph_sigle$taxa==unique(res_for_graph_sigle$taxa)[13],])
+    c13 = annotation_custom2(rasterGrob(all_im$InvertebrateNZ, interpolate=TRUE), xmin=0.1, xmax=0.25, ymin=0.2, ymax=0.35, data=res_for_graph_sigle[res_for_graph_sigle$taxa==unique(res_for_graph_sigle$taxa)[13],])
     c14 = annotation_custom2(rasterGrob(all_im$ThermalFauna, interpolate=TRUE), xmin=0.35, xmax=0.6, ymin=0.2, ymax=0.5, data=res_for_graph_sigle[res_for_graph_sigle$taxa==unique(res_for_graph_sigle$taxa)[14],])
     c15 = annotation_custom2(rasterGrob(all_im$coral, interpolate=TRUE), xmin=0.5, xmax=1, ymin=0.3, ymax=0.65, data=res_for_graph_sigle[res_for_graph_sigle$taxa==unique(res_for_graph_sigle$taxa)[15],])
     c16 = annotation_custom2(rasterGrob(all_im$bacteria, interpolate=TRUE), xmin=0.18, xmax=0.3, ymin=0.15, ymax=0.27, data=res_for_graph_sigle[res_for_graph_sigle$taxa==unique(res_for_graph_sigle$taxa)[16],])
@@ -377,9 +387,23 @@ dev.off()
     c23 = annotation_custom2(rasterGrob(all_im$freshfish, interpolate=TRUE), xmin=-0.1, xmax=-0.25, ymin=-0.3, ymax=-0.2, data=res_for_graph_sigle[res_for_graph_sigle$taxa==unique(res_for_graph_sigle$taxa)[23],])
     c24 = annotation_custom2(rasterGrob(all_im$birds, interpolate=TRUE), xmin=0.075, xmax=0.15, ymin=-0.13, ymax=-0.09, data=res_for_graph_sigle[res_for_graph_sigle$taxa==unique(res_for_graph_sigle$taxa)[24],])
     
-    pdf(file=file.path(fig_dir,"Figure6.pdf"), width = 11.7, height = 8.3)#SAVE A4
+    # Add whale sharks
+    c25 = annotation_custom2(rasterGrob(all_im$Rhincodontypus, interpolate=TRUE), xmin=-0.20, xmax=0.15, ymin=-1.05, ymax=0, data=res_for_graph_sigle[res_for_graph_sigle$taxa==unique(res_for_graph_sigle$taxa)[17],])
+   
+     my_arrow <- function(...){
+      
+      segmentsGrob(, arrow = arrow(type="closed", angle = 5,length=unit(5,"mm")))  
+      
+     }
+     
+   
+   
+    c26 <- annotation_custom2(my_arrow(), xmin=0.16, xmax=0.55, ymin=-0.54, ymax=-0.54, data=res_for_graph_sigle[res_for_graph_sigle$taxa==unique(res_for_graph_sigle$taxa)[17],])
+   
+
+    pdf(file=file.path(fig_dir,"Figure7.pdf"), width = 11.7, height = 8.3)#SAVE A4
     p3 + c1 + c2 + c3 + c4 + c5 + c6  + c7 + c8 + c9 + c10 + 
         c11 + c12 + c13 + c14 + c15 + c16  + c17 + c18 + c19 + c20 + 
-        c21 + c22 + c23 + c24
+        c21 + c22 + c23 + c24 + c25 +c26
     dev.off()  
      
