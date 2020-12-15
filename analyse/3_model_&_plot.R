@@ -1,8 +1,16 @@
 
+# Install and load required packages ---------------------------------------------------------------------
+pkgs <- c("spdep","corrgram","MuMIn","visreg","sjPlot","car",
+              "rsq","caret","relimp","MASS","musculusColors","harrypotter","gridExtra","grid","pixiedust",
+          "tidyverse","knitr","kableExtra","dplyr")
+nip  <- pkgs[!(pkgs %in% installed.packages())]
+nip <- lapply(nip, install.packages, dependencies = TRUE)
+ip   <- unlist(lapply(pkgs, require, character.only = TRUE, quietly = TRUE))
+
 # Load Data--------------------------------------------------------------------
 load(file=file.path(results_dir,"res_for_model.RData"))
 
-# log
+ log
 
 logS<-log10(res_for_model$S)
 
@@ -23,14 +31,6 @@ FR=res_for_model$S/res_for_model$Nb_cluster
 res_for_model=cbind(res_for_model,logS,logNT,logNS,logNC,log1C,PropSin,PropC1,FR)
 
 
-# correlations
-corrgram(res_for_model[,c(3:7,14,15,17,20,22,23,27,28,30,34)],lower.panel = panel.shade, upper.panel = panel.cor)
-
-# var to model color for plot
-musculus_palette("Bmlunge")
-pal <- hp(n = 5, house = "Ravenclaw",direction = -1)
-pal <-musculus_palette("Bmlunge",n = 5)
-
 # var to model
 var_to_mod <- c("Nb_dim_AUC_elbow","Nb_dim_AUC_0.7","rowAUClostwhen50percTraitdepleted","rowAUClostwhen20percTraitdepleted","logNS","PropSin")
 
@@ -38,28 +38,58 @@ var_to_mod <- c("Nb_dim_AUC_elbow","Nb_dim_AUC_0.7","rowAUClostwhen50percTraitde
 
 
 #' ---------------------------------------------------------------------------------@RawRelation 
-#' ---------------------------------------------------------@NonLogforStructure  
+#' ---------------------------------------------------------@LogforStructure  
 
-a <- ggplot(data = res_for_model,aes(S,Nb_cluster)) +geom_point(size=2,col="#3D7688") +
+a <- ggplot(data = res_for_model,aes(logS,logNC)) +geom_point(size=2,col="#3D7688") +
   theme_bw()+
-  stat_smooth(method = "gam", formula = y ~ s(x, k = 3), size = 1, se = T, color="#3D7688",fill="#D6EBEC")+
-  labs(y="Number of groups" , x = " ")+ 
-  theme(axis.title.y = element_text(size=12, face="bold"),axis.title.x = element_text(size=12,  face="bold"),axis.text.x=element_blank())
+  stat_smooth(method = "lm",  size = 1, se = T, color="#3D7688",fill="#D6EBEC")+ 
+  labs(y="Number of clusters (log)" , x = " ")+ 
+  theme(axis.title.y = element_text(size=12, face="bold"),axis.title.x = element_text(size=12,  face="bold"),axis.text.x=element_blank())+
+  geom_label(data = res_for_model, aes(label= paste0("Slope = ",round(lm(logNC~logS)$coefficients[2],2)),
+                                           y =3.8,x=1), size=4, hjust = 0)+
+  
+  expand_limits(x = c(1,4),y= c(1,4))+
+  geom_abline(slope=1, intercept=0)
 
-b <- ggplot(data = res_for_model,aes(S,NbS_Cluster1)) +geom_point(size=2,col="#3D7688")+
+b <- ggplot(data = res_for_model,aes(logS,log1C)) +geom_point(size=2,col="#3D7688")+
   theme_bw()+
-  stat_smooth(method = "gam", formula = y ~ s(x, k = 3), size = 1, se = T, color="#3D7688",fill="#D6EBEC")+
-  labs(y="Number of species in cluster 1" , x = " ")+ 
-  theme(axis.title.y = element_text(size=12, face="bold"),axis.title.x = element_text(size=12,  face="bold"),axis.text.x=element_blank())
+  stat_smooth(method = "lm",  size = 1, se = T, color="#3D7688",fill="#D6EBEC")+ 
+  labs(y="Number of species in cluster #1 (log)" , x = " ")+ 
+  theme(axis.title.y = element_text(size=12, face="bold"),axis.title.x = element_text(size=12,  face="bold"),axis.text.x=element_blank())+
+  geom_label(data = res_for_model, aes(label= paste0("Slope = ",round(lm(log1C~logS)$coefficients[2],2)),
+                                           y =3.8,x=1), size=4, hjust = 0)+
+  
+  expand_limits(x = c(1,4),y= c(1,4))+
+  geom_abline(slope=1, intercept=0)
 
-c <- ggplot(data = res_for_model,aes(S, Nb_single)) +geom_point(size=2,col="#3D7688")+
+c <- ggplot(data = res_for_model,aes(logS, logNS)) +geom_point(size=2,col="#3D7688")+
   theme_bw()+
-  stat_smooth(method = "gam", formula = y ~ s(x, k = 3), size = 1, se = T, color="#3D7688",fill="#D6EBEC")+ 
-  labs(y="Number of sigletons" , x = "Number of species")+ 
-  theme(axis.title.y = element_text(size=12, face="bold"),axis.title.x = element_text(size=12, face="bold"))
+  stat_smooth(method = "lm",  size = 1, se = T, color="#3D7688",fill="#D6EBEC")+ 
+  #stat_smooth(method = "gam", formula = y ~ s(x, k = 3), size = 1, se = T, color="#3D7688",fill="#D6EBEC")+ 
+  labs(y="Number of uniques (log)" , x = "Number of species (log)")+ 
+  theme(axis.title.y = element_text(size=12, face="bold"),axis.title.x = element_text(size=12, face="bold"))+
+  geom_label(data = res_for_model, aes(label= paste0("Slope = ",round(lm(logNS~logS)$coefficients[2],2)),
+                                           y =3.8,x=1), size=4, hjust = 0)+
 
-pdf(file=file.path(fig_dir,"Figure5.pdf"), width = 5, height = 8)
-grid.arrange(a,b,c,ncol=1)
+  expand_limits(x = c(1,4),y= c(1,4))+
+  geom_abline(slope=1, intercept=0)
+
+myplot1 <- arrangeGrob(a, top = textGrob("(a)", x = unit(1, "npc")
+                                               , y   = unit(1, "npc"), just=c("right","top"),
+                                               gp=gpar(col="black", fontsize=18)))
+
+myplot2 <- arrangeGrob(b, top = textGrob("(b)", x = unit(1, "npc")
+                                               , y = unit(1, "npc"), just=c("right","top"),
+                                               gp=gpar(col="black", fontsize=18)))
+
+myplot3 <- arrangeGrob(c, top = textGrob("(c)", x = unit(1, "npc")
+                                               , y  = unit(1, "npc"), just=c("right","top"),
+                                               gp=gpar(col="black", fontsize=18)))
+
+pdf(file=file.path(fig_dir,"Figure6.pdf"), width = 5, height = 8)
+#grid.arrange(a,b,c,ncol=1)
+#plot_grid(a, b, c,labels = c('(a)', '(b)','(c)'),nrow=3)
+grid.arrange(myplot1,myplot2,myplot3,ncol=1)
 dev.off()
 
 
@@ -84,7 +114,7 @@ f <- ggplot(data = res_for_model,aes(logS, logNS)) +geom_point(size=2,col="#3D76
   labs(y="Number of sigletons" , x = "Number of species")+ 
   theme(axis.title.y = element_text(size=12, face="bold"),axis.title.x = element_text(size=12, face="bold"))
 
-pdf(file=file.path(fig_dir,"Figure5_loglog.pdf"), width = 5, height = 8)
+pdf(file=file.path(fig_dir,"Figure6_loglog.pdf"), width = 5, height = 8)
 grid.arrange(d,e,f,ncol=1)
 dev.off()
 
@@ -250,7 +280,7 @@ dev.off()
   length(var_vis)
   
   #---plot 
-  S_plot <- visreg(mod_AUClostwhen50percTraitdepleted,"logS",scale="response",partial=TRUE,xlab="Number of Species(log)",ylab="AUC loss - 50% trait deletion",
+  S_plot <- visreg(mod_AUClostwhen50percTraitdepleted,"logS",scale="response",partial=TRUE,xlab="Number of Species (log)",ylab="AUC loss - 50% traits omission",
                    gg=TRUE, line=list(col="gray78"),
                    fill=list(fill="gray90",alpha=0.5),
                    points=list(size=2,col="gray78"))   + theme_bw() +
@@ -258,7 +288,7 @@ dev.off()
     expand_limits(y = c(0.2,1))+
   theme(axis.title.x  = element_text(face="bold"), axis.title.y  = element_text(face="bold"))
   
-  NT_plot <- visreg(mod_AUClostwhen50percTraitdepleted,"logNT",scale="response",partial=TRUE,xlab="Number of Traits(log)",ylab=" ",
+  NT_plot <- visreg(mod_AUClostwhen50percTraitdepleted,"logNT",scale="response",partial=TRUE,xlab="Number of Traits (log)",ylab=" ",
                     gg=TRUE, line=list(col="#3D7688"),
                     fill=list(fill="#D6EBEC",alpha=0.5),
                     points=list(size=2,col="#3D7688"))   + theme_bw()+
@@ -266,7 +296,7 @@ dev.off()
     expand_limits(y = c(0.2,1))+
     theme(axis.text.y=element_blank(),axis.title.x  = element_text( face="bold"))
   
-  NA_plot <- visreg(mod_AUClostwhen50percTraitdepleted,"NA_perc",scale="response",partial=TRUE,xlab="Percentage of NA",ylab=" ",
+  NA_plot <- visreg(mod_AUClostwhen50percTraitdepleted,"NA_perc",scale="response",partial=TRUE,xlab="% of Missing Values",ylab=" ",
                     gg=TRUE, line=list(col="#3D7688"),
                     fill=list(fill="#D6EBEC",alpha=0.5),
                     points=list(size=2,col="#3D7688"))   + theme_bw()+
@@ -282,7 +312,7 @@ dev.off()
     expand_limits(y = c(0.2,1))+
     theme(axis.text.y=element_blank(),axis.title.x  = element_text( face="bold"))
   
-  cor_plot <- visreg(mod_AUClostwhen50percTraitdepleted,"mean_cor",scale="response",partial=TRUE,xlab="Correlation",ylab=" ",
+  cor_plot <- visreg(mod_AUClostwhen50percTraitdepleted,"mean_cor",scale="response",partial=TRUE,xlab="Mean Correlation",ylab=" ",
                      gg=TRUE, line=list(col="#3D7688"),
                      fill=list(fill="#D6EBEC",alpha=0.5),
                      points=list(size=2,col="#3D7688"))   + theme_bw()+
@@ -293,7 +323,7 @@ dev.off()
   plot_AUClostwhen50percTraitdepleted <- grid.arrange(S_plot,NT_plot,NA_plot,Quanti_plot,cor_plot,ncol=5)
 
   
-pdf(file=file.path(fig_dir,"Figure2.pdf"), width = 11.7, height = 8.3)
+pdf(file=file.path(fig_dir,"Figure3.pdf"), width = 11.7, height = 8.3)
   Dimensionality_plot <- grid.arrange(plot_AUC_elbow,plot_AUC_0.7,plot_AUClostwhen50percTraitdepleted,nrow = 3, ncol=1)
   dev.off()
   
@@ -301,12 +331,23 @@ pdf(file=file.path(fig_dir,"Figure2.pdf"), width = 11.7, height = 8.3)
   #Table for all
   aov_table_df <- rbind(aov_AUC_elbow, aov_AUC_0.7,aov_AUClostwhen50percTraitdepleted)
   aov_table_df <- data.frame(Variables = c(rep("Dimensionality AUC Elbow",5),rep("Dimensionality AUC 0.7",5)
-                                          ,rep("AUC - 50% depleted traits",5)),aov_table_df)
+                                          ,rep("AUC - 50% traits omission",5)),aov_table_df)
   
+  aov_table_df[aov_table_df$Term=="log(Number of Species)",]$Term <- "Number of Species (log)"
+  aov_table_df[aov_table_df$Term=="log(Number of Traits)",]$Term <- "Number of Traits (log)"
+  aov_table_df[aov_table_df$Term=="Percentage of NA",]$Term <- "% of Missing Values"
+  aov_table_df[aov_table_df$Term=="Correlation",]$Term <- "Mean Correlation"
   aov_table_df <- aov_table_df %>% mutate_at(vars("Sum.Sq","F.statistic","P.value",), funs(round(., 3)))
 
   for(i in 1:nrow(aov_table_df)){ 
-    if(aov_table_df[i, 5]<0.05 )      aov_table_df[i, 5] <- cell_spec(aov_table_df[i, 5],  bold = T)
+    if(aov_table_df[i, 5]<0.001 )    { 
+      aov_table_df[i, 5] <- "<0.001"
+      aov_table_df[i, 5] <- cell_spec(aov_table_df[i, 5],  bold = T)
+    } 
+    
+    if(aov_table_df[i, 5]<0.05 & aov_table_df[i, 5]>0.001)     {  
+      aov_table_df[i, 5] <- cell_spec(aov_table_df[i, 5],  bold = T)
+    } 
   }
   
   table_mod_aov<-dust(aov_table_df) %>% 
@@ -316,9 +357,8 @@ pdf(file=file.path(fig_dir,"Figure2.pdf"), width = 11.7, height = 8.3)
     kable_styling()%>% 
     collapse_rows()
   
-
-
-  
+  table_mod_aov
+#
   
   ##' ---------------------------------------------------------@rowAUClostwhen20percTraitdepleted  
   
@@ -430,15 +470,16 @@ pdf(file=file.path(fig_dir,"Figure2.pdf"), width = 11.7, height = 8.3)
   length(var_vis)
   
   #---plot 
-  S_plot <- visreg(mod_logNC,"logS",scale="response",partial=TRUE,xlab=" ",ylab="Number of groups(log)",
+  S_plot <- visreg(mod_logNC,"logS",scale="response",partial=TRUE,xlab=" ",ylab="Number of clusters (log)",
                    gg=TRUE, line=list(col="#3D7688"),
                    fill=list(fill="#D6EBEC",alpha=0.5),
                    points=list(size=2,col="#3D7688"))   + theme_bw() +
     scale_y_continuous(breaks = c(0,0.5,1,1.5,2,2.5,3))+
     expand_limits(y = c(0,2.8))+
-    theme(axis.text.x=element_blank(),axis.title.y = element_text( face="bold"))
+    theme(axis.text.x=element_blank(),axis.title.y = element_text( face="bold"))#+
+ # geom_label(data = res_for_graph_dim, aes(label= paste0("slope = ",round(mod_logNC$coefficients["logS"],2)),
+ #                                          y =0.3,x=1.5), size=3, hjust = 0) 
     
-  
 
   NT_plot <- visreg(mod_logNC,"logNT",scale="response",partial=TRUE,xlab=" ",ylab=" ",
                     gg=TRUE, line=list(col="gray78"),
@@ -451,9 +492,9 @@ pdf(file=file.path(fig_dir,"Figure2.pdf"), width = 11.7, height = 8.3)
   
   
   NA_plot <- visreg(mod_logNC,"NA_perc",scale="response",partial=TRUE,xlab=" ",ylab=" ",
-                    gg=TRUE, line=list(col="gray78"),
-                    fill=list(fill="gray90",alpha=0.5),
-                    points=list(size=2,col="gray78"))   + theme_bw()+
+                    gg=TRUE, line=list(col="#3D7688"),
+                    fill=list(fill="#D6EBEC",alpha=0.5),
+                    points=list(size=2,col="#3D7688"))   + theme_bw()+
     scale_y_continuous(breaks = c(0,0.5,1,1.5,2,2.5,3))+
     expand_limits(y = c(0,2.8)) + 
     theme(axis.text.y=element_blank())+
@@ -506,13 +547,15 @@ pdf(file=file.path(fig_dir,"Figure2.pdf"), width = 11.7, height = 8.3)
   length(var_vis)
   
   #---plot 
-  S_plot <- visreg(mod_PropC1,"logS",scale="response",partial=TRUE,xlab="",ylab="% Cluster 1",
+  S_plot <- visreg(mod_PropC1,"logS",scale="response",partial=TRUE,xlab="",ylab="% Cluster #1",
                    gg=TRUE, line=list(col="#3D7688"),
                    fill=list(fill="#D6EBEC",alpha=0.5),
                    points=list(size=2,col="#3D7688"))   + theme_bw() +
     scale_y_continuous(breaks = c(0,0.2,0.4,0.6,0.8,1))+
     expand_limits(y = c(-0.05,1))+
     theme(axis.text.x=element_blank(),axis.title.y = element_text( face="bold"))
+   # geom_label(data = res_for_graph_dim, aes(label= paste0("slope = ",round(mod_PropC1$coefficients["logS"],2)),
+    #                                         y =-0.15,x=1.5), size=3, hjust = 0) 
   
   NT_plot <- visreg(mod_PropC1,"logNT",scale="response",partial=TRUE,xlab=" ",ylab = " ",
                     gg=TRUE, line=list(col="gray78"),
@@ -525,9 +568,9 @@ pdf(file=file.path(fig_dir,"Figure2.pdf"), width = 11.7, height = 8.3)
   
   
   NA_plot <- visreg(mod_PropC1,"NA_perc",scale="response",partial=TRUE,xlab=" ",ylab = " ",
-                    gg=TRUE, line=list(col="gray78"),
-                    fill=list(fill="gray90",alpha=0.5),
-                    points=list(size=2,col="gray78"))    + theme_bw()+
+                    gg=TRUE, line=list(col="#3D7688"),
+                    fill=list(fill="#D6EBEC",alpha=0.5),
+                    points=list(size=2,col="#3D7688"))    + theme_bw()+
     scale_y_continuous(breaks = c(0,0.2,0.4,0.6,0.8,1))+
     expand_limits(y = c(-0.05,1))+
     theme(axis.text.y=element_blank())+
@@ -577,14 +620,16 @@ pdf(file=file.path(fig_dir,"Figure2.pdf"), width = 11.7, height = 8.3)
   length(var_vis)
   
   #---plot 
-  S_plot <- visreg(mod_PropSin,"logS",scale="response",partial=TRUE,ylab = "% Singleton",xlab="Number of Species(log))",
+  S_plot <- visreg(mod_PropSin,"logS",scale="response",partial=TRUE,ylab = "% uniques",xlab="Number of Species (log)",
                    gg=TRUE, line=list(col="#3D7688"),
                    fill=list(fill="#D6EBEC",alpha=0.5),
-                   points=list(size=2,col="#3D7688"))   + theme_bw() +
+                   points=list(size=2,col="#3D7688")) + theme_bw() +
     scale_y_continuous(breaks = c(0,0.2,0.4,0.6,0.8,1))+
     expand_limits(y = c(-0.05,0.8)) +theme(axis.title.x = element_text( face="bold"),axis.title.y = element_text( face="bold"))
+    #geom_label(data = res_for_graph_dim, aes(label= paste0("slope = ",round(mod_PropSin$coefficients["logS"],2)),
+    #                                         y =0,x=1.5), size=3, hjust = 0) 
   
-  NT_plot <- visreg(mod_PropSin,"logNT",scale="response",partial=TRUE,ylab = " ",xlab="Number of Traits(log)",
+  NT_plot <- visreg(mod_PropSin,"logNT",scale="response",partial=TRUE,ylab = " ",xlab="Number of Traits (log)",
                     gg=TRUE, line=list(col="gray78"),
                     fill=list(fill="gray90",alpha=0.5),
                     points=list(size=2,col="gray78"))   + theme_bw()+
@@ -592,7 +637,7 @@ pdf(file=file.path(fig_dir,"Figure2.pdf"), width = 11.7, height = 8.3)
     expand_limits(y = c(-0.05,0.8)) +
     theme(axis.text.y=element_blank(),axis.title.x = element_text( face="bold"))
   
-  NA_plot <- visreg(mod_PropSin,"NA_perc",scale="response",partial=TRUE,ylab = " ",xlab="Percentage of NA",
+  NA_plot <- visreg(mod_PropSin,"NA_perc",scale="response",partial=TRUE,ylab = " ",xlab="% of Missing Values",
                     gg=TRUE, line=list(col="#3D7688"),
                     fill=list(fill="#D6EBEC",alpha=0.5),
                     points=list(size=2,col="#3D7688"))   + theme_bw()+
@@ -608,7 +653,7 @@ pdf(file=file.path(fig_dir,"Figure2.pdf"), width = 11.7, height = 8.3)
     expand_limits(y = c(-0.05,0.8))+
     theme(axis.text.y=element_blank(),axis.title.x = element_text( face="bold"))
   
-  cor_plot <- visreg(mod_PropSin,"mean_cor",scale="response",partial=TRUE,ylab = " ",xlab="Correlation",
+  cor_plot <- visreg(mod_PropSin,"mean_cor",scale="response",partial=TRUE,ylab = " ",xlab="Mean Correlation",
                      gg=TRUE, line=list(col="gray78"),
                      fill=list(fill="gray90",alpha=0.5),
                      points=list(size=2,col="gray78"))    + theme_bw()+
@@ -620,20 +665,34 @@ pdf(file=file.path(fig_dir,"Figure2.pdf"), width = 11.7, height = 8.3)
   plot_PropSin  <- grid.arrange(S_plot,NT_plot,NA_plot,Quanti_plot,cor_plot,ncol=5)
   
   
-  pdf(file=file.path(fig_dir,"Figure4.pdf"), width = 11.7, height = 8.3)#SAVE A4  
+  pdf(file=file.path(fig_dir,"Figure5.pdf"), width = 11.7, height = 8.3)#SAVE A4  
   structure_plot <- grid.arrange(plot_logNC,plot_PropC1,plot_PropSin,nrow = 3, ncol=1)  
   dev.off()
   
   
   #Table for all
   aov_cluster_table_df <- rbind(aov_logNC, aov_PropSin,aov_PropC1)
-  aov_cluster_table_df <- data.frame(Variables = c(rep("Number of Cluster",5),rep("% Singletons",5)
-                                           ,rep("% Cluster 1",5)),aov_cluster_table_df)
+  aov_cluster_table_df <- data.frame(Variables = c(rep("Number of Cluster (log)",5),rep("% uniques",5)
+                                           ,rep("% Cluster #1",5)),aov_cluster_table_df)
   
+  aov_cluster_table_df[aov_cluster_table_df$Term=="log(Number of Species)",]$Term <- "Number of Species (log)"
+  aov_cluster_table_df[aov_cluster_table_df$Term=="log(Number of Traits)",]$Term <- "Number of Traits (log)"
+  aov_cluster_table_df[aov_cluster_table_df$Term=="Percentage of NA",]$Term <- "% of Missing Values"
+  aov_cluster_table_df[aov_cluster_table_df$Term=="Correlation",]$Term <- "Mean Correlation"
+
   aov_cluster_table_df <- aov_cluster_table_df %>% mutate_at(vars("Sum.Sq","F.statistic","P.value",), funs(round(., 3)))
   
   for(i in 1:nrow(aov_cluster_table_df)){ 
-    if(aov_cluster_table_df[i, 5]<0.05 )      aov_cluster_table_df[i, 5] <- cell_spec(aov_cluster_table_df[i, 5],  bold = T)
+    if(aov_cluster_table_df[i, 5]<0.001 )    { 
+                  aov_cluster_table_df[i, 5] <- "<0.001"
+                  aov_cluster_table_df[i, 5] <- cell_spec(aov_cluster_table_df[i, 5],  bold = T)
+                } 
+    
+    if(aov_cluster_table_df[i, 5]<0.05 & aov_cluster_table_df[i, 5]>0.001)     {  
+      aov_cluster_table_df[i, 5] <- cell_spec(aov_cluster_table_df[i, 5],  bold = T)
+              } 
+   
+   
   }
   
   table_cluster_aov<-dust(aov_cluster_table_df) %>% 
@@ -642,114 +701,5 @@ pdf(file=file.path(fig_dir,"Figure2.pdf"), width = 11.7, height = 8.3)
     kable( booktabs = T, escape = F)%>% 
     kable_styling()%>% 
     collapse_rows()
+  table_cluster_aov
   
-  
- #' -----------------------------------------------------------------------------------------@SUPP
-  
-  
-  
-  
-  
-  
-  #' ----------------------------------------------------------------------------@FirstCluster
-  
-  #---mod
-  mod_log1C  <- lm(log1C ~ logS+logNT+NA_perc+quanti_perc+mean_cor, data = res_for_model,na.action="na.omit")
-  
-  table_mod_log1C<-dust(mod_log1C) %>% 
-    sprinkle(col=2:4,round =3) %>% 
-    sprinkle(col=5,fn=quote(pvalString(value))) %>%  
-    sprinkle_colnames(term="Term",
-                      estimate="Estimate",
-                      std.error="SE",
-                      statistic="T-statistic",
-                      p.value="P-value")%>% 
-    kable()%>% 
-    kable_styling()
-  
-  step <- stepAIC(mod_log1C)
-  
-  #var selected by step AIC for visreg
-  var_vis <- names(step$coefficients[-1])
-  length(var_vis)
-  
-  #---plot 
-  S_plot <- visreg(mod_log1C,"logS",scale="response",partial=TRUE,xlab=" ",ylab("Dimensionality AUC 0.7"),
-                   ,gg=TRUE, line=list(col="#3D7688"),
-                   fill=list(fill="#D6EBEC",alpha=0.5),
-                   points=list(size=2,col="#3D7688"))   + theme_bw()
-  
-  NT_plot <- visreg(mod_log1C,"logNT",scale="response",partial=TRUE,xlab=" ",ylab(" "),
-                    gg=TRUE, line=list(col="#3D7688"),
-                    fill=list(fill="#D6EBEC",alpha=0.5),
-                    points=list(size=2,col="#3D7688"))   + theme_bw()
-  
-  NA_plot <- visreg(mod_log1C,"NA_perc",scale="response",partial=TRUE,xlab=" ",ylab(" "),
-                    gg=TRUE, line=list(col="#3D7688"),
-                    fill=list(fill="#D6EBEC",alpha=0.5),
-                    points=list(size=2,col="#3D7688"))   + theme_bw()
-  
-  Quanti_plot <- visreg(mod_log1C,"quanti_perc",scale="response",partial=TRUE,xlab=" ",ylab(" "),
-                        gg=TRUE, line=list(col="#3D7688"),
-                        fill=list(fill="#D6EBEC",alpha=0.5),
-                        points=list(size=2,col="#3D7688"))   + theme_bw()
-  
-  cor_plot <- visreg(mod_log1C,"mean_cor",scale="response",partial=TRUE,xlab=" ",ylab(" "),
-                     gg=TRUE, line=list(col="#3D7688"),
-                     fill=list(fill="#D6EBEC",alpha=0.5),
-                     points=list(size=2,col="#3D7688"))   + theme_bw()
-  
-  plot_log1C <- grid.arrange(S_plot,NT_plot,NA_plot,Quanti_plot,cor_plot,ncol=3)
-  
-  
-  #' ----------------------------------------------------------------------------@FR
-  
-  #---mod
-  mod_FR  <- lm(FR ~ logS+logNT+NA_perc+quanti_perc+mean_cor, data = res_for_model,na.action="na.omit")
-  
-  table_mod_FR<-dust(mod_FR) %>% 
-    sprinkle(col=2:4,round =3) %>% 
-    sprinkle(col=5,fn=quote(pvalString(value))) %>%  
-    sprinkle_colnames(term="Term",
-                      estimate="Estimate",
-                      std.error="SE",
-                      statistic="T-statistic",
-                      p.value="P-value")%>% 
-    kable()%>% 
-    kable_styling()
-  
-  step <- stepAIC(mod_FR)
-  
-  #var selected by step AIC for visreg
-  var_vis <- names(step$coefficients[-1])
-  length(var_vis)
-  
-  #---plot 
-  S_plot <- visreg(mod_FR,"logS",scale="response",partial=TRUE,xlab="Number of Species(log)",ylab("Dimensionality AUC 0.7")
-                   ,gg=TRUE, line=list(col="#3D7688"),
-                   fill=list(fill="#D6EBEC",alpha=0.5),
-                   points=list(size=2,col="#3D7688"))   + theme_bw()
-  
-  NT_plot <- visreg(mod_FR,"logNT",scale="response",partial=TRUE,xlab="Number of Traits(log)",ylab("Dimensionality AUC 0.7")
-                    ,gg=TRUE, line=list(col="#3D7688"),
-                    fill=list(fill="#D6EBEC",alpha=0.5),
-                    points=list(size=2,col="#3D7688"))   + theme_bw()
-  
-  NA_plot <- visreg(mod_FR,"NA_perc",scale="response",partial=TRUE,xlab="Percentage of NA",ylab("Dimensionality AUC 0.7")
-                    ,gg=TRUE, line=list(col="#3D7688"),
-                    fill=list(fill="#D6EBEC",alpha=0.5),
-                    points=list(size=2,col="#3D7688"))   + theme_bw()
-  
-  Quanti_plot <- visreg(mod_FR,"quanti_perc",scale="response",partial=TRUE,xlab="% Quantitative Variables",,ylab("Dimensionality AUC 0.7")
-                        ,gg=TRUE, line=list(col="#3D7688"),
-                        fill=list(fill="#D6EBEC",alpha=0.5),
-                        points=list(size=2,col="#3D7688"))   + theme_bw()
-  
-  cor_plot <- visreg(mod_FR,"mean_cor",scale="response",partial=TRUE,xlab="Correlation",ylab("Dimensionality AUC 0.7")
-                     ,gg=TRUE, line=list(col="#3D7688"),
-                     fill=list(fill="#D6EBEC",alpha=0.5),
-                     points=list(size=2,col="#3D7688"))   + theme_bw()
-  
-  plot_FR  <- grid.arrange(S_plot,NT_plot,NA_plot,Quanti_plot,cor_plot,ncol=3)
-  
-
