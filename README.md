@@ -5,9 +5,9 @@ Research Compendium of the ___________ article.
 
 ## Goal
 
-`Quatify dimensionality of functional space
- Quatify robustness
- Compute cluster and unique species`
+`Quatify dimensionality of functional space`
+`Quatify robustness`
+`Compute cluster and unique species`
 
 
 
