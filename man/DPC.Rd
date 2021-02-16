@@ -2,7 +2,7 @@
 % Please edit documentation in R/singleton.R
 \name{DPC}
 \alias{DPC}
-\title{Compute Singleton Clustering}
+\title{Identify Isolated Points and Compute Density Peak Clustering}
 \usage{
 DPC(
   X,
@@ -18,29 +18,117 @@ DPC(
 )
 }
 \arguments{
-\item{metric}{\strong{ADD DESCRIPTION}}
+\item{metric}{if \code{"predefined"} the distance matrix \code{D} is copied from \code{X}.
+Otherwise \code{D} is computed on the coordinates with the function dist with
+option \code{metric} (by default \code{metric = "euclidean"}).}
 
-\item{radius}{\strong{ADD DESCRIPTION}}
+\item{radius}{this is the distance threshold to define neighborhood of a
+point (neighbors are points with distance < radius). If \code{radius = "automatic"}
+the radius is automatically fixed such that, on average, a neighborhood
+includes a fraction \code{f} of all points, where \code{f} is fixed by input parameter
+\code{fraction}.}
 
-\item{fraction}{\strong{ADD DESCRIPTION}}
+\item{fraction}{if \code{radius = "automatic"} the radius is automatically fixed
+such that, on average, a neighborhood includes this fraction of all points.
+By default \code{fraction = 0.01}, i.e. 1\% of points are on average in the
+neighborhood.}
 
-\item{mode}{\strong{ADD DESCRIPTION}}
+\item{mode}{if \code{mode = "interactive"} the decision graph is plotted and the
+user can enter the values of \code{rhomin} and \code{deltamin.} All points with
+\code{delta > deltamin} and \code{rho > rhomin} are considered cluster centers.
+\code{rhomin} and \code{deltamin} should be chosen in such a way that points with
+\code{rho_i > rhomin} and \code{delta_i > deltamin} are isolated in the decision graph.
+If \code{mode = "automatic"} all points with \code{delta > radius} are cluster centers.}
 
-\item{rhomin}{\strong{ADD DESCRIPTION}}
+\item{rhomin}{minimum value of rho to consider a point as cluster center.
+Unless \code{mode = "interactive"} this threshold is selected automatically by the
+algorithm.}
 
-\item{deltamin}{\strong{ADD DESCRIPTION}}
+\item{deltamin}{minimum value of delta to consider a point as cluster center.
+Unless \code{mode = "interactive"} this threshold is selected automatically by the
+algorithm.}
 
-\item{density_filter}{\strong{ADD DESCRIPTION}}
+\item{density_filter}{method to clean the clusters. If \code{saddle}, only the
+points in the cluster core (i.e. with a density above the maximum border
+density) are retained. If \code{global}, only points in with a density above a
+given fixed threshold (\code{rho_threshold}) are retained.}
 
-\item{rho_threshold}{\strong{ADD DESCRIPTION}}
+\item{rho_threshold}{if \code{density_filter = "global"} only points in with a
+density above a given fixed threshold \code{rho_threshold} are retained.}
 
-\item{removezeroes}{\strong{ADD DESCRIPTION}}
+\item{removezeroes}{if \code{TRUE}, it considers identical points (points at zero
+distance) as a single point in the computation of the density.}
 
-\item{data}{\strong{ADD DESCRIPTION}}
+\item{data}{if \code{metric = "predefined"} \code{X} is the N x N distance matrix.
+Otherwise \code{X} is the N x M coordinate matrix.}
 }
 \value{
-\strong{ADD DESCRIPTION}
+A list with:
+\itemize{
+\item \code{rho}: neighbor density of each point
+\item \code{delta}: minimum distance of a point with higher density
+\item \code{cluster}: cluster to which each point is assigned, from 1 to #clusters
+(0 for isolated points)
+\item \code{centers}: list of cluster centers
+\item \code{cluster_core}: cluster to which each point is assigned, including only
+points in th cluster (0 for points in the cluster halos and isolated points)
+\item \code{border}: matrix of border densities (maximum density on the border between
+two clusters c and c').
+}
 }
 \description{
-\strong{ADD DESCRIPTION}
+Implementation of the density peak clustering method. The algorithm makes the
+following steps:
+}
+\details{
+\enumerate{
+\item The N x N density matrix D is computed from the N x M coordinate matrix,
+where N is the number of points and m the number of coordinates;
+alternatively, D is directly taken as input.
+\item For each point i, the density rho_i is computed. The density is defined as
+the number of neighbors, i.e. the number of points j at a distance lower
+than a given radius radius \code{d_ij < radius}. Usually, the radius is fixed in
+such a way that the average density corresponds to a small fraction, 1\% to
+2\%, of the total number of points \verb{rho = fraction x N}.
+\item For each point i, one considers the distances \code{d_ij} between \code{i} and all
+points j with a higher density \code{rho_j > rho_i}. The minimum distance in t
+his set is called \code{delta_i}.
+\item The cluster centers are identified. By default, all points with
+\code{delta_i > radius} are cluster centers (i.e. all points that have a density
+higher than their neighbors'. Alternatively, one can inspect a
+'decision graph' where delta_i is plotted against \code{rho_i}. Cluster centers
+are selected as points with high \code{rho_i} and \code{delta_i}: based on inspection
+of a decision graph, two thresholds \code{rhomin} and \code{deltamin} can be fixed,
+such that all points with rho_i > rhomin and delta_i > deltamin are cluster
+centers. \code{rhomin} and \code{deltamin} should be chosen in such a way that points
+with \code{rho_i > rhomin} and \code{delta_i > deltamin} are well isolated in the
+decision graph.
+\item All non-isolated points (i.e. all points with rho_i > 0) are assigned to
+one of the clusters. All points from which one can reach a center c through
+a path of monotonically increasing density are considered as forming the
+corresponding cluster. Thus, starting from a point i, one follows a path of
+increasing density \strong{by stepping recursively on the nearest point with a
+higher density} until one of the centers is reached.
+\item For each cluster c, one identifies the border points: these are points
+which belong to c, but whose neighborhood contains points assigned to a
+different cluster (i.e. within radius one finds points in c but also point
+is in a different cluster c'). The border density is the maximum density of
+border points. Whenever the border density is higher than the density of
+the cluster center, c cannot be considered a robust cluster (it is a
+density fluctuation rather than a true peak). In this case, c is merged
+within the cluster c'. This merging procedure is repeated until all
+clusters are robust.
+\item Each cluster is 'cleaned' by retaining only points in the cluster core.
+By default, only points with a density higher than the density of the
+border density are considered as part of the core. Alternatively, one can
+fix a global density threshold rhog and  exclude from the clusters all
+points with rho_i < rhog (these are points with very low density that are
+not considered a part of the clusters).
+}
+}
+\references{
+Rodriguez A & Laio A (2014) Clustering by fast search and find of density peaks.
+\emph{Science}, \strong{344}, 1492-1496.\cr
+d'Errico M et al. (2018) Automatic topography of high-dimensional data sets
+by non-parametric Density Peak Clustering. \emph{arXiv preprint}, \strong{1802}, 10549.
 }

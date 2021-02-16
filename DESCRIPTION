@@ -1,5 +1,5 @@
 Package: dimensionality
-Title: What the Package Does (One Line, Title Case)
+Title: Research Compendium of Mouillot et al. (2021) Paper
 Version: 1.0.0
 Authors@R: c(
     person(given  = "Nicolas",
@@ -18,14 +18,16 @@ Authors@R: c(
            family = "Casajus",
            role   = "aut",
            email  = "nicolas.casajus@fondationbiodiversite.fr"))
-Description: What the package does (one paragraph).
+Description: Research compendium of the paper: Mouillot et al. (2021) The  
+        dimensionality and structure of species trait spaces, Ecology Letters.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Depends:
-    ggplot2
+    ggplot2,
+    magrittr
 Imports:
     ade4,
     ape,
@@ -52,7 +54,6 @@ Imports:
     MASS,
     mistr,
     MuMIn,
-    musculusColors,
     parallel,
     pbmcapply,
     pixiedust,

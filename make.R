@@ -7,26 +7,34 @@
 #'         Matthias GRENIE, \email{matthias.grenie@@cefe.cnrs.fr},
 #'         Nicolas CASAJUS, \email{nicolas.casajus@@fondationbiodiversite.fr}
 #'
-#' @date 2020/11/27
+#' @date 2021/02/16
 
 
 
-## Install Dependencies (listed in DESCRIPTION)                             ----
+## Install Dependencies (listed in DESCRIPTION) ----
 
 if (!("remotes" %in% installed.packages())) install.packages("remotes")
 remotes::install_deps(upgrade = "never")
 
 
-## Load Project Addings (R functions and packages)                          ----
+## Load Project Addings (R functions and packages) ----
 
 devtools::load_all()
 
 
-## Global Variables                                                         ----
+## Global Variables ----
 
 percent_list <- seq(0.1, 0.8, by = 0.1)
 
 
-## Run Analyses                                                             ----
+## Run Project ----
 
-source(here::here("analyses", "make_analyses.R"))
+# source(here::here("analyses", "make_analyses.R"))
+# source(here::here("analyses", "get_results.R"))
+
+source(here::here("analyses", "figure_1.R"))
+source(here::here("analyses", "figure_2.R")) # Dimensionality
+source(here::here("analyses", "figure_3.R"))
+source(here::here("analyses", "figure_4.R")) # Structure
+source(here::here("analyses", "figure_5.R"))
+source(here::here("analyses", "figure_6.R")) # PCoA Axes
