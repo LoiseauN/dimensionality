@@ -16,7 +16,7 @@ Research Compendium of the ___________ article.
 This repository is structured as follow:
 
 - :file_folder: &nbsp;[**analyses/**](https://github.com/loiseaun/dimensionality/tree/master/analyses):
-`contains R scripts one to run analyses, one to import results, one per figure
+`contains R scripts one to run analyses, one to import results, one per figure`
 - :file_folder: &nbsp;[**data/**](https://github.com/loiseaun/dimensionality/tree/master/data):
 `contains all data required to reproduce analyses and figures`
 - :file_folder: &nbsp;[**man/**](https://github.com/loiseaun/dimensionality/tree/master/man):
