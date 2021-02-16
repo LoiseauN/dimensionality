@@ -5,7 +5,7 @@
 # Read Dataset ----
 
 dataset <- read.csv2(
-  file      = here::here("data", "Bartonova2016.csv"),
+  file      = here::here("data", "bartonova_2016.csv"),
   header    = TRUE,
   row.names = 1
 )
@@ -18,7 +18,7 @@ dataset <- as_numerical(dataset, cols = 1:ncol(dataset))
 
 # Run Analysis ----
 
-run_analysis(dataset, name = "bartonova2016")
+run_analysis(dataset, name = "bartonova_2016")
 rm(list = "dataset")
 
 
@@ -32,7 +32,7 @@ rm(list = "dataset")
 # Read Dataset ----
 
 dataset <- read.csv2(
-  file      = here::here("data", "Clearly2016.csv"),
+  file      = here::here("data", "clearly_2016.csv"),
   header    = TRUE,
   row.names = 1
 )
@@ -46,7 +46,7 @@ dataset <- as_ordinal(dataset, cols = c(11, 12))
 
 # Run Analysis ----
 
-run_analysis(dataset, name = "clearly2016")
+run_analysis(dataset, name = "clearly_2016")
 rm(list = "dataset")
 
 
@@ -60,7 +60,7 @@ rm(list = "dataset")
 # Read Dataset ----
 
 dataset <- read.csv2(
-  file      = here::here("data", "Ribera2001.csv"),
+  file      = here::here("data", "ribera_2001.csv"),
   header    = TRUE,
   row.names = 1
 )
@@ -74,7 +74,7 @@ dataset <- as_categorical(dataset, cols = 11:ncol(dataset))
 
 # Run Analysis ----
 
-run_analysis(dataset, name = "ribera2001")
+run_analysis(dataset, name = "ribera_2001")
 rm(list = "dataset")
 
 
@@ -88,7 +88,7 @@ rm(list = "dataset")
 # Read Dataset ----
 
 dataset <- read.csv2(
-  file      = here::here("data", "Pakeman2011.csv"),
+  file      = here::here("data", "pakeman_2011.csv"),
   header    = TRUE,
   row.names = 1
 )
@@ -102,7 +102,7 @@ dataset <- as_ordinal(dataset, cols = 5:22)
 
 # Run Analysis ----
 
-run_analysis(dataset, name = "pakeman2011")
+run_analysis(dataset, name = "pakeman_2011")
 rm(list = "dataset")
 
 
@@ -116,7 +116,7 @@ rm(list = "dataset")
 # Read Dataset ----
 
 dataset <- read.csv2(
-  file      = here::here("data", "Goncalves2014.csv"),
+  file      = here::here("data", "goncalves_2014.csv"),
   header    = TRUE,
   row.names = 1
 )
@@ -130,7 +130,7 @@ dataset <- as_numerical(dataset, cols = 2:6)
 
 # Run Analysis ----
 
-run_analysis(dataset, name = "goncalves2014")
+run_analysis(dataset, name = "goncalves_2014")
 rm(list = "dataset")
 
 
@@ -144,7 +144,7 @@ rm(list = "dataset")
 # Read Dataset ----
 
 dataset <- read.csv2(
-  file      = here::here("data", "Diaz2008.csv"),
+  file      = here::here("data", "diaz_2008.csv"),
   header    = TRUE,
   row.names = 1
 )
@@ -157,7 +157,7 @@ dataset <- as_ordinal(dataset, cols = 1:ncol(dataset))
 
 # Run Analysis ----
 
-run_analysis(dataset, name = "diaz2008")
+run_analysis(dataset, name = "diaz_2008")
 rm(list = "dataset")
 
 
@@ -171,7 +171,7 @@ rm(list = "dataset")
 # Read Dataset ----
 
 dataset <- read.csv2(
-  file      = here::here("data", "northseatraits.csv"),
+  file      = here::here("data", "north_sea_traits.csv"),
   header    = TRUE,
   row.names = 1
 )
@@ -186,7 +186,7 @@ dataset <- as_ordinal(dataset, cols = 12)
 
 # Run Analysis ----
 
-run_analysis(dataset, name = "northseatraits")
+run_analysis(dataset, name = "north_sea_traits")
 rm(list = "dataset")
 
 
@@ -215,7 +215,7 @@ dataset <- as_ordinal(dataset, cols = 1:ncol(dataset))
 
 # Run Analysis ----
 
-run_analysis(dataset, name = "nzinsect")
+run_analysis(dataset, name = "nz_insect")
 rm(list = "dataset")
 
 
@@ -229,7 +229,7 @@ rm(list = "dataset")
 # Read Dataset ----
 
 dataset <- read.csv2(
-  file      = here::here("data", "Krasnov2015.csv"),
+  file      = here::here("data", "krasnov_2015.csv"),
   header    = TRUE,
   row.names = 1
 )
@@ -242,7 +242,7 @@ dataset <- as_numerical(dataset, cols = 1:6)
 
 # Run Analysis ----
 
-run_analysis(dataset, name = "krasnov2015")
+run_analysis(dataset, name = "krasnov_2015")
 rm(list = "dataset")
 
 
@@ -287,7 +287,7 @@ rm(list = "dataset")
 # Read Dataset ----
 
 dataset <- read.csv2(
-  file      = here::here("data", "PalmTraits_1.0.csv"),
+  file      = here::here("data", "palm_traits.csv"),
   header    = TRUE,
   row.names = 1
 )
@@ -303,7 +303,7 @@ dataset <- as_categorical(dataset, cols = c(9, 20:ncol(dataset)))
 
 # Run Analysis ----
 
-run_analysis(dataset, name = "palmtraits")
+run_analysis(dataset, name = "palm_traits")
 rm(list = "dataset")
 
 
@@ -316,7 +316,7 @@ rm(list = "dataset")
 
 # Read Dataset ----
 
-load(here::here("data", "freshfishtrait.RData"))
+load(here::here("data", "fresh_fish_trait.RData"))
 dataset <- freshfishtrait
 rm(list = "freshfishtrait")
 
@@ -328,7 +328,7 @@ dataset <- dataset[rowSums(is.na(dataset)) < 5, ]
 
 # Run Analysis ----
 
-run_analysis(dataset, name = "freshfishtrait")
+run_analysis(dataset, name = "fresh_fish_trait")
 rm(list = "dataset")
 
 
@@ -341,14 +341,14 @@ rm(list = "dataset")
 
 # Read Dataset ----
 
-load(here::here("data", "birdstrait.RData"))
+load(here::here("data", "birds_trait.RData"))
 dataset <- birdstrait
 rm(list = "birdstrait")
 
 
 # Run Analysis ----
 
-run_analysis(dataset, name = "birdstrait")
+run_analysis(dataset, name = "birds_trait")
 rm(list = "dataset")
 
 
@@ -361,14 +361,14 @@ rm(list = "dataset")
 
 # Read Dataset ----
 
-load(here::here("data", "mammalstrait.RData"))
+load(here::here("data", "mammals_trait.RData"))
 dataset <- mammalstrait
 rm(list = "mammalstrait")
 
 
 # Run Analysis ----
 
-run_analysis(dataset, name = "mammalstrait")
+run_analysis(dataset, name = "mammals_trait")
 rm(list = "dataset")
 
 
@@ -382,7 +382,7 @@ rm(list = "dataset")
 # Read Dataset ----
 
 dataset <- read.csv2(
-  file      = here::here("data", "coraltraitsv3.csv"),
+  file      = here::here("data", "coral_traits.csv"),
   header    = TRUE,
   row.names = 1
 )
@@ -399,7 +399,7 @@ dataset <- dataset[ , -13]
 
 # Run Analysis ----
 
-run_analysis(dataset, name = "coral")
+run_analysis(dataset, name = "coral_traits")
 rm(list = "dataset")
 
 
@@ -413,7 +413,7 @@ rm(list = "dataset")
 # Read Dataset ----
 
 dataset <- read.csv2(
-  file      = here::here("data", "data_FULL_bacteria.csv"),
+  file      = here::here("data", "bacteria.csv"),
   header    = TRUE,
   row.names = 1
 )
@@ -440,7 +440,7 @@ rm(list = "dataset")
 # Read Dataset ----
 
 dataset <- read.csv2(
-  file      = here::here("data", "Eallonardo2013.csv"),
+  file      = here::here("data", "eallonardo_2013.csv"),
   header    = TRUE,
   row.names = 1
 )
@@ -454,7 +454,7 @@ dataset <- as_categorical(dataset, cols = 1:5)
 
 # Run Analysis ----
 
-run_analysis(dataset, name = "eallonardo2013")
+run_analysis(dataset, name = "eallonardo_2013")
 rm(list = "dataset")
 
 
@@ -468,7 +468,7 @@ rm(list = "dataset")
 # Read Dataset ----
 
 dataset <- read.csv2(
-  file      = here::here("data", "Yates2014.csv"),
+  file      = here::here("data", "yates_2014.csv"),
   header    = TRUE,
   row.names = 1
 )
@@ -482,7 +482,7 @@ dataset <- as_ordinal(dataset, cols = 11)
 
 # Run Analysis ----
 
-run_analysis(dataset, name = "yates2014")
+run_analysis(dataset, name = "yates_2014")
 rm(list = "dataset")
 
 
@@ -496,7 +496,7 @@ rm(list = "dataset")
 # Read Dataset ----
 
 dataset <- read.csv2(
-  file      = here::here("data", "Jeliazkov2013.csv"),
+  file      = here::here("data", "jeliazkov_2013.csv"),
   header    = TRUE,
   row.names = 1
 )
@@ -509,7 +509,7 @@ dataset <- as_ordinal(dataset, cols = 1:89)
 
 # Run Analysis ----
 
-run_analysis(dataset, name = "jeliazkov2013")
+run_analysis(dataset, name = "jeliazkov_2013")
 rm(list = "dataset")
 
 
@@ -523,7 +523,7 @@ rm(list = "dataset")
 # Read Dataset ----
 
 dataset <- read.csv2(
-  file      = here::here("data", "Gibb2015.csv"),
+  file      = here::here("data", "gibb_2015.csv"),
   header    = TRUE,
   row.names = 1
 )
@@ -536,7 +536,7 @@ dataset <- as_numerical(dataset, cols = 1:10)
 
 # Run Analysis ----
 
-run_analysis(dataset, name = "gibb2015")
+run_analysis(dataset, name = "gibb_2015")
 rm(list = "dataset")
 
 
@@ -550,7 +550,7 @@ rm(list = "dataset")
 # Read Dataset ----
 
 dataset <- read.csv2(
-  file      = here::here("data", "Thermal Vent Fauna.csv"),
+  file      = here::here("data", "thermal_fauna.csv"),
   header    = TRUE,
   row.names = 1
 )
@@ -616,7 +616,7 @@ rm(list = "dataset")
 # Read Dataset ----
 
 dataset <- read.csv2(
-  file      = here::here("data", "Chondrichtyens_traits.csv"),
+  file      = here::here("data", "chondrichtyens_traits.csv"),
   header    = TRUE,
   row.names = 1
 )
@@ -640,7 +640,7 @@ dataset <- as_categorical(dataset, cols = 8:10)
 
 # Run Analysis ----
 
-run_analysis(dataset, name = "chondrichtyens")
+run_analysis(dataset, name = "chondrichtyens_traits")
 rm(list = "dataset")
 
 
@@ -654,7 +654,7 @@ rm(list = "dataset")
 # Read Dataset ----
 
 dataset <- read.csv2(
-  file      = here::here("data", "Phytoplankton.csv"),
+  file      = here::here("data", "phyto_plankton.csv"),
   header    = TRUE,
   row.names = 1
 )
@@ -678,5 +678,168 @@ dataset <- as_categorical(dataset, cols = c(4, 8:15))
 
 # Run Analysis ----
 
-run_analysis(dataset, name = "phytoplankton")
+run_analysis(dataset, name = "phyto_plankton")
 rm(list = "dataset")
+
+
+
+#' @header *********************************************************************
+#' @dataset (25) VILLEGER 2012                                                 
+#' @header *********************************************************************
+
+
+
+# Read Dataset ----
+
+dataset <- read.csv2(
+  file      = here::here("data", "villeger_2012.csv"),
+  header    = TRUE,
+  row.names = 1
+)
+
+
+# Traits Preparation and Categorization ----
+
+dataset <- as_numerical(dataset, cols = 1:ncol(dataset))
+
+
+# Run Analysis ----
+
+run_analysis(dataset, name = "villeger_2012")
+rm(list = "dataset")
+
+
+
+#' @header *********************************************************************
+#' @dataset (26) CARVALHO 2015                                                 
+#' @header *********************************************************************
+
+
+
+# Read Dataset ----
+
+dataset <- read.csv2(
+  file      = here::here("data", "carvalho_2015.csv"),
+  header    = TRUE,
+  row.names = 1
+)
+
+# Traits Preparation and Categorization ----
+
+dataset <- as_numerical(dataset, cols = 1)
+dataset <- as_categorical(dataset, cols = 2:ncol(dataset))
+
+
+# Run Analysis ----
+
+run_analysis(dataset, name = "carvalho_2015")
+rm(list = "dataset")
+
+
+
+#' @header *********************************************************************
+#' @dataset (27) CHARBONNIER 2016                                                 
+#' @header *********************************************************************
+
+
+
+# Read Dataset ----
+
+dataset <- read.csv2(
+  file      = here::here("data", "charbonnier_2016.csv"),
+  header    = TRUE,
+  row.names = 1
+)
+
+# Traits Preparation and Categorization ----
+
+dataset <- as_numerical(dataset, cols = 7:10)
+dataset <- as_categorical(dataset, cols = 1:6)
+
+
+# Run Analysis ----
+
+run_analysis(dataset, name = "charbonnier_2016")
+rm(list = "dataset")
+
+
+
+#' @header *********************************************************************
+#' @dataset (28) CHMURA 2016                                                 
+#' @header *********************************************************************
+
+
+
+# Read Dataset ----
+
+dataset <- read.csv2(
+  file      = here::here("data", "chmura_2016.csv"),
+  header    = TRUE,
+  row.names = 1
+)
+
+# Traits Preparation and Categorization ----
+
+dataset <- as_numerical(dataset, cols = c(1:3, 5:ncol(dataset)))
+dataset <- as_categorical(dataset, cols = 4)
+
+
+# Run Analysis ----
+
+run_analysis(dataset, name = "chmura_2016")
+rm(list = "dataset")
+
+
+
+#' @header *********************************************************************
+#' @dataset (29) FRIED 2012                                                 
+#' @header *********************************************************************
+
+
+
+# Read Dataset ----
+
+dataset <- read.csv2(
+  file      = here::here("data", "fried_2012.csv"),
+  header    = TRUE,
+  row.names = 1
+)
+
+# Traits Preparation and Categorization ----
+
+dataset <- as_numerical(dataset, cols = 4:6)
+dataset <- as_categorical(dataset, cols = 1:3)
+dataset <- as_ordinal(dataset, cols = 7:ncol(dataset))
+
+# Run Analysis ----
+
+run_analysis(dataset, name = "fried_2012")
+rm(list = "dataset")
+
+
+
+#' @header *********************************************************************
+#' @dataset (30) PAVOINE 2011                                                 
+#' @header *********************************************************************
+
+
+
+# Read Dataset ----
+
+dataset <- read.csv2(
+  file      = here::here("data", "pavoine_2011.csv"),
+  header    = TRUE,
+  row.names = 1
+)
+
+# Traits Preparation and Categorization ----
+
+dataset <- as_numerical(dataset, cols = 8:11)
+dataset <- as_categorical(dataset, cols = 1:7)
+dataset <- as_ordinal(dataset, cols = 12:14)
+
+# Run Analysis ----
+
+run_analysis(dataset, name = "pavoine_2011")
+rm(list = "dataset")
+
