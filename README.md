@@ -35,7 +35,7 @@ This repository is structured as follow:
 
 ## Caution
 
-- Analyses require several core and some computations take time.
+- Analyses require several cores and some computations take time.
 
 ## Usage
 
