@@ -215,7 +215,7 @@ dimension_funct <- function(trait_df, dim_pcoa = 10, rep = 99, cores = 3,
   # Return results ----
 
   res <- data.frame(
-    dim                  = c(1:dim_pcoa),
+    dim                  = 1:nbdim,
     # quality_fspaces_msd  = round(qual_metric_msd,3),
     MAD                  = round(qual_metric_mad,3),
     AUC                  = ebow_meth$"AUC",
