@@ -114,46 +114,194 @@ subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
 c1  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
                           xmin = 0.20, xmax = 0.32, ymin = 0, ymax = 0.12, 
                           data = subdata)
+bdd <- "chmura_2016"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c2  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                          xmin=0.2, xmax=0.28, ymin=0.08, ymax=0.19, 
+                          data = subdata)
 
-# c2 = annotation_custom2(rasterGrob(all_im$Beetle, interpolate=TRUE), xmin=0.2, xmax=0.3, ymin=0.2, ymax=0.3, data=res_for_graph_single[res_for_graph_single$taxa==unique(res_for_graph_single$taxa)[2],])
-# c3 = annotation_custom2(rasterGrob(all_im$Gibb2015, interpolate=TRUE), xmin=-0.6, xmax=-0.35, ymin=-0.25, ymax=-0.07, data=res_for_graph_single[res_for_graph_single$taxa==unique(res_for_graph_single$taxa)[3],])
-# c4 = annotation_custom2(rasterGrob(all_im$Goncalves2014, interpolate=TRUE), xmin=0.1, xmax=0.3, ymin=-0.4, ymax=-0.25, data=res_for_graph_single[res_for_graph_single$taxa==unique(res_for_graph_single$taxa)[4],])
-# c5 = annotation_custom2(rasterGrob(all_im$Jeliazkov2013, interpolate=TRUE), xmin=0.1, xmax=0.2, ymin=0.17, ymax=0.28, data=res_for_graph_single[res_for_graph_single$taxa==unique(res_for_graph_single$taxa)[5],])
-# c6 = annotation_custom2(rasterGrob(all_im$Yates2014, interpolate=TRUE), xmin=0.22, xmax=0.45, ymin=0.05, ymax=0.2, data=res_for_graph_single[res_for_graph_single$taxa==unique(res_for_graph_single$taxa)[6],])
-# c7 = annotation_custom2(rasterGrob(all_im$Bartonova2016, interpolate=TRUE), xmin=0.35, xmax=0.52, ymin=-0.25, ymax=-0.11, data=res_for_graph_single[res_for_graph_single$taxa==unique(res_for_graph_single$taxa)[7],])
-# c8 = annotation_custom2(rasterGrob(all_im$NorthSeaTraits, interpolate=TRUE), xmin=0.17, xmax=0.32, ymin=0.1, ymax=0.25, data=res_for_graph_single[res_for_graph_single$taxa==unique(res_for_graph_single$taxa)[8],])
-# c9 = annotation_custom2(rasterGrob(all_im$Pakeman2011, interpolate=TRUE), xmin=-0.3, xmax=-0.2, ymin=-0.3, ymax=-0.11, data=res_for_graph_single[res_for_graph_single$taxa==unique(res_for_graph_single$taxa)[9],])
-# c10 = annotation_custom2(rasterGrob(all_im$Clearly2016, interpolate=TRUE), xmin=0.26, xmax=0.55, ymin=0.4, ymax=0.6, data=res_for_graph_single[res_for_graph_single$taxa==unique(res_for_graph_single$taxa)[10],])
-# c11 = annotation_custom2(rasterGrob(all_im$Flua, interpolate=TRUE), xmin=0.075, xmax=0.22, ymin=-0.32, ymax=-0.18, data=res_for_graph_single[res_for_graph_single$taxa==unique(res_for_graph_single$taxa)[11],])
-# c12 = annotation_custom2(rasterGrob(all_im$Diaz2008, interpolate=TRUE), xmin=0.18, xmax=0.32, ymin=0.07, ymax=0.18, data=res_for_graph_single[res_for_graph_single$taxa==unique(res_for_graph_single$taxa)[12],])
-# c13 = annotation_custom2(rasterGrob(all_im$InvertebrateNZ, interpolate=TRUE), xmin=0.1, xmax=0.25, ymin=0.2, ymax=0.35, data=res_for_graph_single[res_for_graph_single$taxa==unique(res_for_graph_single$taxa)[13],])
-# c14 = annotation_custom2(rasterGrob(all_im$ThermalFauna, interpolate=TRUE), xmin=0.35, xmax=0.6, ymin=0.2, ymax=0.5, data=res_for_graph_single[res_for_graph_single$taxa==unique(res_for_graph_single$taxa)[14],])
-# c15 = annotation_custom2(rasterGrob(all_im$coral, interpolate=TRUE), xmin=0.5, xmax=1, ymin=0.3, ymax=0.65, data=res_for_graph_single[res_for_graph_single$taxa==unique(res_for_graph_single$taxa)[15],])
-# c16 = annotation_custom2(rasterGrob(all_im$bacteria, interpolate=TRUE), xmin=0.18, xmax=0.3, ymin=0.15, ymax=0.27, data=res_for_graph_single[res_for_graph_single$taxa==unique(res_for_graph_single$taxa)[16],])
-# c17 = annotation_custom2(rasterGrob(all_im$Chondri, interpolate=TRUE), xmin=0.27, xmax=0.58, ymin=-0.05, ymax=0.2, data=res_for_graph_single[res_for_graph_single$taxa==unique(res_for_graph_single$taxa)[17],])
-# c18 = annotation_custom2(rasterGrob(all_im$phytoplankton, interpolate=TRUE), xmin=-0.05, xmax=-0.2, ymin=-0.35, ymax=-0.2, data=res_for_graph_single[res_for_graph_single$taxa==unique(res_for_graph_single$taxa)[18],])
-# c19 = annotation_custom2(rasterGrob(all_im$USDA_plant, interpolate=TRUE), xmin=0.15, xmax=0.3, ymin=0.1, ymax=0.25, data=res_for_graph_single[res_for_graph_single$taxa==unique(res_for_graph_single$taxa)[19],])
-# c20 = annotation_custom2(rasterGrob(all_im$PalmTraits, interpolate=TRUE), xmin=0.25, xmax=0.5, ymin=0.25, ymax=0.45, data=res_for_graph_single[res_for_graph_single$taxa==unique(res_for_graph_single$taxa)[20],])
-# c21 = annotation_custom2(rasterGrob(all_im$plant_alps, interpolate=TRUE), xmin=0.24, xmax=0.5, ymin=-0.45, ymax=-0.25, data=res_for_graph_single[res_for_graph_single$taxa==unique(res_for_graph_single$taxa)[21],])
-# c22 = annotation_custom2(rasterGrob(all_im$mammalstrait, interpolate=TRUE), xmin=-0.3, xmax=-0.15, ymin=-0.3, ymax=-0.15, data=res_for_graph_single[res_for_graph_single$taxa==unique(res_for_graph_single$taxa)[22],])
-# c23 = annotation_custom2(rasterGrob(all_im$freshfish, interpolate=TRUE), xmin=-0.1, xmax=-0.25, ymin=-0.3, ymax=-0.2, data=res_for_graph_single[res_for_graph_single$taxa==unique(res_for_graph_single$taxa)[23],])
-# c24 = annotation_custom2(rasterGrob(all_im$birds, interpolate=TRUE), xmin=0.075, xmax=0.15, ymin=-0.13, ymax=-0.09, data=res_for_graph_single[res_for_graph_single$taxa==unique(res_for_graph_single$taxa)[24],])
+bdd <- "villeger_2012"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c3  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                          xmin=0.10, xmax=0.25, ymin=0.05, ymax=0.15, 
+                          data = subdata)
 
+bdd <- "pavoine_2011"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c4  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                          xmin=0.2, xmax=0.3, ymin=0.18, ymax=0.28, 
+                          data = subdata)
+
+bdd <- "carvalho_2015"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c5  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                          xmin = 0.19, xmax = 0.32, ymin = 0.07, ymax = 0.17, 
+                          data = subdata)
+
+bdd <- "ribera_2001"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c6  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                          xmin=0.21, xmax=0.32, ymin=0.15, ymax=0.3, 
+                          data = subdata)
+bdd <- "charbonnier_2016"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c7  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                          xmin=0.2, xmax=0.3, ymin=0.2, ymax=0.3, 
+                          data = subdata)
+bdd <- "fried_2012"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c8  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                          xmin=-0.35, xmax=-0.15, ymin=0.15, ymax=0.35, 
+                          data = subdata)
+
+bdd <- "gibb_2015"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c9  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                          xmin=-0.6, xmax=-0.35, ymin=-0.25, ymax=-0.07, 
+                          data = subdata)
+
+bdd <- "goncalves_2014"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c10  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=0.1, xmax=0.3, ymin=-0.4, ymax=-0.25, 
+                           data = subdata)
+
+bdd <- "jeliazkov_2013"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c11  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=0.1, xmax=0.2, ymin=0.17, ymax=0.28, 
+                           data = subdata)
+
+bdd <- "yates_2014"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c12  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=0.22, xmax=0.45, ymin=0.05, ymax=0.2, 
+                           data = subdata)
+
+bdd <- "bartonova_2016"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c13  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=0.35, xmax=0.52, ymin=-0.25, ymax=-0.11, 
+                           data = subdata)
+
+bdd <- "north_sea_traits"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c14  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=0.17, xmax=0.32, ymin=0.1, ymax=0.25, 
+                           data = subdata)
+
+bdd <- "pakeman_2011"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c15  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=-0.3, xmax=-0.2, ymin=-0.3, ymax=-0.11, 
+                           data = subdata)
+
+bdd <- "clearly_2016"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c16  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=0.26, xmax=0.55, ymin=0.4, ymax=0.6, 
+                           data = subdata)
+
+bdd <- "krasnov_2015"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c17  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=0.14, xmax=0.25, ymin=-0.33, ymax=-0.1, 
+                           data = subdata)
+
+bdd <- "diaz_2008"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c18  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=0.18, xmax=0.32, ymin=0.07, ymax=0.18, 
+                           data = subdata)
+
+bdd <- "nz_insect"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c19  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=0.1, xmax=0.25, ymin=0.2, ymax=0.3, 
+                           data = subdata)
+
+bdd <- "thermal_fauna"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c20  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=0.35, xmax=0.6, ymin=0.2, ymax=0.5, 
+                           data = subdata)
+
+bdd <- "coral_traits"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c21  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=0.5, xmax=1, ymin=0.3, ymax=0.65, 
+                           data = subdata)
+
+bdd <- "bacteria"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c22  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=0.18, xmax=0.3, ymin=0.15, ymax=0.27, 
+                           data = subdata)
+
+bdd <- "chondrichtyens_traits"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c23  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=0.27, xmax=0.58, ymin=-0.05, ymax=0.2, 
+                           data = subdata)
 
 # Add whale sharks
-c25 <- annotation_custom2(grid::rasterGrob(all_im$rhincodontypus, interpolate = TRUE), 
-                          xmin = -0.20, xmax = 0.15, ymin = -1.05, ymax = 0, 
-                          data = res_for_graph_single[res_for_graph_single$taxa == unique(res_for_graph_single$taxa)[17], ])
+c24 <- annotation_custom2(grid::rasterGrob(all_im$rhincodontypus, interpolate = TRUE), 
+                          xmin=0.15, xmax=0.53, ymin=-1.00, ymax=0.08, 
+                          data = res_for_graph_single[res_for_graph_single$taxa == unique(res_for_graph_single$taxa)[23], ])
 
-c26 <- annotation_custom2(my_arrow(), 
-                          xmin = 0.16, xmax = 0.55, ymin = -0.54, ymax = -0.54, 
-                          data = res_for_graph_single[res_for_graph_single$taxa == unique(res_for_graph_single$taxa)[17], ])
+#c25 <- annotation_custom2(my_arrow(), 
+#                          xmin = 0.16, xmax = 0.55, ymin = -0.54, ymax = -0.54, 
+#                          data = res_for_graph_single[res_for_graph_single$taxa == unique(res_for_graph_single$taxa)[23], ])
 
+
+bdd <- "phyto_plankton"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c26  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=-0.05, xmax=-0.2, ymin=-0.35, ymax=-0.2, 
+                           data = subdata)
+
+bdd <- "usda_plant_traits"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c27  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=0.15, xmax=0.3, ymin=0.1, ymax=0.25, 
+                           data = subdata)
+
+bdd <- "palm_traits"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c28  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=0.25, xmax=0.5, ymin=0.25, ymax=0.45, 
+                           data = subdata)
+
+bdd <- "plant_alps"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c29  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=0.24, xmax=0.5, ymin=-0.45, ymax=-0.25, 
+                           data = subdata)
+
+bdd <- "mammals_trait"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c30  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=-0.3, xmax=-0.15, ymin=-0.3, ymax=-0.15, 
+                           data = subdata)
+
+bdd <- "fresh_fish_trait"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c31 <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                          xmin=-0.1, xmax=-0.25, ymin=-0.3, ymax=-0.2, 
+                           data = subdata)
+
+bdd <- "birds_trait"
+subdata <- res_for_graph_single[res_for_graph_single$taxa == bdd, ]
+c32  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=0.075, xmax=0.15, ymin=-0.13, ymax=-0.09, 
+                           data = subdata)
 
 grDevices::pdf(file = here::here("figures", "Figure6.pdf"), 
                width = 11.7, height = 8.3) #SAVE A4
 
-print(p3 + c1)# + c2 + c3 + c4 + c5 + c6 +c7 + c8 + c9 + c10 + 
-# c11 + c12 + c13 + c14 + c15 + c16 + c17 + c18 + c19 + c20 + 
-# c21 + c22 + c23 + c24 + c25 + c26
+print(p3 + c1 + c2 + c3+    c4 + c5 + c6 +c7 + c8 + c9 + c10 + 
+ c11 + c12 + c13 + c14 + c15 + c16 + c17 + c18 + c19 + c20 + 
+ c21 + c22 + c23 + c24 + #c25 +
+   c26 + c27 + c28 + c29 + c30 + 
+ c31 + c32)
 dev.off()
