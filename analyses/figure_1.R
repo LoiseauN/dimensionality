@@ -144,6 +144,18 @@ subdata <- res_for_graph_dim[res_for_graph_dim$taxa == bdd, ]
 a6  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
                           xmin = 15, xmax = 21, ymin = 0.01, ymax = 0.34, 
                           data = subdata)
+bdd <- "yates_2014"
+subdata <- res_for_graph_dim[res_for_graph_dim$taxa == bdd, ]
+a6  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                          xmin = 15, xmax = 21, ymin = 0.01, ymax = 0.34, 
+                          data = subdata)
+bdd <- "yates_2014"
+subdata <- res_for_graph_dim[res_for_graph_dim$taxa == bdd, ]
+a6  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                          xmin = 15, xmax = 21, ymin = 0.01, ymax = 0.34, 
+                          data = subdata)
+
+
 
 # a7  = annotation_custom2(rasterGrob(all_im$Bartonova2016, interpolate=TRUE), xmin=15, xmax=21, ymin=0.01, ymax=0.34, data=res_for_graph_dim[res_for_graph_dim$taxa==unique(res_for_graph_dim$taxa)[7],])
 # a8  = annotation_custom2(rasterGrob(all_im$NorthSeaTraits, interpolate=TRUE), xmin=15, xmax=21, ymin=0.01, ymax=0.34, data=res_for_graph_dim[res_for_graph_dim$taxa==unique(res_for_graph_dim$taxa)[8],])
