@@ -1,41 +1,58 @@
 # dimensionality
 
-Research Compendium of the ___________ article.
+Research Compendium of the paper _Mouillot et al. (2021) The dimensionality and
+structure of species trait spaces. Submitted to Ecology Letters_.
+
 
 
 ## Goal
 
-`Quatify dimensionality of functional space`
-`Quatify robustness`
-`Compute cluster and unique species`
+- Quantify dimensionality of functional space
+- Quantify robustness
+- Compute cluster and unique species
 
 
 
 ## Content
 
+
+
 This repository is structured as follow:
 
-- :file_folder: &nbsp;[**analyses/**](https://github.com/loiseaun/dimensionality/tree/master/analyses):
-`contains R scripts one to run analyses, one to import results, one per figure`
 - :file_folder: &nbsp;[**data/**](https://github.com/loiseaun/dimensionality/tree/master/data):
-`contains all data required to reproduce analyses and figures`
-- :file_folder: &nbsp;[**man/**](https://github.com/loiseaun/dimensionality/tree/master/man):
-`contains R functions documentation`
+contains all data required to reproduce analyses and figures
+
 - :file_folder: &nbsp;[**R/**](https://github.com/loiseaun/dimensionality/tree/master/R):
-`contains R functions developed for this project`
+contains R functions developed especially for this project
+
+- :file_folder: &nbsp;[**man/**](https://github.com/loiseaun/dimensionality/tree/master/man):
+contains documentation of R functions
+
+- :file_folder: &nbsp;[**analyses/**](https://github.com/loiseaun/dimensionality/tree/master/analyses):
+contains R scripts to reproduce all the analyses/figures
+
 - :file_folder: &nbsp;[**outputs/**](https://github.com/loiseaun/dimensionality/tree/master/outputs):
-`contains results in .rds generated for this project`
+contains all the results stored in the `.rds` format
+
 - :page_facing_up: &nbsp;[**make.R**](https://github.com/loiseaun/dimensionality/tree/master/make.R):
-`Run all analyses`
+master R script to run the entire project by calling each R script stored in the **analyses/** folder
+
+- :page_facing_up: &nbsp;[**DESCRIPTION**](https://github.com/loiseaun/dimensionality/tree/master/DESCRIPTION):
+contains project metadata (dependencies, etc.)
+
+
 
 ## Notes
 
-- All required packages will be installed (if necessary) and loaded.
+
+
+- All required packages will be installed (if necessary)
+- All required packages and R functions will be loaded
 - Figures will be stored in `figures/`
 
-## Caution
+:warning: Analyses require several cores and some computations take time.
 
-- Analyses require several cores and some computations take time.
+
 
 ## Usage
 
@@ -44,5 +61,6 @@ Clone the repository and run this command in R/RStudio:
 ```r
 source("make.R")
 ```
+
 
 Cheers!
