@@ -91,10 +91,10 @@ dimension_funct <- function(trait_df, dim_pcoa = 10, rep = 99, cores = 3,
     if (i != 1) {
 
       usethis::ui_done(
-        paste("Compute NULL model for AUC, Have a break, Have a Kit-kat, nbdim =", i)
+        paste("Compute NULL model for AUC, nbdim =", i)
       )
 
-      if (i == nbdim) usethis::ui_done(paste0("Last one, end of the Kit-kat!"))
+      if (i == nbdim) usethis::ui_done(paste0("Last one!"))
 
       rand_table <- do.call(rbind, pbmcapply::pbmclapply(1:rep, function (j) {
 
