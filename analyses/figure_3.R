@@ -69,41 +69,186 @@ p2 <- ggplot(res_for_graph_miss, aes(x = miss_percent * 100, y = AUC,
         legend.position  = "none")
 
 
+
 bdd <- "eallonardo_2013"
 subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
 b1  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
                           xmin = 60, xmax = 85, ymin = 0.68, ymax = 0.9, 
                           data = subdata)
 
-bdd <- "ribera_2001"
+
+bdd <- "chmura_2016"
 subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
 b2  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
-                          xmin = 60, xmax = 85, ymin = 0.68, ymax = 0.9, 
+                          xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
+                          data = subdata)
+
+bdd <- "villeger_2012"
+subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
+b3  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                          xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
+                          data = subdata)
+
+bdd <- "pavoine_2011"
+subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
+b4  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                          xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
+                          data = subdata)
+
+bdd <- "carvalho_2015"
+subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
+b5  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                          xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
+                          data = subdata)
+
+bdd <- "ribera_2001"
+subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
+b6  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                          xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
+                          data = subdata)
+bdd <- "charbonnier_2016"
+subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
+b7  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                          xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
+                          data = subdata)
+bdd <- "fried_2012"
+subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
+b8  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                          xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
                           data = subdata)
 
 bdd <- "gibb_2015"
 subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
-b3  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
-                          xmin = 60, xmax = 85, ymin = 0.68, ymax = 0.9, 
+b9  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                          xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
                           data = subdata)
 
 bdd <- "goncalves_2014"
 subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
-b4  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
-                          xmin = 60, xmax = 85, ymin = 0.68, ymax = 0.9, 
-                          data = subdata)
+b10  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
+                           data = subdata)
 
 bdd <- "jeliazkov_2013"
 subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
-b5  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
-                          xmin = 60, xmax = 85, ymin = 0.68, ymax = 0.9, 
-                          data = subdata)
+b11  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
+                           data = subdata)
 
 bdd <- "yates_2014"
 subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
-b6  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
-                          xmin = 60, xmax = 85, ymin = 0.68, ymax = 0.9, 
-                          data = subdata)
+b12  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
+                           data = subdata)
+
+bdd <- "bartonova_2016"
+subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
+b13  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
+                           data = subdata)
+
+bdd <- "north_sea_traits"
+subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
+b14  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
+                           data = subdata)
+
+bdd <- "pakeman_2011"
+subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
+b15  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
+                           data = subdata)
+
+bdd <- "clearly_2016"
+subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
+b16  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
+                           data = subdata)
+
+bdd <- "krasnov_2015"
+subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
+b17  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
+                           data = subdata)
+
+bdd <- "diaz_2008"
+subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
+b18  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
+                           data = subdata)
+
+bdd <- "nz_insect"
+subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
+b19  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
+                           data = subdata)
+
+bdd <- "thermal_fauna"
+subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
+b20  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
+                           data = subdata)
+
+bdd <- "coral_traits"
+subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
+b21  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
+                           data = subdata)
+
+bdd <- "bacteria"
+subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
+b22  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
+                           data = subdata)
+
+bdd <- "chondrichtyens_traits"
+subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
+b23  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
+                           data = subdata)
+
+bdd <- "phyto_plankton"
+subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
+b24  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
+                           data = subdata)
+
+bdd <- "usda_plant_traits"
+subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
+b25  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
+                           data = subdata)
+
+bdd <- "palm_traits"
+subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
+b26  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
+                           data = subdata)
+
+bdd <- "plant_alps"
+subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
+b27  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
+                           data = subdata)
+
+bdd <- "mammals_trait"
+subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
+b28  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
+                           data = subdata)
+
+bdd <- "fresh_fish_trait"
+subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
+b29  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
+                           data = subdata)
+
+bdd <- "birds_trait"
+subdata <- res_for_graph_miss[res_for_graph_miss$taxa == bdd, ]
+b30  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE), 
+                           xmin=60, xmax=85, ymin=0.68, ymax=0.9, 
+                           data = subdata)
+
 
 # b7 = annotation_custom2(rasterGrob(all_im$Bartonova2016, interpolate=TRUE), xmin=60, xmax=85, ymin=0.68, ymax=0.9, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[7],])
 # b8 = annotation_custom2(rasterGrob(all_im$NorthSeaTraits, interpolate=TRUE), xmin=60, xmax=85, ymin=0.68, ymax=0.9, data=res_for_graph_miss[res_for_graph_miss$taxa==unique(res_for_graph_miss$taxa)[8],])
@@ -128,7 +273,7 @@ b6  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE),
 grDevices::pdf(file = here::here("figures", "Figure3.pdf"), 
                width = 11.7, height = 8.3) #SAVE A4
 
-print(p2 + b1 + b2 + b3 + b4 + b5 + b6) #+ b7 + b8 + b9 + b10 + 
-# b11 + b12 + b13 + b14 + b15 + b16  + b17 + b18 + b19 + b20 + 
-# b21 + b22 + b23 + b24
+print(p2 + b1 + b2 + b3 + b4 + b5 + b6 + b7 + b8 + b9 + b10 + 
+ b11 + b12 + b13 + b14 + b15 + b16  + b17 + b18 + b19 + b20 + 
+ b21 + b22 + b23 + b24 + b25 + b26  + b27 + b28 + b29 + b30)
 dev.off()
