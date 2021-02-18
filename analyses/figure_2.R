@@ -279,3 +279,34 @@ Dimensionality_plot <- gridExtra::grid.arrange(plot_AUC_elbow, plot_AUC_0.7,
                                                plot_AUClostwhen50percTraitdepleted, 
                                                nrow = 3, ncol = 1)
 dev.off()
+
+
+
+#To make a table summarizing all models for supplementary
+#aov_table_df <- rbind(aov_AUC_elbow, aov_AUC_0.7,aov_AUClostwhen50percTraitdepleted)
+#aov_table_df <- data.frame(Variables = c(rep("Dimensionality AUC Elbow",5),rep("Dimensionality AUC 0.7",5)
+#                                         ,rep("AUC - 50% traits omission",5)),aov_table_df)
+
+#aov_table_df[aov_table_df$Term=="log(Number of Species)",]$Term <- "Number of Species (log)"
+#aov_table_df[aov_table_df$Term=="log(Number of Traits)",]$Term <- "Number of Traits (log)"
+#aov_table_df[aov_table_df$Term=="Percentage of NA",]$Term <- "% of Missing Values"
+#aov_table_df[aov_table_df$Term=="Correlation",]$Term <- "Mean Correlation"
+#aov_table_df <- aov_table_df %>% dplyr::mutate_at(vars("Sum.Sq","F.statistic","P.value",), dplyr::funs(round(., 3)))
+
+#for(i in 1:nrow(aov_table_df)){ 
+#  if(aov_table_df[i, 5]<0.001 )    { 
+#    aov_table_df[i, 5] <- "<0.001"
+#    aov_table_df[i, 5] <- kableExtra::cell_spec(aov_table_df[i, 5],  bold = T)
+#  } 
+  
+#  if(aov_table_df[i, 5]<0.05 & aov_table_df[i, 5]>0.001)     {  
+#    aov_table_df[i, 5] <- kableExtra::cell_spec(aov_table_df[i, 5],  bold = T)
+#  } 
+#}
+
+#table_mod_aov<-pixiedust::dust(aov_table_df) %>% 
+# kableExtra::kable( booktabs = T, escape = F)%>% 
+# kableExtra::kable_styling()%>% 
+# kableExtra::collapse_rows()
+
+# table_mod_aov
