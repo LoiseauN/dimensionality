@@ -257,3 +257,35 @@ grDevices::pdf(file = here::here("figures", "Figure4.pdf"),
 structure_plot <- gridExtra::grid.arrange(plot_logNC, plot_PropC1, plot_PropSin, 
                                           nrow = 3, ncol = 1) 
 dev.off()
+
+
+#To make a table summarizing all models for supplementary
+#aov_cluster_table_df <- rbind(aov_logNC, aov_PropSin,aov_PropC1)
+#aov_cluster_table_df <- data.frame(Variables = c(rep("Number of Cluster (log)",5),rep("% uniques",5)
+#                                                 ,rep("% Cluster #1",5)),aov_cluster_table_df)
+
+#aov_cluster_table_df[aov_cluster_table_df$Term=="log(Number of Species)",]$Term <- "Number of Species (log)"
+#aov_cluster_table_df[aov_cluster_table_df$Term=="log(Number of Traits)",]$Term <- "Number of Traits (log)"
+#aov_cluster_table_df[aov_cluster_table_df$Term=="Percentage of NA",]$Term <- "% of Missing Values"
+#aov_cluster_table_df[aov_cluster_table_df$Term=="Correlation",]$Term <- "Mean Correlation"
+
+#aov_cluster_table_df <- aov_cluster_table_df %>% dplyr::mutate_at(vars("Sum.Sq","F.statistic","P.value",), dplyr::funs(round(., 3)))
+
+#for(i in 1:nrow(aov_cluster_table_df)){ 
+#  if(aov_cluster_table_df[i, 5]<0.001 )    { 
+#    aov_cluster_table_df[i, 5] <- "<0.001"
+#    aov_cluster_table_df[i, 5] <- kableExtra::cell_spec(aov_cluster_table_df[i, 5],  bold = T)
+#  } 
+  
+#  if(aov_cluster_table_df[i, 5]<0.05 & aov_cluster_table_df[i, 5]>0.001)     {  
+#    aov_cluster_table_df[i, 5] <- kableExtra::cell_spec(aov_cluster_table_df[i, 5],  bold = T)
+#  } 
+  
+  
+#}
+
+#table_cluster_aov<-pixiedust::dust(aov_cluster_table_df) %>% 
+#  kableExtra::kable( booktabs = T, escape = F)%>% 
+#  kableExtra::kable_styling()%>% 
+#  kableExtra::collapse_rows()
+#table_cluster_aov

@@ -55,8 +55,8 @@ load(file = here::here("outputs", "res_for_model.RData"))
               
               
 ## Influence of Kingdoms ----
-              res_for_model2<-res_for_model
-              res_for_model2$Kingdoms <- c(NA,
+              res_for_model_kingdoms<-res_for_model
+              res_for_model_kingdoms$Kingdoms <- c(NA,
                                       "Invertebrate",
                                       "Vertebrate",
                                       "Vertebrate",
@@ -89,7 +89,7 @@ load(file = here::here("outputs", "res_for_model.RData"))
               
               
               mod_AUC_elbow <- stats::lm(Nb_dim_AUC_elbow ~ logS + logNT + NA_perc + quanti_perc + mean_cor + Kingdoms, 
-                                         data = res_for_model2, na.action = "na.omit")
+                                         data = res_for_model_kingdoms, na.action = "na.omit")
               
               aov_AUC_elbow <- data.frame(car::Anova(mod_AUC_elbow))
               aov_AUC_elbow <- data.frame(term = rownames(aov_AUC_elbow), aov_AUC_elbow)
@@ -116,7 +116,7 @@ load(file = here::here("outputs", "res_for_model.RData"))
               
               #--------
               mod_AUC_0.7 <- stats::lm(Nb_dim_AUC_0.7 ~ logS + logNT + NA_perc + quanti_perc + mean_cor +Kingdoms,
-                                       data = res_for_model2, na.action = "na.omit")
+                                       data = res_for_model_kingdoms, na.action = "na.omit")
               
               aov_AUC_0.7 <- data.frame(car::Anova(mod_AUC_0.7))
               aov_AUC_0.7 <- data.frame(term = rownames(aov_AUC_0.7), aov_AUC_0.7)
@@ -143,7 +143,7 @@ load(file = here::here("outputs", "res_for_model.RData"))
               
               #--------
               mod_AUClostwhen50percTraitdepleted <- stats::lm(rowAUClostwhen50percTraitdepleted ~ logS + logNT + NA_perc + quanti_perc + mean_cor +Kingdoms, 
-                                                              data = res_for_model2, na.action = "na.omit")
+                                                              data = res_for_model_kingdoms, na.action = "na.omit")
               
               aov_AUClostwhen50percTraitdepleted <- data.frame(car::Anova(mod_AUClostwhen50percTraitdepleted))
               aov_AUClostwhen50percTraitdepleted <- data.frame(term = rownames(aov_AUClostwhen50percTraitdepleted), aov_AUClostwhen50percTraitdepleted)
@@ -175,10 +175,40 @@ load(file = here::here("outputs", "res_for_model.RData"))
                                                              nrow = 3, ncol = 1)
               
               
+              #To make a table summarizing  models for supplementary
+              #aov_table_df <- rbind(aov_AUC_elbow, aov_AUC_0.7,aov_AUClostwhen50percTraitdepleted)
+              #aov_table_df <- data.frame(Variables = c(rep("Dimensionality AUC Elbow",6),rep("Dimensionality AUC 0.7",6)
+              #                                         ,rep("AUC - 50% traits omission",6)),aov_table_df)
+              
+              #aov_table_df[aov_table_df$Term=="log(Number of Species)",]$Term <- "Number of Species (log)"
+              #aov_table_df[aov_table_df$Term=="log(Number of Traits)",]$Term <- "Number of Traits (log)"
+              #aov_table_df[aov_table_df$Term=="Percentage of NA",]$Term <- "% of Missing Values"
+              #aov_table_df[aov_table_df$Term=="Correlation",]$Term <- "Mean Correlation"
+              #aov_table_df <- aov_table_df %>% dplyr::mutate_at(vars("Sum.Sq","F.statistic","P.value",), dplyr::funs(round(., 3)))
+              
+              #aov_table_df<-subset(aov_table_df,aov_table_df$Term == "Kingdoms")
+              
+              #for(i in 1:nrow(aov_table_df)){ 
+              #  if(aov_table_df[i, 5]<0.001 )    { 
+              #    aov_table_df[i, 5] <- "<0.001"
+              #    aov_table_df[i, 5] <- kableExtra::cell_spec(aov_table_df[i, 5],  bold = T)
+              #  } 
+              
+              #  if(aov_table_df[i, 5]<0.05 & aov_table_df[i, 5]>0.001)     {  
+              #    aov_table_df[i, 5] <- kableExtra::cell_spec(aov_table_df[i, 5],  bold = T)
+              #  } 
+              #}
+              
+              #table_mod_aov<-pixiedust::dust(aov_table_df) %>% 
+              # kableExtra::kable( booktabs = T, escape = F)%>% 
+              # kableExtra::kable_styling()%>% 
+              # kableExtra::collapse_rows()
+              
+              #table_mod_aov
               
     #------   
               mod_logNC <- stats::lm(logNC ~ logS + logNT + NA_perc + quanti_perc + mean_cor + Kingdoms, 
-                                     data = res_for_model2, na.action = "na.omit")
+                                     data = res_for_model_kingdoms, na.action = "na.omit")
               
               
               aov_logNC <- data.frame(car::Anova(mod_logNC))
@@ -206,7 +236,7 @@ load(file = here::here("outputs", "res_for_model.RData"))
               
               #----------
               mod_PropC1 <- stats::lm(PropC1 ~ logS + logNT + NA_perc + quanti_perc + mean_cor+ Kingdoms, 
-                                      data = res_for_model2, na.action = "na.omit")
+                                      data = res_for_model_kingdoms, na.action = "na.omit")
               
               aov_PropC1 <- data.frame(car::Anova(mod_PropC1))
               aov_PropC1 <- data.frame(term = rownames(aov_PropC1), aov_PropC1)
@@ -236,7 +266,7 @@ load(file = here::here("outputs", "res_for_model.RData"))
               
               
               mod_PropSin <- stats::lm(PropSin ~ logS + logNT + NA_perc + quanti_perc + mean_cor+ Kingdoms, 
-                                       data = res_for_model2, na.action = "na.omit")
+                                       data = res_for_model_kingdoms, na.action = "na.omit")
               
               aov_PropSin <- data.frame(car::Anova(mod_PropSin))
               aov_PropSin <- data.frame(term = rownames(aov_PropSin), aov_PropSin)
@@ -269,7 +299,37 @@ load(file = here::here("outputs", "res_for_model.RData"))
 
 
 
-
+              #aov_cluster_table_df <- rbind(aov_logNC, aov_PropSin,aov_PropC1)
+              #aov_cluster_table_df <- data.frame(Variables = c(rep("Number of Cluster (log)",6),rep("% uniques",6)
+               #                                                ,rep("% Cluster #1",6)),aov_cluster_table_df)
+              
+              #aov_cluster_table_df[aov_cluster_table_df$Term=="log(Number of Species)",]$Term <- "Number of Species (log)"
+              #aov_cluster_table_df[aov_cluster_table_df$Term=="log(Number of Traits)",]$Term <- "Number of Traits (log)"
+              #aov_cluster_table_df[aov_cluster_table_df$Term=="Percentage of NA",]$Term <- "% of Missing Values"
+              #aov_cluster_table_df[aov_cluster_table_df$Term=="Correlation",]$Term <- "Mean Correlation"
+              
+              #aov_cluster_table_df <- aov_cluster_table_df %>% dplyr::mutate_at(vars("Sum.Sq","F.statistic","P.value",), dplyr::funs(round(., 3)))
+              #aov_cluster_table_df<-subset(aov_cluster_table_df,aov_cluster_table_df$Term == "Kingdoms")
+              
+              #for(i in 1:nrow(aov_cluster_table_df)){ 
+              #  if(aov_cluster_table_df[i, 5]<0.001 )    { 
+              #    aov_cluster_table_df[i, 5] <- "<0.001"
+              #    aov_cluster_table_df[i, 5] <- kableExtra::cell_spec(aov_cluster_table_df[i, 5],  bold = T)
+              #  } 
+              
+               # if(aov_cluster_table_df[i, 5]<0.05 & aov_cluster_table_df[i, 5]>0.001)     {  
+                #  aov_cluster_table_df[i, 5] <- kableExtra::cell_spec(aov_cluster_table_df[i, 5],  bold = T)
+                #} 
+              
+              
+              #}
+              
+              #table_cluster_aov<-pixiedust::dust(aov_cluster_table_df) %>% 
+                # kableExtra::kable( booktabs = T, escape = F)%>% 
+                #  kableExtra::kable_styling()%>% 
+                #  kableExtra::collapse_rows()
+              #table_cluster_aov
+              
 
 
 
