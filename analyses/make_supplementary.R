@@ -62,7 +62,12 @@ ggplot(res_for_model,aes(x = Nb_dim_AUC_elbow,y = Nb_dim_AUC_0.7)) +
                 scale_colour_hp_d(option = "LunaLovegood")
               
 
-## Relation between AUC & Percentage of variance explained PCOA ----  
+## Relation between AUC & Percentage of variance explained PCOA ---- 
+#Peut-on plutôt avoir le % des axes en X et non en Y avec une valeur 
+# de R2 pour savoir à combien il explique nos nouvelles métriques 
+#mais aussi mettre ces plots dans un repère orthonormé genre 10-10 
+#pour voir le décalage avec la diagonale de pente 1   
+ 
               res_pcoa <- data.frame(do.call(rbind, lapply(1:length(list_res_pcoa),function(i){
                 
                 print(i)
@@ -84,37 +89,56 @@ ggplot(res_for_model,aes(x = Nb_dim_AUC_elbow,y = Nb_dim_AUC_0.7)) +
                                      Nb_dim_AUC_elbow = res_for_model$Nb_dim_AUC_elbow,
                                      dim_varexplain0.5 = res_for_model$dim_varexplain0.5)
               
-              
-              a <- ggplot(formatgg,aes(x = Nb_dim_AUC_0.5,y = dim_varexplain0.5)) +
+              #summary(lm(formatgg$Nb_dim_AUC_0.5 ~ formatgg$dim_varexplain0.5))
+              a <-  ggplot(formatgg,aes(y = Nb_dim_AUC_0.5,x = dim_varexplain0.5)) +
                 geom_point(size = 2, col = "#3D7688") + 
-                geom_smooth(method = lm, col = "#3D7688") + 
+                geom_smooth(method = lm, col = "#3D7688", fill = "#D6EBEC") + 
                 theme_bw()+ 
-                ylab("Dimensionality 50% of Explained Variance") + xlab("Dimensionality 50% AUC 0.5")  +
-                ylim(0, 15)+ theme(axis.text.y  = element_text(), 
-                                   axis.title.x = element_text( face = "bold"),
-                                   axis.title.y = element_text( face = "bold"))
+                xlab("") + ylab("Dimensionality AUC 0.5")+
+                theme(axis.title.y = element_text(size = 12, face = "bold"),
+                      axis.title.x = element_text(size = 12, face = "bold")) +
+                geom_label(data = res_for_model,
+                           aes(label = paste0("R-squared = ", 
+                                              0.79),
+                               y = 2, x = 5), size = 4, hjust = 0) +
+                ylim(0, 7.5)+xlim(0, 7.5)+
+                geom_abline(slope = 1, intercept = 0)
               
-              b <- ggplot(formatgg,aes(x = Nb_dim_AUC_0.7,y = dim_varexplain0.5)) +
+              #summary(lm(formatgg$Nb_dim_AUC_0.7 ~ formatgg$dim_varexplain0.5))
+              b <- ggplot(formatgg,aes(y = Nb_dim_AUC_0.7,x = dim_varexplain0.5)) +
                 geom_point(size = 2, col = "#3D7688") + 
-                geom_smooth(method = lm, col = "#3D7688") + 
+                geom_smooth(method = lm, col = "#3D7688", fill = "#D6EBEC") + 
                 theme_bw()+ 
-                 xlab("Dimensionality 50% AUC 0.7") + ylab("")+
-                ylim(0, 15)+ theme(axis.text.y  = element_blank(), 
-                                   axis.title.x = element_text( face = "bold"))
+                xlab("") + ylab("Dimensionality AUC 0.7")+
+                theme(axis.title.y = element_text(size = 12, face = "bold"),
+                      axis.title.x = element_text(size = 12, face = "bold")) +
+                geom_label(data = res_for_model,
+                           aes(label = paste0("R-squared = ", 
+                                              0.82),
+                               y = 2.5, x = 11), size = 4, hjust = 0) +
+                ylim(0, 16)+xlim(0, 16) +
+                geom_abline(slope = 1, intercept = 0)
               
-              c <- ggplot(formatgg,aes(x = Nb_dim_AUC_elbow,y = dim_varexplain0.5)) +
+              #summary(lm(formatgg$Nb_dim_AUC_elbow ~ formatgg$dim_varexplain0.5))
+              c <- ggplot(formatgg,aes(y = Nb_dim_AUC_elbow,x = dim_varexplain0.5)) +
                 geom_point(size = 2, col = "#3D7688") + 
-                geom_smooth(method = lm, col = "#3D7688") + 
+                geom_smooth(method = lm, col = "#3D7688", fill = "#D6EBEC") + 
                 theme_bw()+ 
-                 xlab("Dimensionality AUC Elbow") + ylab("")+
-                ylim(0, 15)+ theme(axis.text.y  = element_blank(), 
-                                   axis.title.x = element_text( face = "bold"))
+                 xlab("Dimensionality 50% of Explained Variance") + ylab("Dimensionality AUC Elbow")+
+                theme(axis.title.y = element_text(size = 12, face = "bold"),
+                      axis.title.x = element_text(size = 12, face = "bold")) +
+                geom_label(data = res_for_model,
+                           aes(label = paste0("R-squared = ", 
+                                              0.18),
+                               y = 2, x = 5), size = 4, hjust = 0) +
+                ylim(0, 7.5)+xlim(0, 7.5)+
+                geom_abline(slope = 1, intercept = 0)
               
             
-              grid.arrange(a,b,c,ncol = 3)
+              grid.arrange(a,b,c,nrow = 3)
               
               
-## Influence of Kingdomsand Ecosystems ----
+## Influence of Kingdoms and Ecosystems ----
               res_for_model_kingdoms<-res_for_model
               res_for_model_kingdoms$Kingdoms <- c(NA,"Invertebrate","Vertebrate",
                                                    "Vertebrate","Vertebrate",
@@ -508,17 +532,3 @@ ggplot(res_for_model,aes(x = Nb_dim_AUC_elbow,y = Nb_dim_AUC_0.7)) +
                 kableExtra::kable_styling()%>% 
                 kableExtra::collapse_rows()
               table_cluster_aov
-              
-              
-              
-              
-              
-              
-              
-              
-
-
-
-
-
-
