@@ -5,7 +5,7 @@
 
 load(file = here::here("outputs", "res_for_model.RData"))
 
-## Distribution of modeled data ----              
+## Distribution of modeled variables ----              
               df <- res_for_model[,c("Nb_dim_AUC_elbow","Nb_dim_AUC_0.7","rowAUClostwhen50percTraitdepleted","logNC","PropC1","PropSin")]
               df <- data.frame(value = c(df[,"Nb_dim_AUC_elbow"],df[,"Nb_dim_AUC_0.7"],df[,"rowAUClostwhen50percTraitdepleted"],df[,"logNC"],df[,"PropC1"],df[,"PropSin"]),
                                variable =  c(rep("Elbow-AUC",30),
@@ -23,15 +23,24 @@ load(file = here::here("outputs", "res_for_model.RData"))
                                                           "Dimensionality AUC 0.7",
                                                           "Elbow-AUC"))  
               
-              ggplot(df,aes(x = value, y = variable,fill = variable)) +
-                ggridges::geom_density_ridges()+
-                theme_bw()  +
-                theme(legend.position = "none",axis.title.y = element_blank()) 
-              dev.off()
+              ggplot(df,aes(x = value, y = variable,fill = variable))+geom_point(size=2,col="#3D7688")+
+                geom_smooth(method="lm",alpha=0.3,color="#3D7688",fill="#D6EBEC")+ theme_bw()+theme(legend.position="none",
+                                                                                                    
+         
               
               
               
+## Relation between Threshol0.7 & AUC ----   
               
+ggplot(res_for_model,aes(x = Nb_dim_AUC_elbow,y = Nb_dim_AUC_0.7)) +
+  geom_point(size = 2, col = "#3D7688") + 
+  geom_smooth(method = lm, col = "#3D7688") + 
+  theme_bw()+ 
+  xlab("Dimensionality AUC Elbow") + ylab("Dimensionality AUC 0.7")+
+   theme(axis.title.y = element_text( face = "bold"), 
+     axis.title.x = element_text( face = "bold"))
+
+
 ## Relation between AUC & MAD ----             
               
               files <- list.files(path = here::here("outputs"), pattern = "_dim.rds$",
@@ -52,6 +61,57 @@ load(file = here::here("outputs", "res_for_model.RData"))
                                                                      axis.title.y = element_text(size=12, face="bold"),axis.title.x = element_text(size=12, face="bold"))+
                 scale_colour_hp_d(option = "LunaLovegood")
               
+
+## Relation between AUC & Percentage of variance explained PCOA ----  
+              res_pcoa <- data.frame(do.call(rbind, lapply(1:length(list_res_pcoa),function(i){
+                
+                print(i)
+                
+                res_pcoa1 <- data.frame(list_res_pcoa[[i]]$values)
+                inertia_pcoa <- res_pcoa1$Eigenvalues
+                inertia_pcoa <- inertia_pcoa[inertia_pcoa>0]
+                inertia_pcoa <- inertia_pcoa/sum(inertia_pcoa)
+                cumul_inertia <- cumsum(inertia_pcoa) 
+                varexplain0.5 <- length(cumul_inertia[cumul_inertia<0.5])+1
+                return(varexplain0.5)
+              })))
+              
+              
+              res_for_model$dim_varexplain0.5 <- res_pcoa[,1]
+             
+              formatgg <- data.frame(Nb_dim_AUC_0.5 = res_for_model$Nb_dim_AUC_0.5,
+                                     Nb_dim_AUC_0.7 = res_for_model$Nb_dim_AUC_0.7,
+                                     Nb_dim_AUC_elbow = res_for_model$Nb_dim_AUC_elbow,
+                                     dim_varexplain0.5 = res_for_model$dim_varexplain0.5)
+              
+              
+              a <- ggplot(formatgg,aes(x = Nb_dim_AUC_0.5,y = dim_varexplain0.5)) +
+                geom_point(size = 2, col = "#3D7688") + 
+                geom_smooth(method = lm, col = "#3D7688") + 
+                theme_bw()+ 
+                ylab("Dimensionality 50% of Explained Variance") + xlab("Dimensionality 50% AUC 0.5")  +
+                ylim(0, 15)+ theme(axis.text.y  = element_text(), 
+                                   axis.title.x = element_text( face = "bold"),
+                                   axis.title.y = element_text( face = "bold"))
+              
+              b <- ggplot(formatgg,aes(x = Nb_dim_AUC_0.7,y = dim_varexplain0.5)) +
+                geom_point(size = 2, col = "#3D7688") + 
+                geom_smooth(method = lm, col = "#3D7688") + 
+                theme_bw()+ 
+                 xlab("Dimensionality 50% AUC 0.7") + ylab("")+
+                ylim(0, 15)+ theme(axis.text.y  = element_blank(), 
+                                   axis.title.x = element_text( face = "bold"))
+              
+              c <- ggplot(formatgg,aes(x = Nb_dim_AUC_elbow,y = dim_varexplain0.5)) +
+                geom_point(size = 2, col = "#3D7688") + 
+                geom_smooth(method = lm, col = "#3D7688") + 
+                theme_bw()+ 
+                 xlab("Dimensionality AUC Elbow") + ylab("")+
+                ylim(0, 15)+ theme(axis.text.y  = element_blank(), 
+                                   axis.title.x = element_text( face = "bold"))
+              
+            
+              grid.arrange(a,b,c,ncol = 3)
               
               
 ## Influence of Kingdoms ----
@@ -331,6 +391,8 @@ load(file = here::here("outputs", "res_for_model.RData"))
               #table_cluster_aov
               
 
+
+              
 
 
 
