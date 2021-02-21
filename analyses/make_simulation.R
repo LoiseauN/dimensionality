@@ -59,11 +59,11 @@ tr_cat_20 <- data.frame(
 cutS <- c(seq(3,50,5),seq(50,200,10),seq(201,1000,100))
 
 #UNIFORM TEST 
-res_traits <- dim_simulation(traits,tr_cat,threshold = seq(0.5, 0.9, 0.1),core=30 ,cutS = cutS)
+res_traits <- dim_simulation(traits,tr_cat,threshold = seq(0.5, 0.9, 0.1),core=30 ,cut = cutS)
 
-res_traits_cor <- dim_simulation(traits_cor,tr_cat,threshold = seq(0.5, 0.9, 0.1),core=30 ,cutS = cutS)
+res_traits_cor <- dim_simulation(traits_cor,tr_cat,threshold = seq(0.5, 0.9, 0.1),core=30 ,cut = cutS)
 
-res_traits_20 <- dim_simulation(traits_20,tr_cat_20,threshold = seq(0.5, 0.9, 0.1),core=30 ,cutS = cutS)
+res_traits_20 <- dim_simulation(traits_20,tr_cat_20,threshold = seq(0.5, 0.9, 0.1),core=30 ,cut = cutS)
 
 res_simulation <- list(res_traits,
                        res_traits_cor,
@@ -83,5 +83,3 @@ ggplot(subset(res, res$threshold == 0.7), aes( x= nsp, y = dimension,color=datat
   theme_bw(base_size = 12)+
   ylim(0,20)+ggtitle("Simulation")
 
-
-#save(res_for_model, file = here::here("outputs", "res_for_model.RData"))
