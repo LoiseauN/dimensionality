@@ -5,9 +5,25 @@
 
 load(file = here::here("outputs", "res_for_model.RData"))
 
+
+# Transform Variables ----
+
+logS    <- log10(res_for_model$S)
+logNT   <- log10(res_for_model$Nb_trait)
+logNS   <- log10(res_for_model$Nb_single)
+PropSin <- res_for_model$Nb_single / res_for_model$S
+logNC   <- log10(res_for_model$Nb_cluster)
+log1C   <- log10(res_for_model$NbS_Cluster1)
+PropC1  <- res_for_model$NbS_Cluster1 / res_for_model$S
+FR      <- res_for_model$S / res_for_model$Nb_cluster
+
+res_for_model <- cbind(res_for_model, logS, logNT, logNS, logNC, log1C, PropSin,
+                       PropC1, FR)
+
 ## Distribution of modeled variables ----              
               df <- res_for_model[,c("Nb_dim_AUC_elbow","Nb_dim_AUC_0.7","rowAUClostwhen50percTraitdepleted","logNC","PropC1","PropSin")]
-              df <- data.frame(value = c(df[,"Nb_dim_AUC_elbow"],df[,"Nb_dim_AUC_0.7"],df[,"rowAUClostwhen50percTraitdepleted"],df[,"logNC"],df[,"PropC1"],df[,"PropSin"]),
+              df <- data.frame(value = c(df[,"Nb_dim_AUC_elbow"],df[,"Nb_dim_AUC_0.7"],df[,"rowAUClostwhen50percTraitdepleted"],
+                                         df[,"logNC"],df[,"PropC1"]*100,df[,"PropSin"]*100),
                                variable =  c(rep("Elbow-AUC",30),
                                              rep("Dimensionality AUC 0.7",30),
                                              rep("AUC 50% traits omission",30),
@@ -22,15 +38,17 @@ load(file = here::here("outputs", "res_for_model.RData"))
                                                           "AUC 50% traits omission",
                                                           "Dimensionality AUC 0.7",
                                                           "Elbow-AUC"))  
+                ggplot(df, aes(x=value,   fill=variable)) +
+                geom_histogram()+
+                facet_wrap(~ variable, scales = "free") +
+                theme_bw()+theme(legend.position="none")
+    
               
-              ggplot(df,aes(x = value, y = variable,fill = variable))+geom_point(size=2,col="#3D7688")+
-                geom_smooth(method="lm",alpha=0.3,color="#3D7688",fill="#D6EBEC")+ theme_bw()+theme(legend.position="none")
-                                                                                                    
-         
-              
-              
-              
-## Relation between Threshol0.7 & AUC ----   
+## Correlation between drivers ----             
+  Drivers <-  res_for_model[,c("logS","logNT","NA_perc","quanti_perc","mean_cor")]
+ PerformanceAnalytics::chart.Correlation(Drivers)
+
+ ## Relation between Threshol0.7 & AUC ----   
               
 ggplot(res_for_model,aes(x = Nb_dim_AUC_elbow,y = Nb_dim_AUC_0.7)) +
   geom_point(size = 2, col = "#3D7688") + 
@@ -59,8 +77,7 @@ ggplot(res_for_model,aes(x = Nb_dim_AUC_elbow,y = Nb_dim_AUC_0.7)) +
               ggplot(res_for_graph_dim,aes(x=MAD,y=AUC,colour=data))+geom_point(size=2)+
                 geom_smooth(method="lm",alpha=0.3)+ theme_bw()+theme(legend.position="none",
                                                                      axis.title.y = element_text(size=12, face="bold"),axis.title.x = element_text(size=12, face="bold"))+
-                scale_colour_hp_d(option = "LunaLovegood")
-              
+
 
 ## Relation between AUC & Percentage of variance explained PCOA ---- 
 #Peut-on plutôt avoir le % des axes en X et non en Y avec une valeur 
@@ -138,9 +155,9 @@ ggplot(res_for_model,aes(x = Nb_dim_AUC_elbow,y = Nb_dim_AUC_0.7)) +
               grid.arrange(a,b,c,nrow = 3)
               
               
-## Influence of Kingdoms and Ecosystems ----
-              res_for_model_kingdoms<-res_for_model
-              res_for_model_kingdoms$Kingdoms <- c(NA,"Invertebrate","Vertebrate",
+## Influence of Species_Groups and Ecosystem_type ----
+              res_for_model_Species_Groups<-res_for_model
+              res_for_model_Species_Groups$Species_Groups <- c(NA,"Invertebrate","Vertebrate",
                                                    "Vertebrate","Vertebrate",
                                                    "Plant","Vertebrate",
                                                    "Vertebrate","Invertebrate",
@@ -155,7 +172,7 @@ ggplot(res_for_model,aes(x = Nb_dim_AUC_elbow,y = Nb_dim_AUC_0.7)) +
                                                    "Invertebrate","Invertebrate",
                                                    "Plant","Vertebrate","Invertebrate")
               
-              res_for_model_kingdoms$Ecosystem <- c(NA,"Terrestrial","Terrestrial",
+              res_for_model_Species_Groups$Ecosystem_type <- c(NA,"Terrestrial","Terrestrial",
                                                     "Aquatic","Terrestrial",
                                                     "Terrestrial","Aquatic",
                                                     "Terrestrial","Aquatic",
@@ -170,69 +187,53 @@ ggplot(res_for_model,aes(x = Nb_dim_AUC_elbow,y = Nb_dim_AUC_0.7)) +
                                                     "Terrestrial","Aquatic",
                                                     "Terrestrial","Aquatic","Terrestrial")
               
-              
-              mod_AUC_elbow <- stats::lm(Nb_dim_AUC_elbow ~ logS + logNT + NA_perc + quanti_perc + mean_cor + Kingdoms * Ecosystem , 
-                                         data = res_for_model_kingdoms, na.action = "na.omit")
+              res_for_model_Species_Groups$Species_Groups <- factor(res_for_model_Species_Groups$Species_Groups,levels = c("Plant","Invertebrate","Vertebrate"))
+              mod_AUC_elbow <- stats::lm(Nb_dim_AUC_elbow ~ logS + logNT + NA_perc + quanti_perc + mean_cor + Species_Groups + Ecosystem_type , 
+                                         data = res_for_model_Species_Groups, na.action = "na.omit")
               
               aov_AUC_elbow <- data.frame(car::Anova(mod_AUC_elbow))
               aov_AUC_elbow <- data.frame(term = rownames(aov_AUC_elbow), aov_AUC_elbow)
               aov_AUC_elbow <- aov_AUC_elbow[ , -3]
-              aov_AUC_elbow <- aov_AUC_elbow[-9, ]
+              aov_AUC_elbow <- aov_AUC_elbow[-8, ]
               
               aov_AUC_elbow$term <- c("log(Number of Species)", "log(Number of Traits)", 
                                       "Percentage of NA", "% Quantitative Variables",
-                                      "Correlation","Kingdoms","Ecosystem","Kingdoms:Ecosystem")
+                                      "Correlation","Species_Groups","Ecosystem_type")
               
               colnames(aov_AUC_elbow) <- c("Term", "Sum.Sq", "F-statistic", "P.value")
               
-              step <- MASS::stepAIC(mod_AUC_elbow)
+              #step <- MASS::stepAIC(mod_AUC_elbow)
               
-              var_vis <- names(step$coefficients[-1])
+              #var_vis <- names(step$coefficients[-1])
               
               
-              Kingdoms_plot_elbow <- visreg::visreg(mod_AUC_elbow, "Kingdoms", scale = "response", partial = TRUE, 
-                                                    xlab = " ", ylab = "Dimensionality AUC elbow", gg = TRUE, line = list(col = "gray78"), 
-                                                    fill = list(fill = "gray90", alpha = 0.8), 
-                                                    points = list(size = 2, col = "gray78"))  + theme_bw()  +
+              Species_Groups_plot_elbow <- visreg::visreg(mod_AUC_elbow, "Species_Groups", scale = "response", partial = TRUE, 
+                                                    xlab = " ", ylab = "Dimensionality AUC elbow", gg = TRUE, line = list(col = "#830042FF"), 
+                                                    fill = list(fill = "#830042FF", alpha = 0.3), 
+                                                    points = list(size = 2, col = "#830042FF"))  + theme_bw()  +
                 theme(axis.text.x  = element_blank(), 
                       axis.title.y = element_text( face = "bold"))
               
-              Ecosystem_plot_elbow <- visreg::visreg(mod_AUC_elbow, "Ecosystem", scale = "response", partial = TRUE, 
-                                                     xlab = " ", ylab = " ", gg = TRUE, line = list(col = "gray78"), 
-                                                     fill = list(fill = "gray90", alpha = 0.8), 
-                                                     points = list(size = 2, col = "gray78"))  + theme_bw()  +
+              Ecosystem_type_plot_elbow <- visreg::visreg(mod_AUC_elbow, "Ecosystem_type", scale = "response", partial = TRUE, 
+                                                     xlab = " ", ylab = " ", gg = TRUE, line = list(col = "#830042FF"), 
+                                                     fill = list(fill = "#830042FF", alpha = 0.3), 
+                                                     points = list(size = 2, col = "#830042FF"))  + theme_bw()  +
                 theme(axis.text.x  = element_blank(), 
                       axis.title.y = element_text( face = "bold"))
               
-              
-              Ecosystem_kingdoms_plot_elbow <- visreg::visreg(mod_AUC_elbow, "Kingdoms", scale = "response", partial = TRUE,
-                                                              by="Ecosystem",         
-                                                              xlab = " ", ylab = "Dimensionality AUC elbow", gg = TRUE, line = list(col = "gray78"), 
-                                                              fill = list(fill = "gray90", alpha = 0.8), 
-                                                              points = list(size = 2, col = "gray78"))  + theme_bw()  +
-                theme(axis.text.x  = element_blank(), 
-                      axis.title.y = element_text( face = "bold"))
-              
-              Ecosystem_kingdoms_plot_AUClostwhen50percTraitdepleted <- visreg::visreg(mod_AUC_elbow, "Kingdoms", scale = "response", partial = TRUE,
-                                                                                       by="Ecosystem",         
-                                                                                       xlab = " ", ylab = "Dimensionality AUC elbow",
-                                                                                       gg = TRUE, line = list(col = "gray78"), 
-                                                                                       fill = list(fill = "gray90", alpha = 0.8), 
-                                                                                       points = list(size = 2, col = "gray78"))  + theme_bw()  +
-                theme(axis.text.x  = element_blank(), 
-                      axis.title.y = element_text( face = "bold"))
+           
               #--------
-              mod_AUC_0.7 <- stats::lm(Nb_dim_AUC_0.7 ~ logS + logNT + NA_perc + quanti_perc + mean_cor + Kingdoms * Ecosystem,
-                                       data = res_for_model_kingdoms, na.action = "na.omit")
+              mod_AUC_0.7 <- stats::lm(Nb_dim_AUC_0.7 ~ logS + logNT + NA_perc + quanti_perc + mean_cor + Species_Groups + Ecosystem_type,
+                                       data = res_for_model_Species_Groups, na.action = "na.omit")
               
               aov_AUC_0.7 <- data.frame(car::Anova(mod_AUC_0.7))
               aov_AUC_0.7 <- data.frame(term = rownames(aov_AUC_0.7), aov_AUC_0.7)
               aov_AUC_0.7 <- aov_AUC_0.7[ , -3]
-              aov_AUC_0.7 <- aov_AUC_0.7[-9, ]
+              aov_AUC_0.7 <- aov_AUC_0.7[-8, ]
               
               aov_AUC_0.7$term <- c("log(Number of Species)", "log(Number of Traits)", 
                                     "Percentage of NA", "% Quantitative Variables",
-                                    "Correlation","Kingdoms","Ecosystem","Kingdoms:Ecosystem")
+                                    "Correlation","Species_Groups","Ecosystem_type")
               
               colnames(aov_AUC_0.7) <- c("Term", "Sum.Sq", "F-statistic", "P.value")
               
@@ -241,40 +242,35 @@ ggplot(res_for_model,aes(x = Nb_dim_AUC_elbow,y = Nb_dim_AUC_0.7)) +
               var_vis <- names(step$coefficients[-1])
               
               
-              Kingdoms_plot_AUC_0.7 <- visreg::visreg(mod_AUC_0.7, "Kingdoms", scale = "response", partial = TRUE, 
-                                                      xlab = " ", ylab = "Dimensionality AUC 0.7", gg = TRUE, line = list(col = "gray78"), 
-                                                      fill = list(fill = "gray90", alpha = 0.8), 
-                                                      points = list(size = 2, col = "gray78"))  + theme_bw()  +
+              Species_Groups_plot_AUC_0.7 <- visreg::visreg(mod_AUC_0.7, "Species_Groups", scale = "response", partial = TRUE, 
+                                                      xlab = " ", ylab = "Dimensionality AUC 0.7", gg = TRUE, line = list(col = "#830042FF"), 
+                                                      fill = list(fill = "#830042FF", alpha = 0.3), 
+                                                      points = list(size = 2, col = "#830042FF"))  + theme_bw()  +
                 theme(axis.text.x  = element_blank(), 
                       axis.title.y = element_text( face = "bold"))
               
-              Ecosystem_plot_AUC_0.7 <- visreg::visreg(mod_AUC_0.7, "Ecosystem", scale = "response", partial = TRUE, 
-                                                       xlab = " ", ylab = " ", gg = TRUE, line = list(col = "gray78"), 
-                                                       fill = list(fill = "gray90", alpha = 0.8), 
-                                                       points = list(size = 2, col = "gray78"))  + theme_bw()  +
+              Ecosystem_type_plot_AUC_0.7 <- visreg::visreg(mod_AUC_0.7, "Ecosystem_type", scale = "response", partial = TRUE, 
+                                                       xlab = " ", ylab = " ", gg = TRUE, line = list(col = "#830042FF"), 
+                                                       fill = list(fill = "#830042FF", alpha = 0.3), 
+                                                       points = list(size = 2, col = "#830042FF"))  + theme_bw()  +
                 theme(axis.text.x  = element_blank(), 
                       axis.title.y = element_text( face = "bold"))
               
-              Ecosystem_kingdoms_plot_AUC_0.7 <- visreg::visreg(mod_AUC_0.7, "Kingdoms", scale = "response", partial = TRUE,
-                                                                by="Ecosystem",         
-                                                                xlab = " ", ylab = "Dimensionality AUC 0.7",
-                                                                gg = TRUE, line = list(col = "gray78"), 
-                                                                fill = list(fill = "gray90", alpha = 0.8), 
-                                                                points = list(size = 2, col = "gray78"))  + theme_bw()  +
-                theme(axis.text.x  = element_blank(), 
-                      axis.title.y = element_text( face = "bold"))
+              
+              
+              
               #--------
-              mod_AUClostwhen50percTraitdepleted <- stats::lm(rowAUClostwhen50percTraitdepleted ~ logS + logNT + NA_perc + quanti_perc + mean_cor + Kingdoms * Ecosystem, 
-                                                              data = res_for_model_kingdoms, na.action = "na.omit")
+              mod_AUClostwhen50percTraitdepleted <- stats::lm(rowAUClostwhen50percTraitdepleted ~ logS + logNT + NA_perc + quanti_perc + mean_cor + Species_Groups + Ecosystem_type, 
+                                                              data = res_for_model_Species_Groups, na.action = "na.omit")
               
               aov_AUClostwhen50percTraitdepleted <- data.frame(car::Anova(mod_AUClostwhen50percTraitdepleted))
               aov_AUClostwhen50percTraitdepleted <- data.frame(term = rownames(aov_AUClostwhen50percTraitdepleted), aov_AUClostwhen50percTraitdepleted)
               aov_AUClostwhen50percTraitdepleted <- aov_AUClostwhen50percTraitdepleted[ , -3]
-              aov_AUClostwhen50percTraitdepleted <- aov_AUClostwhen50percTraitdepleted[-9, ]
+              aov_AUClostwhen50percTraitdepleted <- aov_AUClostwhen50percTraitdepleted[-8, ]
               
               aov_AUClostwhen50percTraitdepleted$term <- c("log(Number of Species)", "log(Number of Traits)", 
                                                            "Percentage of NA", "% Quantitative Variables",
-                                                           "Correlation","Kingdoms","Ecosystem","Kingdoms:Ecosystem")
+                                                           "Correlation","Species_Groups","Ecosystem_type")
               
               colnames(aov_AUClostwhen50percTraitdepleted) <- c("Term", "Sum.Sq", "F-statistic", "P.value")
               
@@ -283,93 +279,79 @@ ggplot(res_for_model,aes(x = Nb_dim_AUC_elbow,y = Nb_dim_AUC_0.7)) +
               var_vis <- names(step$coefficients[-1])
               
               
-              Kingdoms_plot_AUClostwhen50percTraitdepleted <- visreg::visreg(mod_AUClostwhen50percTraitdepleted, "Kingdoms", scale = "response", partial = TRUE, 
-                                                                             xlab = "Kingdoms ", ylab = "AUC loss - 50% traits omission", gg = TRUE, line = list(col = "gray78"), 
-                                                                             fill = list(fill = "gray90", alpha = 0.8), 
-                                                                             points = list(size = 2, col = "gray78"))  + theme_bw()  +
+              Species_Groups_plot_AUClostwhen50percTraitdepleted <- visreg::visreg(mod_AUClostwhen50percTraitdepleted, "Species_Groups", scale = "response", partial = TRUE, 
+                                                                             xlab = "Species_Groups ", ylab = "AUC loss - 50% traits omission", gg = TRUE, line = list(col = "#830042FF"), 
+                                                                             fill = list(fill = "#830042FF", alpha = 0.3), 
+                                                                             points = list(size = 2, col = "#830042FF"))  + theme_bw()  +
+                theme(axis.text.x  = element_text(), 
+                      axis.title.y = element_text( face = "bold"),
+                      axis.title.x = element_text( face = "bold"))
+          
+              Ecosystem_type_plot_AUClostwhen50percTraitdepleted <- visreg::visreg(mod_AUClostwhen50percTraitdepleted, "Ecosystem_type", scale = "response", partial = TRUE, 
+                                                                              xlab = "Ecosystem_type", ylab = " ", gg = TRUE, line = list(col = "#830042FF"), 
+                                                                              fill = list(fill = "#830042FF", alpha = 0.3), 
+                                                                              points = list(size = 2, col = "#830042FF"))  + theme_bw()  +
                 theme(axis.text.x  = element_text(), 
                       axis.title.y = element_text( face = "bold"),
                       axis.title.x = element_text( face = "bold"))
               
-              Ecosystem_plot_AUClostwhen50percTraitdepleted <- visreg::visreg(mod_AUClostwhen50percTraitdepleted, "Ecosystem", scale = "response", partial = TRUE, 
-                                                                              xlab = "Ecosystem", ylab = " ", gg = TRUE, line = list(col = "gray78"), 
-                                                                              fill = list(fill = "gray90", alpha = 0.8), 
-                                                                              points = list(size = 2, col = "gray78"))  + theme_bw()  +
-                theme(axis.text.x  = element_text(), 
-                      axis.title.y = element_text( face = "bold"),
-                      axis.title.x = element_text( face = "bold"))
               
               
-              Ecosystem_kingdoms_plot_AUClostwhen50percTraitdepleted <- visreg::visreg(mod_AUClostwhen50percTraitdepleted, "Kingdoms", scale = "response", partial = TRUE,
-                                                                                       by="Ecosystem",         
-                                                                                       xlab = "Kingdoms ", ylab = "AUC loss - 50% traits omission",
-                                                                                       gg = TRUE, line = list(col = "gray78"), 
-                                                                                       fill = list(fill = "gray90", alpha = 0.8), 
-                                                                                       points = list(size = 2, col = "gray78"))  + theme_bw()  +
-                theme(axis.title.y = element_text( face = "bold"),
-                      axis.title.x = element_text( face = "bold"))
               
-              Dimensionality_kingdoms_plot <- gridExtra::grid.arrange(Kingdoms_plot_AUC_elbow, Ecosystem_plot_elbow,
-                                                                      Kingdoms_plot_AUC_0.7,Ecosystem_plot_AUC_0.7,
-                                                                      Kingdoms_plot_AUClostwhen50percTraitdepleted, 
-                                                                      Ecosystem_plot_AUClostwhen50percTraitdepleted,
+              Dimensionality_Species_Groups_plot <- gridExtra::grid.arrange(Species_Groups_plot_elbow, Ecosystem_type_plot_elbow,
+                                                                      Species_Groups_plot_AUC_0.7,Ecosystem_type_plot_AUC_0.7,
+                                                                      Species_Groups_plot_AUClostwhen50percTraitdepleted, 
+                                                                      Ecosystem_type_plot_AUClostwhen50percTraitdepleted,
                                                                       nrow = 3, ncol = 2)
               
               
-              Dimensionality_Ecosystem_kingdoms_plot <- gridExtra::grid.arrange(Ecosystem_kingdoms_plot_elbow,
-                                                                                Ecosystem_kingdoms_plot_AUC_0.7,
-                                                                                Ecosystem_kingdoms_plot_AUClostwhen50percTraitdepleted, 
-                                                                                nrow = 3, ncol = 1)
-              
-              
               #To make a table summarizing  models for supplementary
-              #aov_table_df <- rbind(aov_AUC_elbow, aov_AUC_0.7,aov_AUClostwhen50percTraitdepleted)
-              #aov_table_df <- data.frame(Variables = c(rep("Dimensionality AUC Elbow",8),rep("Dimensionality AUC 0.7",8)
-              #                                         ,rep("AUC - 50% traits omission",8)),aov_table_df)
+              aov_table_df <- rbind(aov_AUC_elbow, aov_AUC_0.7,aov_AUClostwhen50percTraitdepleted)
+              aov_table_df <- data.frame(Variables = c(rep("Dimensionality AUC Elbow",7),rep("Dimensionality AUC 0.7",7)
+                                                       ,rep("AUC - 50% traits omission",7)),aov_table_df)
               
-              #aov_table_df[aov_table_df$Term=="log(Number of Species)",]$Term <- "Number of Species (log)"
-              #aov_table_df[aov_table_df$Term=="log(Number of Traits)",]$Term <- "Number of Traits (log)"
-              #aov_table_df[aov_table_df$Term=="Percentage of NA",]$Term <- "% of Missing Values"
-              #aov_table_df[aov_table_df$Term=="Correlation",]$Term <- "Mean Correlation"
-              #aov_table_df <- aov_table_df %>% dplyr::mutate_at(vars("Sum.Sq","F.statistic","P.value",), dplyr::funs(round(., 3)))
+              aov_table_df[aov_table_df$Term=="log(Number of Species)",]$Term <- "Number of Species (log)"
+              aov_table_df[aov_table_df$Term=="log(Number of Traits)",]$Term <- "Number of Traits (log)"
+              aov_table_df[aov_table_df$Term=="Percentage of NA",]$Term <- "% of Missing Values"
+              aov_table_df[aov_table_df$Term=="Correlation",]$Term <- "Mean Correlation"
+              aov_table_df <- aov_table_df %>% dplyr::mutate_at(vars("Sum.Sq","F.statistic","P.value",), dplyr::funs(round(., 3)))
               
-              #aov_table_df<-aov_table_df[aov_table_df$Term %in% c("Kingdoms", "Ecosystem","Kingdoms:Ecosystem"),]
+              aov_table_df<-aov_table_df[aov_table_df$Term %in% c("Species_Groups", "Ecosystem_type"),]
               
-              #for(i in 1:nrow(aov_table_df)){ 
-              #  if(aov_table_df[i, 5]<0.001 )    { 
-              #   aov_table_df[i, 5] <- "<0.001"
-              #    aov_table_df[i, 5] <- kableExtra::cell_spec(aov_table_df[i, 5],  bold = T)
-              #  } 
-              #
-              # if(aov_table_df[i, 5]<0.05 & aov_table_df[i, 5]>0.001)     {  
-              #    aov_table_df[i, 5] <- kableExtra::cell_spec(aov_table_df[i, 5],  bold = T)
-              #  } 
-              #}
+              for(i in 1:nrow(aov_table_df)){ 
+                if(aov_table_df[i, 5]<0.001 )    { 
+                 aov_table_df[i, 5] <- "<0.001"
+                  aov_table_df[i, 5] <- kableExtra::cell_spec(aov_table_df[i, 5],  bold = T)
+              } 
               
-              #table_mod_aov<-pixiedust::dust(aov_table_df) %>% 
-              # kableExtra::kable( booktabs = T, escape = F)%>% 
-              # kableExtra::kable_styling()%>% 
-              # kableExtra::collapse_rows()
+               if(aov_table_df[i, 5]<0.05 & aov_table_df[i, 5]>0.001)     {  
+                  aov_table_df[i, 5] <- kableExtra::cell_spec(aov_table_df[i, 5],  bold = T)
+                } 
+              }
+                            table_mod_aov<-pixiedust::dust(aov_table_df) %>% 
+               kableExtra::kable( booktabs = T, escape = F)%>% 
+               kableExtra::kable_styling()%>% 
+               kableExtra::collapse_rows()
               
-              #table_mod_aov
-              
-              #-----------------------------------------------------------------------------------------------  
-              
-              
-              
+              table_mod_aov
               
               #-----------------------------------------------------------------------------------------------  
-              mod_logNC <- stats::lm(logNC ~ logS + logNT + NA_perc + quanti_perc + mean_cor + Kingdoms * Ecosystem, 
-                                     data = res_for_model_kingdoms, na.action = "na.omit")
+              
+              
+              
+              
+              #-----------------------------------------------------------------------------------------------  
+              mod_logNC <- stats::lm(logNC ~ logS + logNT + NA_perc + quanti_perc + mean_cor + Species_Groups + Ecosystem_type, 
+                                     data = res_for_model_Species_Groups, na.action = "na.omit")
               
               aov_logNC <- data.frame(car::Anova(mod_logNC))
               aov_logNC <- data.frame(term = rownames(aov_logNC), aov_logNC)
               aov_logNC <- aov_logNC[ , -3]
-              aov_logNC <- aov_logNC[-9, ]
+              aov_logNC <- aov_logNC[-8, ]
               
               aov_logNC$term <- c("log(Number of Species)", "log(Number of Traits)", 
                                   "Percentage of NA", "% Quantitative Variables",
-                                  "Correlation","Kingdoms","Ecosystem","Kingdoms:Ecosystem")
+                                  "Correlation","Species_Groups","Ecosystem_type")
               
               colnames(aov_logNC) <- c("Term", "Sum.Sq", "F-statistic", "P.value")
               
@@ -378,41 +360,33 @@ ggplot(res_for_model,aes(x = Nb_dim_AUC_elbow,y = Nb_dim_AUC_0.7)) +
               var_vis <- names(step$coefficients[-1])
               
               
-              Kingdoms_plot_logNC <- visreg::visreg(mod_logNC, "Kingdoms", scale = "response", partial = TRUE, 
-                                                    xlab = " ", ylab = "Number of clusters (log)", gg = TRUE, line = list(col = "gray78"), 
-                                                    fill = list(fill = "gray90", alpha = 0.8), 
-                                                    points = list(size = 2, col = "gray78"))  + theme_bw()  +
+              Species_Groups_plot_logNC <- visreg::visreg(mod_logNC, "Species_Groups", scale = "response", partial = TRUE, 
+                                                    xlab = " ", ylab = "Number of clusters (log)", gg = TRUE, line = list(col = "#830042FF"), 
+                                                    fill = list(fill = "#830042FF", alpha = 0.3), 
+                                                    points = list(size = 2, col = "#830042FF"))  + theme_bw()  +
                 theme(axis.text.x  = element_blank(), 
                       axis.title.y = element_text( face = "bold"))
               
-              Ecosystem_plot_logNC <- visreg::visreg(mod_logNC, "Ecosystem", scale = "response", partial = TRUE, 
-                                                     xlab = " ", ylab = " ", gg = TRUE, line = list(col = "gray78"), 
-                                                     fill = list(fill = "gray90", alpha = 0.8), 
-                                                     points = list(size = 2, col = "gray78"))  + theme_bw()  +
+              Ecosystem_type_plot_logNC <- visreg::visreg(mod_logNC, "Ecosystem_type", scale = "response", partial = TRUE, 
+                                                     xlab = " ", ylab = " ", gg = TRUE, line = list(col = "#830042FF"), 
+                                                     fill = list(fill = "#830042FF", alpha = 0.3), 
+                                                     points = list(size = 2, col = "#830042FF"))  + theme_bw()  +
                 theme(axis.text.x  = element_blank(), 
                       axis.title.y = element_text( face = "bold"))
               
-              
-              Ecosystem_kingdoms_plot_logNC <- visreg::visreg(mod_logNC, "Kingdoms", scale = "response", partial = TRUE,
-                                                              by="Ecosystem",         
-                                                              xlab = " ", ylab = "Number of clusters (log)",
-                                                              gg = TRUE, line = list(col = "gray78"), 
-                                                              fill = list(fill = "gray90", alpha = 0.8), 
-                                                              points = list(size = 2, col = "gray78"))  + theme_bw()  +
-                theme(axis.text.x  = element_blank(), 
-                      axis.title.y = element_text( face = "bold"))
+           
               #----------
-              mod_PropC1 <- stats::lm(PropC1 ~ logS + logNT + NA_perc + quanti_perc + mean_cor+ Kingdoms * Ecosystem, 
-                                      data = res_for_model_kingdoms, na.action = "na.omit")
+              mod_PropC1 <- stats::lm(PropC1 ~ logS + logNT + NA_perc + quanti_perc + mean_cor+ Species_Groups + Ecosystem_type, 
+                                      data = res_for_model_Species_Groups, na.action = "na.omit")
               
               aov_PropC1 <- data.frame(car::Anova(mod_PropC1))
               aov_PropC1 <- data.frame(term = rownames(aov_PropC1), aov_PropC1)
               aov_PropC1 <- aov_PropC1[ , -3]
-              aov_PropC1 <- aov_PropC1[-9, ]
+              aov_PropC1 <- aov_PropC1[-8, ]
               
               aov_PropC1$term <- c("log(Number of Species)", "log(Number of Traits)", 
                                    "Percentage of NA", "% Quantitative Variables",
-                                   "Correlation","Kingdoms","Ecosystem","Kingdoms:Ecosystem")
+                                   "Correlation","Species_Groups","Ecosystem_type")
               
               colnames(aov_PropC1) <- c("Term", "Sum.Sq", "F-statistic", "P.value")
               
@@ -421,43 +395,37 @@ ggplot(res_for_model,aes(x = Nb_dim_AUC_elbow,y = Nb_dim_AUC_0.7)) +
               var_vis <- names(step$coefficients[-1])
               
               
-              Kingdoms_plot_PropC1 <- visreg::visreg(mod_PropC1, "Kingdoms", scale = "response", partial = TRUE, 
-                                                     xlab = " ", ylab = "% Cluster #1", gg = TRUE, line = list(col = "gray78"), 
-                                                     fill = list(fill = "gray90", alpha = 0.8), 
-                                                     points = list(size = 2, col = "gray78"))  + theme_bw()  +
+              Species_Groups_plot_PropC1 <- visreg::visreg(mod_PropC1, "Species_Groups", scale = "response", partial = TRUE, 
+                                                     xlab = " ", ylab = "% Cluster #1", gg = TRUE, line = list(col = "#830042FF"), 
+                                                     fill = list(fill = "#830042FF", alpha = 0.3), 
+                                                     points = list(size = 2, col = "#830042FF"))  + theme_bw()  +
                 theme(axis.text.x  = element_blank(), 
                       axis.title.y = element_text( face = "bold"))
               
-              Ecosystem_plot_PropC1 <- visreg::visreg(mod_PropC1, "Ecosystem", scale = "response", partial = TRUE, 
-                                                      xlab = " ", ylab = " ", gg = TRUE, line = list(col = "gray78"), 
-                                                      fill = list(fill = "gray90", alpha = 0.8), 
-                                                      points = list(size = 2, col = "gray78"))  + theme_bw()  +
+              Ecosystem_type_plot_PropC1 <- visreg::visreg(mod_PropC1, "Ecosystem_type", scale = "response", partial = TRUE, 
+                                                      xlab = " ", ylab = " ", gg = TRUE, line = list(col = "#830042FF"), 
+                                                      fill = list(fill = "#830042FF", alpha = 0.3), 
+                                                      points = list(size = 2, col = "#830042FF"))  + theme_bw()  +
                 theme(axis.text.x  = element_blank(), 
                       axis.title.y = element_text( face = "bold"))
               
               
-              Ecosystem_kingdoms_plot_PropC1 <- visreg::visreg(mod_PropC1, "Kingdoms", scale = "response", partial = TRUE,
-                                                               by="Ecosystem",         
-                                                               xlab = " ", ylab = "% Cluster #1",
-                                                               gg = TRUE, line = list(col = "gray78"), 
-                                                               fill = list(fill = "gray90", alpha = 0.8), 
-                                                               points = list(size = 2, col = "gray78"))  + theme_bw()  +
-                theme(axis.text.x  = element_blank(), 
-                      axis.title.y = element_text( face = "bold"))
+              
+              
               #----------
               
               
-              mod_PropSin <- stats::lm(PropSin ~ logS + logNT + NA_perc + quanti_perc + mean_cor+ Kingdoms * Ecosystem, 
-                                       data = res_for_model_kingdoms, na.action = "na.omit")
+              mod_PropSin <- stats::lm(PropSin ~ logS + logNT + NA_perc + quanti_perc + mean_cor+ Species_Groups + Ecosystem_type, 
+                                       data = res_for_model_Species_Groups, na.action = "na.omit")
               
               aov_PropSin <- data.frame(car::Anova(mod_PropSin))
               aov_PropSin <- data.frame(term = rownames(aov_PropSin), aov_PropSin)
               aov_PropSin <- aov_PropSin[ , -3]
-              aov_PropSin <- aov_PropSin[-9, ]
+              aov_PropSin <- aov_PropSin[-8, ]
               
               aov_PropSin$term <- c("log(Number of Species)", "log(Number of Traits)", 
                                     "Percentage of NA", "% Quantitative Variables",
-                                    "Correlation","Kingdoms","Ecosystem","Kingdoms:Ecosystem")
+                                    "Correlation","Species_Groups","Ecosystem_type")
               
               colnames(aov_PropSin) <- c("Term", "Sum.Sq", "F-statistic", "P.value")
               
@@ -466,45 +434,35 @@ ggplot(res_for_model,aes(x = Nb_dim_AUC_elbow,y = Nb_dim_AUC_0.7)) +
               var_vis <- names(step$coefficients[-1])
               
               
-              Kingdoms_plot_PropSin <- visreg::visreg(mod_PropSin, "Kingdoms", scale = "response", partial = TRUE, 
-                                                      xlab = "Kingdoms", ylab = "% uniques", gg = TRUE, line = list(col = "gray78"), 
-                                                      fill = list(fill = "gray90", alpha = 0.8), 
-                                                      points = list(size = 2, col = "gray78"))  + theme_bw()  +
+              Species_Groups_plot_PropSin <- visreg::visreg(mod_PropSin, "Species_Groups", scale = "response", partial = TRUE, 
+                                                      xlab = "Species_Groups", ylab = "% uniques", gg = TRUE, line = list(col = "#830042FF"), 
+                                                      fill = list(fill = "#830042FF", alpha = 0.3), 
+                                                      points = list(size = 2, col = "#830042FF"))  + theme_bw()  +
                 theme(axis.text.x  = element_text(), 
                       axis.title.y = element_text( face = "bold"),
                       axis.title.x = element_text( face = "bold"))
               
-              Ecosystem_plot_PropSin <- visreg::visreg(mod_PropSin, "Ecosystem", scale = "response", partial = TRUE, 
-                                                       xlab = "Ecosystem", ylab = " ", gg = TRUE, line = list(col = "gray78"), 
-                                                       fill = list(fill = "gray90", alpha = 0.8), 
-                                                       points = list(size = 2, col = "gray78"))  + theme_bw()  +
+              Ecosystem_type_plot_PropSin <- visreg::visreg(mod_PropSin, "Ecosystem_type", scale = "response", partial = TRUE, 
+                                                       xlab = "Ecosystem_type", ylab = " ", gg = TRUE, line = list(col = "#830042FF"), 
+                                                       fill = list(fill = "#830042FF", alpha = 0.3), 
+                                                       points = list(size = 2, col = "#830042FF"))  + theme_bw()  +
                 theme(axis.text.x  = element_text(), 
                       axis.title.y = element_text( face = "bold"),
                       axis.title.x = element_text( face = "bold"))
               
               
-              Ecosystem_kingdoms_plot_PropSin <- visreg::visreg(mod_PropSin, "Kingdoms", scale = "response", partial = TRUE,
-                                                                by="Ecosystem",         
-                                                                xlab = "Kingdoms ", ylab = "% uniques",
-                                                                gg = TRUE, line = list(col = "gray78"), 
-                                                                fill = list(fill = "gray90", alpha = 0.8), 
-                                                                points = list(size = 2, col = "gray78"))  + theme_bw()  +
-                theme(axis.title.y = element_text( face = "bold"),
-                      axis.title.x = element_text( face = "bold"))
+             
               
-              Cluster_kingdoms_plot <- gridExtra::grid.arrange(Kingdoms_plot_logNC, Ecosystem_plot_logNC,
-                                                               Kingdoms_plot_PropC1,Ecosystem_plot_PropC1,
-                                                               Kingdoms_plot_PropSin, Ecosystem_plot_PropSin,
+              Cluster_Species_Groups_plot <- gridExtra::grid.arrange(Species_Groups_plot_logNC, Ecosystem_type_plot_logNC,
+                                                               Species_Groups_plot_PropC1,Ecosystem_type_plot_PropC1,
+                                                               Species_Groups_plot_PropSin, Ecosystem_type_plot_PropSin,
                                                                nrow = 3, ncol = 2)
               
-              Cluster_Ecosystem_kingdoms_plot <- gridExtra::grid.arrange(Ecosystem_kingdoms_plot_logNC,
-                                                                         Ecosystem_kingdoms_plot_PropC1,
-                                                                         Ecosystem_kingdoms_plot_PropSin, 
-                                                                         nrow = 3, ncol = 1)
+              
               
               aov_cluster_table_df <- rbind(aov_logNC, aov_PropSin,aov_PropC1)
-              aov_cluster_table_df <- data.frame(Variables = c(rep("Number of Cluster (log)",8),rep("% uniques",8)
-                                                               ,rep("% Cluster #1",8)),aov_cluster_table_df)
+              aov_cluster_table_df <- data.frame(Variables = c(rep("Number of Cluster (log)",7),rep("% uniques",7)
+                                                               ,rep("% Cluster #1",7)),aov_cluster_table_df)
               
               aov_cluster_table_df[aov_cluster_table_df$Term=="log(Number of Species)",]$Term <- "Number of Species (log)"
               aov_cluster_table_df[aov_cluster_table_df$Term=="log(Number of Traits)",]$Term <- "Number of Traits (log)"
@@ -512,7 +470,7 @@ ggplot(res_for_model,aes(x = Nb_dim_AUC_elbow,y = Nb_dim_AUC_0.7)) +
               aov_cluster_table_df[aov_cluster_table_df$Term=="Correlation",]$Term <- "Mean Correlation"
               
               aov_cluster_table_df <- aov_cluster_table_df %>% dplyr::mutate_at(vars("Sum.Sq","F.statistic","P.value",), dplyr::funs(round(., 3)))
-              aov_cluster_table_df<-aov_cluster_table_df[aov_cluster_table_df$Term %in% c("Kingdoms", "Ecosystem","Kingdoms:Ecosystem"),]
+              aov_cluster_table_df<-aov_cluster_table_df[aov_cluster_table_df$Term %in% c("Species_Groups", "Ecosystem_type"),]
               
               for(i in 1:nrow(aov_cluster_table_df)){ 
                 if(aov_cluster_table_df[i, 5]<0.001 )    { 
@@ -532,3 +490,4 @@ ggplot(res_for_model,aes(x = Nb_dim_AUC_elbow,y = Nb_dim_AUC_0.7)) +
                 kableExtra::kable_styling()%>% 
                 kableExtra::collapse_rows()
               table_cluster_aov
+’              
