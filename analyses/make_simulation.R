@@ -1,6 +1,7 @@
 #' @header *********************************************************************
 #' @dataset Simulation to test influence of Nbtrait and S on dimensionlity
 #' @dataset Suggested by Referee 1 
+#' @warning With number of species > 1000 computing take time
 #' @header *********************************************************************
 
 
@@ -77,9 +78,5 @@ res <- data.frame(nsp = c(res_simulation[[1]]$nsp,res_simulation[[2]]$nsp,res_si
                                 rep("20 uncorrelated traits",nrow(res_simulation[[1]]))))
 
 
-ggplot(subset(res, res$threshold == 0.7), aes( x= nsp, y = dimension,color=datatrait)) +
-  geom_point() +
-  #stat_smooth() +
-  theme_bw(base_size = 12)+
-  ylim(0,20)+ggtitle("Simulation")
+
 
