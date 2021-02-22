@@ -1,4 +1,4 @@
-#' FIGURE 4
+#' FIGURE 7
 
 
 
@@ -251,7 +251,7 @@ plot_PropSin <- gridExtra::grid.arrange(S_plot, NT_plot, NA_plot, Quanti_plot, c
                                         ncol = 5)
 
 
-grDevices::pdf(file = here::here("figures", "Figure4.pdf"), 
+grDevices::pdf(file = here::here("figures", "Figure7.pdf"), 
                width = 11.7, height = 8.3)
 
 structure_plot <- gridExtra::grid.arrange(plot_logNC, plot_PropC1, plot_PropSin, 

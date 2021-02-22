@@ -1,4 +1,4 @@
-#' FIGURE 2
+#' FIGURE 4
 
 
 
@@ -272,7 +272,7 @@ plot_AUClostwhen50percTraitdepleted <- gridExtra::grid.arrange(S_plot, NT_plot, 
                                                                ncol = 5)
 
 
-grDevices::pdf(file = here::here("figures", "Figure2.pdf"), 
+grDevices::pdf(file = here::here("figures", "Figure4.pdf"), 
                width = 11.7, height = 8.3)
 
 Dimensionality_plot <- gridExtra::grid.arrange(plot_AUC_elbow, plot_AUC_0.7,

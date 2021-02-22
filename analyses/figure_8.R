@@ -1,4 +1,4 @@
-#' FIGURE 5
+#' FIGURE 8
 
 
 ## Load Data ----
@@ -143,7 +143,7 @@ f <- ggplot(data = res_for_model, aes(logS, logNS)) +
   theme(axis.title.y = element_text(size = 12, face = "bold"),
         axis.title.x = element_text(size = 12, face = "bold"))
 
-grDevices::pdf(file = here::here("figures", "Figure5.pdf"), 
+grDevices::pdf(file = here::here("figures", "Figure8.pdf"), 
                width = 5, height = 8)
 
 gridExtra::grid.arrange(d, e, f, ncol = 1)

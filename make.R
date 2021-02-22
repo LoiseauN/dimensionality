@@ -32,9 +32,12 @@ percent_list <- seq(0.1, 0.8, by = 0.1)
 # source(here::here("analyses", "make_analyses.R"))
 # source(here::here("analyses", "get_results.R"))
 
-source(here::here("analyses", "figure_1.R"))
+
 source(here::here("analyses", "figure_2.R")) # Dimensionality
-source(here::here("analyses", "figure_3.R"))
-source(here::here("analyses", "figure_4.R")) # Structure
-source(here::here("analyses", "figure_5.R"))
-source(here::here("analyses", "figure_6.R")) # PCoA Axes
+source(here::here("analyses", "figure_3.R")) # Species group & ecosystems
+source(here::here("analyses", "figure_4.R")) # Partial plot
+source(here::here("analyses", "figure_5.R")) # Robsutness
+source(here::here("analyses", "figure_6.R")) # Species group & ecosystems
+source(here::here("analyses", "figure_7.R")) # Partial plot
+source(here::here("analyses", "figure_8.R"))# Partial log-log relationships
+source(here::here("analyses", "figure_9.R"))# PCoA Axes
