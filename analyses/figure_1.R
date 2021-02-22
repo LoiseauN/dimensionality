@@ -1,4 +1,4 @@
-#' FIGURE 1
+#' FIGURE 2
 
 
 ## Import Icons ----
@@ -287,7 +287,7 @@ a30  <- annotation_custom2(grid::rasterGrob(all_im[[bdd]], interpolate = TRUE),
                            xmin = 15, xmax = 21, ymin = 0.01, ymax = 0.34, 
                            data = subdata)
 
-grDevices::pdf(file = here::here("figures", "Figure1.pdf"), 
+grDevices::pdf(file = here::here("figures", "Figure2.pdf"), 
                width = 11.7, height = 8.3) #SAVE A4
 
 print(p + a1 + a2 + a3 + a4 + a5 + a6 + a7 + a8 + a9 + a10 + 
