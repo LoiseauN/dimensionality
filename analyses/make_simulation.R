@@ -6,7 +6,7 @@
 
 
 #Function to generate correlated traits following uniform distribution
-runifcor <- function(x, rho){
+runifcor_func <- function(x, rho){
   hw <- function(r){ 
     tmp <- (3-sqrt(1+8*abs(r)))/4 
     return(tmp * sign(r))
@@ -34,7 +34,7 @@ colnames(traits) <- paste0("tr", 1:ntraits)
 # generate trait matrix with correlated traits
 traits_cor <- traits
 for (i in 2:ncol(traits_cor)){
-  traits_cor[,i] <-  runifcor(x = traits[,1], rho = sample(seq(0.3,0.7,0.05),1))
+  traits_cor[,i] <-  runifcor_func(x = traits[,1], rho = sample(seq(0.3,0.7,0.05),1))
 }
 
 # generate trait matrix without correlated traits but increase number of traits
