@@ -1,5 +1,5 @@
 #' @header *********************************************************************
-#' @dataset Simulation to test influence of Nbtrait and S on dimensionlity
+#' @dataset Simulation to test influence of Nbtrait and S on dimensionality
 #' @dataset Suggested by Referee 1 
 #' @warning With number of species > 1000 computing take time
 #' @header *********************************************************************
@@ -70,7 +70,7 @@ res_simulation <- list(res_traits,
                        res_traits_cor,
                        res_traits_20)
 
-res <- data.frame(nsp = c(res_simulation[[1]]$nsp,res_simulation[[2]]$nsp,res_simulation[[3]]$nsp),
+res_simulation <- data.frame(nsp = c(res_simulation[[1]]$nsp,res_simulation[[2]]$nsp,res_simulation[[3]]$nsp),
                   dimension = c(res_simulation[[1]]$naxes,res_simulation[[2]]$naxes,res_simulation[[3]]$naxes),
                   threshold = c(res_simulation[[1]]$threshold,res_simulation[[2]]$threshold,res_simulation[[3]]$threshold),
                   datatrait = c(rep("10 uncorrelated traits",nrow(res_simulation[[1]])),
@@ -80,3 +80,7 @@ res <- data.frame(nsp = c(res_simulation[[1]]$nsp,res_simulation[[2]]$nsp,res_si
 
 
 
+#ggplot(subset(res_simulation, res_simulation$threshold == 0.7), aes( x= nsp, y = dimension,color=datatrait)) +
+#  geom_point() + scale_colour_hp_d(option = "LunaLovegood",direction = -1)+
+#  theme_bw(base_size = 12)+ylab("Dimensionality AUC 0.7")+ xlab("Number of Species") +
+#  ylim(0,20)+ggtitle("Uniform distribution")
