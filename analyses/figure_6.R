@@ -20,7 +20,7 @@ aov_logNC$term <- c("log(Number of Species)", "log(Number of Traits)",
 
 colnames(aov_logNC) <- c("Term", "Sum.Sq", "F-statistic", "P.value")
 
-step <- MASS::stepAIC(mod_logNC)
+#step <- MASS::stepAIC(mod_logNC)
 
 var_vis <- names(step$coefficients[-1])
 
