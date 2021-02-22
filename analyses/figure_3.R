@@ -1,6 +1,23 @@
 #' FIGURE 3
 
 ## Influence of Species_Groups and Ecosystem_type ----
+## Load Data ----
+
+load(file = here::here("outputs", "res_for_model.RData"))
+
+# Transform Variables ----
+
+logS    <- log10(res_for_model$S)
+logNT   <- log10(res_for_model$Nb_trait)
+logNS   <- log10(res_for_model$Nb_single)
+PropSin <- res_for_model$Nb_single / res_for_model$S
+logNC   <- log10(res_for_model$Nb_cluster)
+log1C   <- log10(res_for_model$NbS_Cluster1)
+PropC1  <- res_for_model$NbS_Cluster1 / res_for_model$S
+FR      <- res_for_model$S / res_for_model$Nb_cluster
+
+res_for_model <- cbind(res_for_model, logS, logNT, logNS, logNC, log1C, PropSin,
+                       PropC1, FR)
 
 ## Prepare Data ----
 
