@@ -55,7 +55,7 @@ aov_PropC1$term <- c("log(Number of Species)", "log(Number of Traits)",
 
 colnames(aov_PropC1) <- c("Term", "Sum.Sq", "F-statistic", "P.value")
 
-step <- MASS::stepAIC(mod_PropC1)
+#step <- MASS::stepAIC(mod_PropC1)
 
 var_vis <- names(step$coefficients[-1])
 
