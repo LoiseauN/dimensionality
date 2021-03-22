@@ -145,7 +145,7 @@ var_vis <- names(step$coefficients[-1])
 
 
 Species_Groups_plot_AUClostwhen50percTraitdepleted <- visreg::visreg(mod_AUClostwhen50percTraitdepleted, "Species_Groups", scale = "response", partial = TRUE, 
-                                                                     xlab = "Species_Groups ", ylab = "AUC loss - 50% traits omission", gg = TRUE, line = list(col = "#830042FF"), 
+                                                                     xlab = "Life forms ", ylab = "AUC loss - 50% traits omission", gg = TRUE, line = list(col = "#830042FF"), 
                                                                      fill = list(fill = "#830042FF", alpha = 0.3), 
                                                                      points = list(size = 2, col = "#830042FF"))  + theme_bw()  +
   theme(axis.text.x  = element_text(), 
@@ -153,7 +153,7 @@ Species_Groups_plot_AUClostwhen50percTraitdepleted <- visreg::visreg(mod_AUClost
         axis.title.x = element_text( face = "bold"))
 
 Ecosystem_type_plot_AUClostwhen50percTraitdepleted <- visreg::visreg(mod_AUClostwhen50percTraitdepleted, "Ecosystem_type", scale = "response", partial = TRUE, 
-                                                                     xlab = "Ecosystem_type", ylab = " ", gg = TRUE, line = list(col = "#830042FF"), 
+                                                                     xlab = "Ecosystem types", ylab = " ", gg = TRUE, line = list(col = "#830042FF"), 
                                                                      fill = list(fill = "#830042FF", alpha = 0.3), 
                                                                      points = list(size = 2, col = "#830042FF"))  + theme_bw()  +
   theme(axis.text.x  = element_text(), 
