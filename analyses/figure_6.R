@@ -35,7 +35,6 @@ Species_Groups_plot_logNC <- ggplot(Species_Groups_plot_logNC$res,aes(y= visregR
              alpha  =0.5, size=2, 
              position = position_jitterdodge(jitter.width = .1, dodge.width = 1)) +
   xlab(" ")+
-  scale_y_continuous(labels = comma) +
   ylab("Number of clusters (log)")+
   scale_color_manual(values=c("chartreuse4", "red4", "orange")) + 
   theme_bw()+
@@ -53,7 +52,6 @@ Ecosystem_type_plot_logNC <- ggplot(Ecosystem_type_plot_logNC$res,aes(y= visregR
   geom_point(aes(fill = Ecosystem_type, group = Ecosystem_type), 
              alpha  =0.5, size=2, 
              position = position_jitterdodge(jitter.width = .1, dodge.width = 1)) +
-  scale_y_continuous(labels = comma) +
   xlab(" ")+
   ylab(" ")+
   scale_color_manual(values=c("royalblue1", "limegreen")) + 
@@ -91,7 +89,6 @@ Species_Groups_plot_PropC1 <- ggplot(Species_Groups_plot_PropC1$res,aes(y= visre
   geom_point(aes(fill = Species_Groups, group = Species_Groups), 
              alpha  =0.5, size=2, 
              position = position_jitterdodge(jitter.width = .1, dodge.width = 1)) +
-  scale_y_continuous(labels = comma) +
   xlab(" ")+
   ylab("% Cluster #1")+
   scale_color_manual(values=c("chartreuse4", "red4", "orange")) + 
