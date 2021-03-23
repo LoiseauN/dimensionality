@@ -65,6 +65,7 @@ Imports:
     sjPlot,
     spdep,
     stats,
+    scales,
     usethis,
     vegan,
     viridis,
