@@ -1,6 +1,6 @@
 #' FIGURE 3
 
-## Influence of Species_Groups and Ecosystem_type ----
+## Influence of Life Form and Ecosystem type ----
 ## Load Data ----
 
 load(file = here::here("outputs", "res_for_model.RData"))
@@ -72,20 +72,41 @@ colnames(aov_AUC_elbow) <- c("Term", "Sum.Sq", "F-statistic", "P.value")
 #var_vis <- names(step$coefficients[-1])
 
 
-Species_Groups_plot_elbow <- visreg::visreg(mod_AUC_elbow, "Species_Groups", scale = "response", partial = TRUE, 
-                                            xlab = " ", ylab = "Dimensionality AUC elbow", gg = TRUE, line = list(col = c("chartreuse4","#830042FF","orange")), 
-                                            fill = list(fill = "#830042FF", alpha = 0.3), 
-                                            points = list(size = 2, col = "#830042FF"))  + theme_bw()  +
-  theme(axis.text.x  = element_blank(), 
-        axis.title.y = element_text( face = "bold"))
+Species_Groups_plot_elbow <- visreg::visreg(mod_AUC_elbow, "Species_Groups", scale = "response", 
+                                            partial = TRUE, by = "Species_Groups",overlay = TRUE,
+                                            gg = TRUE,  plot =FALSE)
 
-Ecosystem_type_plot_elbow <- visreg::visreg(mod_AUC_elbow, "Ecosystem_type", scale = "response", partial = TRUE, 
-                                            xlab = " ", ylab = " ", gg = TRUE, line = list(col = "#830042FF"), 
-                                            fill = list(fill = "#830042FF", alpha = 0.3), 
-                                            points = list(size = 2, col = "#830042FF"))  + theme_bw()  +
+Species_Groups_plot_elbow <- ggplot(Species_Groups_plot_elbow$res,aes(y= visregRes, x= Species_Groups,color=Species_Groups))+
+  geom_boxplot()+ 
+  geom_point(aes(fill = Species_Groups, group = Species_Groups), 
+             alpha  =0.5, size=2, 
+             position = position_jitterdodge(jitter.width = .1, dodge.width = 1)) +
+  xlab(" ")+
+  scale_y_continuous(labels = comma) +
+  ylab("Dimensionality AUC elbow")+
+  scale_color_manual(values=c("chartreuse4", "red4", "orange")) + 
+  theme_bw()+
   theme(axis.text.x  = element_blank(), 
-        axis.title.y = element_text( face = "bold"))
+        axis.title.y = element_text( face = "bold"),
+        legend.position = "none")
 
+Ecosystem_type_plot_elbow <- visreg::visreg(mod_AUC_elbow, "Ecosystem_type", scale = "response", 
+                                            partial = TRUE, by = "Ecosystem_type",overlay = TRUE,
+                                            gg = TRUE,  plot =FALSE)
+
+Ecosystem_type_plot_elbow <- ggplot(Ecosystem_type_plot_elbow$res,aes(y= visregRes, x= Ecosystem_type,color=Ecosystem_type))+
+  geom_boxplot()+ 
+  geom_point(aes(fill = Ecosystem_type, group = Ecosystem_type), 
+             alpha  =0.5, size=2, 
+             position = position_jitterdodge(jitter.width = .1, dodge.width = 1)) +
+  scale_y_continuous(labels = comma) +
+  xlab(" ")+
+  ylab(" ")+
+  scale_color_manual(values=c("royalblue1", "limegreen")) + 
+  theme_bw()+
+  theme(axis.text.x  = element_blank(), 
+        axis.title.y = element_text( face = "bold"),
+        legend.position = "none")
 
 #--------
 mod_AUC_0.7 <- stats::lm(Nb_dim_AUC_0.7 ~ logS + logNT + NA_perc + quanti_perc + mean_cor + Species_Groups + Ecosystem_type,
@@ -107,21 +128,41 @@ step <- MASS::stepAIC(mod_AUC_0.7)
 var_vis <- names(step$coefficients[-1])
 
 
-Species_Groups_plot_AUC_0.7 <- visreg::visreg(mod_AUC_0.7, "Species_Groups", scale = "response", partial = TRUE, 
-                                              xlab = " ", ylab = "Dimensionality AUC 0.7", gg = TRUE, line = list(col = "#830042FF"), 
-                                              fill = list(fill = "#830042FF", alpha = 0.3), 
-                                              points = list(size = 2, col = "#830042FF"))  + theme_bw()  +
+Species_Groups_plot_AUC_0.7 <- visreg::visreg(mod_AUC_0.7, "Species_Groups", scale = "response", 
+                                              partial = TRUE, by = "Species_Groups",overlay = TRUE,
+                                              gg = TRUE,  plot =FALSE)
+
+Species_Groups_plot_AUC_0.7 <- ggplot(Species_Groups_plot_AUC_0.7$res,aes(y= visregRes, x= Species_Groups,color=Species_Groups))+
+  geom_boxplot()+ 
+  geom_point(aes(fill = Species_Groups, group = Species_Groups), 
+             alpha  =0.5, size=2, 
+             position = position_jitterdodge(jitter.width = .1, dodge.width = 1)) +
+  scale_y_continuous(labels = comma) +
+  xlab(" ")+
+  ylab("Dimensionality AUC 0.7")+
+  scale_color_manual(values=c("chartreuse4", "red4", "orange")) + 
+  theme_bw()+
   theme(axis.text.x  = element_blank(), 
-        axis.title.y = element_text( face = "bold"))
+        axis.title.y = element_text( face = "bold"),
+        legend.position = "none")
 
-Ecosystem_type_plot_AUC_0.7 <- visreg::visreg(mod_AUC_0.7, "Ecosystem_type", scale = "response", partial = TRUE, 
-                                              xlab = " ", ylab = " ", gg = TRUE, line = list(col = "#830042FF"), 
-                                              fill = list(fill = "#830042FF", alpha = 0.3), 
-                                              points = list(size = 2, col = "#830042FF"))  + theme_bw()  +
+
+Ecosystem_type_plot_AUC_0.7 <- visreg::visreg(mod_AUC_0.7, "Ecosystem_type", scale = "response", 
+                                              partial = TRUE, by = "Ecosystem_type",overlay = TRUE,
+                                              gg = TRUE,  plot =FALSE)
+
+Ecosystem_type_plot_AUC_0.7 <- ggplot(Ecosystem_type_plot_AUC_0.7$res,aes(y= visregRes, x= Ecosystem_type,color=Ecosystem_type))+
+  geom_boxplot()+ 
+  geom_point(aes(fill = Ecosystem_type, group = Ecosystem_type), 
+             alpha  =0.5, size=2, 
+             position = position_jitterdodge(jitter.width = .1, dodge.width = 1)) +
+  xlab(" ")+
+  ylab(" ")+
+  scale_color_manual(values=c("royalblue1", "limegreen")) + 
+  theme_bw()+
   theme(axis.text.x  = element_blank(), 
-        axis.title.y = element_text( face = "bold"))
-
-
+        axis.title.y = element_text( face = "bold"),
+        legend.position = "none")
 
 
 #--------
@@ -144,21 +185,42 @@ step <- MASS::stepAIC(mod_AUClostwhen50percTraitdepleted)
 var_vis <- names(step$coefficients[-1])
 
 
-Species_Groups_plot_AUClostwhen50percTraitdepleted <- visreg::visreg(mod_AUClostwhen50percTraitdepleted, "Species_Groups", scale = "response", partial = TRUE, 
-                                                                     xlab = "Life forms ", ylab = "AUC loss - 50% traits omission", gg = TRUE, line = list(col = "#830042FF"), 
-                                                                     fill = list(fill = "#830042FF", alpha = 0.3), 
-                                                                     points = list(size = 2, col = "#830042FF"))  + theme_bw()  +
-  theme(axis.text.x  = element_text(), 
-        axis.title.y = element_text( face = "bold"),
-        axis.title.x = element_text( face = "bold"))
+Species_Groups_plot_AUClostwhen50percTraitdepleted <- visreg::visreg(mod_AUClostwhen50percTraitdepleted, "Species_Groups", scale = "response", 
+                                                                     partial = TRUE, by = "Species_Groups",overlay = TRUE,
+                                                                     gg = TRUE,  plot =FALSE)
 
-Ecosystem_type_plot_AUClostwhen50percTraitdepleted <- visreg::visreg(mod_AUClostwhen50percTraitdepleted, "Ecosystem_type", scale = "response", partial = TRUE, 
-                                                                     xlab = "Ecosystem types", ylab = " ", gg = TRUE, line = list(col = "#830042FF"), 
-                                                                     fill = list(fill = "#830042FF", alpha = 0.3), 
-                                                                     points = list(size = 2, col = "#830042FF"))  + theme_bw()  +
+
+Species_Groups_plot_AUClostwhen50percTraitdepleted <- ggplot(Species_Groups_plot_AUClostwhen50percTraitdepleted$res,aes(y= visregRes, x= Species_Groups,color=Species_Groups))+
+  geom_boxplot()+ 
+  geom_point(aes(fill = Species_Groups, group = Species_Groups), 
+             alpha  =0.5, size=2, 
+             position = position_jitterdodge(jitter.width = .1, dodge.width = 1)) +
+  xlab("Life forms")+
+  ylab("AUC loss - 50% traits omission")+
+  scale_color_manual(values=c("chartreuse4", "red4", "orange")) + 
+  theme_bw()+
+  theme(axis.title.y = element_text( face = "bold"),
+        axis.title.x = element_text( face = "bold"),
+        legend.position = "none")
+
+
+Ecosystem_type_plot_AUClostwhen50percTraitdepleted <- visreg::visreg(mod_AUClostwhen50percTraitdepleted, "Ecosystem_type", scale = "response", 
+                                                                     partial = TRUE, by = "Ecosystem_type",overlay = TRUE,
+                                                                     gg = TRUE,  plot =FALSE)
+
+Ecosystem_type_plot_AUClostwhen50percTraitdepleted <- ggplot(Ecosystem_type_plot_AUClostwhen50percTraitdepleted$res,aes(y= visregRes, x= Ecosystem_type,color=Ecosystem_type))+
+  geom_boxplot()+ 
+  geom_point(aes(fill = Ecosystem_type, group = Ecosystem_type), 
+             alpha  =0.5, size=2, 
+             position = position_jitterdodge(jitter.width = .1, dodge.width = 1)) +
+  xlab("Ecosystem types")+
+  ylab(" ")+
+  scale_color_manual(values=c("royalblue1", "limegreen")) + 
+  theme_bw()+
   theme(axis.text.x  = element_text(), 
         axis.title.y = element_text( face = "bold"),
-        axis.title.x = element_text( face = "bold"))
+        axis.title.x = element_text( face = "bold"),
+        legend.position = "none")
 
 
 
@@ -200,3 +262,5 @@ dev.off()
 #  kableExtra::collapse_rows()
 
 #table_mod_aov
+
+
