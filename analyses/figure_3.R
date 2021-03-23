@@ -73,7 +73,7 @@ colnames(aov_AUC_elbow) <- c("Term", "Sum.Sq", "F-statistic", "P.value")
 
 
 Species_Groups_plot_elbow <- visreg::visreg(mod_AUC_elbow, "Species_Groups", scale = "response", partial = TRUE, 
-                                            xlab = " ", ylab = "Dimensionality AUC elbow", gg = TRUE, line = list(col = "#830042FF"), 
+                                            xlab = " ", ylab = "Dimensionality AUC elbow", gg = TRUE, line = list(col = c("chartreuse4","#830042FF","orange")), 
                                             fill = list(fill = "#830042FF", alpha = 0.3), 
                                             points = list(size = 2, col = "#830042FF"))  + theme_bw()  +
   theme(axis.text.x  = element_blank(), 
@@ -189,7 +189,7 @@ dev.off()
 #    aov_table_df[i, 5] <- "<0.001"
 #    aov_table_df[i, 5] <- kableExtra::cell_spec(aov_table_df[i, 5],  bold = T)
 #  } 
-  
+
 #  if(aov_table_df[i, 5]<0.05 & aov_table_df[i, 5]>0.001)     {  
 #    aov_table_df[i, 5] <- kableExtra::cell_spec(aov_table_df[i, 5],  bold = T)
 #  } 
