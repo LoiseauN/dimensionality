@@ -25,20 +25,42 @@ colnames(aov_logNC) <- c("Term", "Sum.Sq", "F-statistic", "P.value")
 var_vis <- names(step$coefficients[-1])
 
 
-Species_Groups_plot_logNC <- visreg::visreg(mod_logNC, "Species_Groups", scale = "response", partial = TRUE, 
-                                            xlab = " ", ylab = "Number of clusters (log)", gg = TRUE, line = list(col = "#830042FF"), 
-                                            fill = list(fill = "#830042FF", alpha = 0.3), 
-                                            points = list(size = 2, col = "#830042FF"))  + theme_bw()  +
-  theme(axis.text.x  = element_blank(), 
-        axis.title.y = element_text( face = "bold"))
+Species_Groups_plot_logNC <- visreg::visreg(mod_logNC, "Species_Groups", scale = "response",
+                                            partial = TRUE, by = "Species_Groups",overlay = TRUE,
+                                            gg = TRUE,  plot =FALSE)
 
-Ecosystem_type_plot_logNC <- visreg::visreg(mod_logNC, "Ecosystem_type", scale = "response", partial = TRUE, 
-                                            xlab = " ", ylab = " ", gg = TRUE, line = list(col = "#830042FF"), 
-                                            fill = list(fill = "#830042FF", alpha = 0.3), 
-                                            points = list(size = 2, col = "#830042FF"))  + theme_bw()  +
+Species_Groups_plot_logNC <- ggplot(Species_Groups_plot_logNC$res,aes(y= visregRes, x= Species_Groups,color=Species_Groups))+
+  geom_boxplot()+ 
+  geom_point(aes(fill = Species_Groups, group = Species_Groups), 
+             alpha  =0.5, size=2, 
+             position = position_jitterdodge(jitter.width = .1, dodge.width = 1)) +
+  xlab(" ")+
+  scale_y_continuous(labels = comma) +
+  ylab("Number of clusters (log)")+
+  scale_color_manual(values=c("chartreuse4", "red4", "orange")) + 
+  theme_bw()+
   theme(axis.text.x  = element_blank(), 
-        axis.title.y = element_text( face = "bold"))
+        axis.title.y = element_text( face = "bold"),
+        legend.position = "none")
 
+
+Ecosystem_type_plot_logNC <- visreg::visreg(mod_logNC, "Ecosystem_type", scale = "response", 
+                                            partial = TRUE, by = "Ecosystem_type",overlay = TRUE,
+                                            gg = TRUE,  plot =FALSE)
+
+Ecosystem_type_plot_logNC <- ggplot(Ecosystem_type_plot_logNC$res,aes(y= visregRes, x= Ecosystem_type,color=Ecosystem_type))+
+  geom_boxplot()+ 
+  geom_point(aes(fill = Ecosystem_type, group = Ecosystem_type), 
+             alpha  =0.5, size=2, 
+             position = position_jitterdodge(jitter.width = .1, dodge.width = 1)) +
+  scale_y_continuous(labels = comma) +
+  xlab(" ")+
+  ylab(" ")+
+  scale_color_manual(values=c("royalblue1", "limegreen")) + 
+  theme_bw()+
+  theme(axis.text.x  = element_blank(), 
+        axis.title.y = element_text( face = "bold"),
+        legend.position = "none")
 
 #----------
 mod_PropC1 <- stats::lm(PropC1 ~ logS + logNT + NA_perc + quanti_perc + mean_cor+ Species_Groups + Ecosystem_type, 
@@ -60,21 +82,41 @@ colnames(aov_PropC1) <- c("Term", "Sum.Sq", "F-statistic", "P.value")
 var_vis <- names(step$coefficients[-1])
 
 
-Species_Groups_plot_PropC1 <- visreg::visreg(mod_PropC1, "Species_Groups", scale = "response", partial = TRUE, 
-                                             xlab = " ", ylab = "% Cluster #1", gg = TRUE, line = list(col = "#830042FF"), 
-                                             fill = list(fill = "#830042FF", alpha = 0.3), 
-                                             points = list(size = 2, col = "#830042FF"))  + theme_bw()  +
+Species_Groups_plot_PropC1 <- visreg::visreg(mod_PropC1, "Species_Groups", scale = "response", 
+                                             partial = TRUE, by = "Species_Groups",overlay = TRUE,
+                                             gg = TRUE,  plot =FALSE)
+
+Species_Groups_plot_PropC1 <- ggplot(Species_Groups_plot_PropC1$res,aes(y= visregRes, x= Species_Groups,color=Species_Groups))+
+  geom_boxplot()+ 
+  geom_point(aes(fill = Species_Groups, group = Species_Groups), 
+             alpha  =0.5, size=2, 
+             position = position_jitterdodge(jitter.width = .1, dodge.width = 1)) +
+  scale_y_continuous(labels = comma) +
+  xlab(" ")+
+  ylab("% Cluster #1")+
+  scale_color_manual(values=c("chartreuse4", "red4", "orange")) + 
+  theme_bw()+
   theme(axis.text.x  = element_blank(), 
-        axis.title.y = element_text( face = "bold"))
+        axis.title.y = element_text( face = "bold"),
+        legend.position = "none")
 
-Ecosystem_type_plot_PropC1 <- visreg::visreg(mod_PropC1, "Ecosystem_type", scale = "response", partial = TRUE, 
-                                             xlab = " ", ylab = " ", gg = TRUE, line = list(col = "#830042FF"), 
-                                             fill = list(fill = "#830042FF", alpha = 0.3), 
-                                             points = list(size = 2, col = "#830042FF"))  + theme_bw()  +
+
+Ecosystem_type_plot_PropC1 <- visreg::visreg(mod_PropC1, "Ecosystem_type", scale = "response", 
+                                             partial = TRUE, by = "Ecosystem_type",overlay = TRUE,
+                                             gg = TRUE,  plot =FALSE)
+
+Ecosystem_type_plot_PropC1 <- ggplot(Ecosystem_type_plot_PropC1$res,aes(y= visregRes, x= Ecosystem_type,color=Ecosystem_type))+
+  geom_boxplot()+ 
+  geom_point(aes(fill = Ecosystem_type, group = Ecosystem_type), 
+             alpha  =0.5, size=2, 
+             position = position_jitterdodge(jitter.width = .1, dodge.width = 1)) +
+  xlab(" ")+
+  ylab(" ")+
+  scale_color_manual(values=c("royalblue1", "limegreen")) + 
+  theme_bw()+
   theme(axis.text.x  = element_blank(), 
-        axis.title.y = element_text( face = "bold"))
-
-
+        axis.title.y = element_text( face = "bold"),
+        legend.position = "none")
 
 
 #----------
@@ -99,22 +141,40 @@ step <- MASS::stepAIC(mod_PropSin)
 var_vis <- names(step$coefficients[-1])
 
 
-Species_Groups_plot_PropSin <- visreg::visreg(mod_PropSin, "Species_Groups", scale = "response", partial = TRUE, 
-                                              xlab = "Species_Groups", ylab = "% uniques", gg = TRUE, line = list(col = "#830042FF"), 
-                                              fill = list(fill = "#830042FF", alpha = 0.3), 
-                                              points = list(size = 2, col = "#830042FF"))  + theme_bw()  +
+Species_Groups_plot_PropSin <- visreg::visreg(mod_PropSin, "Species_Groups", scale = "response", 
+                                              partial = TRUE, by = "Species_Groups",overlay = TRUE,
+                                              gg = TRUE,  plot =FALSE)
+
+Species_Groups_plot_PropSin <- ggplot(Species_Groups_plot_PropSin$res,aes(y= visregRes, x= Species_Groups,color=Species_Groups))+
+  geom_boxplot()+ 
+  geom_point(aes(fill = Species_Groups, group = Species_Groups), 
+             alpha  =0.5, size=2, 
+             position = position_jitterdodge(jitter.width = .1, dodge.width = 1)) +
+  xlab("Life forms")+
+  ylab("% uniques")+
+  scale_color_manual(values=c("chartreuse4", "red4", "orange")) + 
+  theme_bw()+
+  theme(axis.title.y = element_text( face = "bold"),
+        axis.title.x = element_text( face = "bold"),
+        legend.position = "none")
+
+Ecosystem_type_plot_PropSin <- visreg::visreg(mod_PropSin, "Ecosystem_type", scale = "response", 
+                                              partial = TRUE, by = "Ecosystem_type",overlay = TRUE,
+                                              gg = TRUE,  plot =FALSE)
+
+Ecosystem_type_plot_PropSin <- ggplot(Ecosystem_type_plot_PropSin$res,aes(y= visregRes, x= Ecosystem_type,color=Ecosystem_type))+
+  geom_boxplot()+ 
+  geom_point(aes(fill = Ecosystem_type, group = Ecosystem_type), 
+             alpha  =0.5, size=2, 
+             position = position_jitterdodge(jitter.width = .1, dodge.width = 1)) +
+  xlab("Ecosystem types")+
+  ylab(" ")+
+  scale_color_manual(values=c("royalblue1", "limegreen")) + 
+  theme_bw()+
   theme(axis.text.x  = element_text(), 
         axis.title.y = element_text( face = "bold"),
-        axis.title.x = element_text( face = "bold"))
-
-Ecosystem_type_plot_PropSin <- visreg::visreg(mod_PropSin, "Ecosystem_type", scale = "response", partial = TRUE, 
-                                              xlab = "Ecosystem_type", ylab = " ", gg = TRUE, line = list(col = "#830042FF"), 
-                                              fill = list(fill = "#830042FF", alpha = 0.3), 
-                                              points = list(size = 2, col = "#830042FF"))  + theme_bw()  +
-  theme(axis.text.x  = element_text(), 
-        axis.title.y = element_text( face = "bold"),
-        axis.title.x = element_text( face = "bold"))
-
+        axis.title.x = element_text( face = "bold"),
+        legend.position = "none")
 
 grDevices::pdf(file = here::here("figures", "Figure6.pdf"), 
                width = 11.7, height = 8.3) #SAVE A4
