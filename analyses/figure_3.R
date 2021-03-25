@@ -242,9 +242,10 @@ dev.off()
 #aov_table_df[aov_table_df$Term=="log(Number of Traits)",]$Term <- "Number of Traits (log)"
 #aov_table_df[aov_table_df$Term=="Percentage of NA",]$Term <- "% of Missing Values"
 #aov_table_df[aov_table_df$Term=="Correlation",]$Term <- "Mean Correlation"
+#aov_table_df[aov_table_df$Term=="Species_Groups",]$Term <- "Life forms"
+#aov_table_df[aov_table_df$Term=="Ecosystem_type",]$Term <- "Ecosystem types"
 #aov_table_df <- aov_table_df %>% dplyr::mutate_at(vars("Sum.Sq","F.statistic","P.value",), dplyr::funs(round(., 3)))
 
-#aov_table_df<-aov_table_df[aov_table_df$Term %in% c("Species_Groups", "Ecosystem_type"),]
 
 #for(i in 1:nrow(aov_table_df)){ 
 #  if(aov_table_df[i, 5]<0.001 )    { 
@@ -261,6 +262,4 @@ dev.off()
 #  kableExtra::kable_styling()%>% 
 #  kableExtra::collapse_rows()
 
-#table_mod_aov
-
-
+table_mod_aov

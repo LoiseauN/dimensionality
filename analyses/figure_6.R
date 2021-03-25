@@ -185,28 +185,29 @@ dev.off()
 
 #aov_cluster_table_df <- rbind(aov_logNC, aov_PropSin,aov_PropC1)
 #aov_cluster_table_df <- data.frame(Variables = c(rep("Number of Cluster (log)",7),rep("% uniques",7)
-#                                                 ,rep("% Cluster #1",7)),aov_cluster_table_df)
+#                                                 ,rep("% Cluster 1",7)),aov_cluster_table_df)
 
 #aov_cluster_table_df[aov_cluster_table_df$Term=="log(Number of Species)",]$Term <- "Number of Species (log)"
 #aov_cluster_table_df[aov_cluster_table_df$Term=="log(Number of Traits)",]$Term <- "Number of Traits (log)"
 #aov_cluster_table_df[aov_cluster_table_df$Term=="Percentage of NA",]$Term <- "% of Missing Values"
 #aov_cluster_table_df[aov_cluster_table_df$Term=="Correlation",]$Term <- "Mean Correlation"
+#aov_cluster_table_df[aov_cluster_table_df$Term=="Species_Groups",]$Term <- "Life forms"
+#aov_cluster_table_df[aov_cluster_table_df$Term=="Ecosystem_type",]$Term <- "Ecosystem types"
 
 #aov_cluster_table_df <- aov_cluster_table_df %>% dplyr::mutate_at(vars("Sum.Sq","F.statistic","P.value",), dplyr::funs(round(., 3)))
-#aov_cluster_table_df<-aov_cluster_table_df[aov_cluster_table_df$Term %in% c("Species_Groups", "Ecosystem_type"),]
 
 #for(i in 1:nrow(aov_cluster_table_df)){ 
 #  if(aov_cluster_table_df[i, 5]<0.001 )    { 
 #    aov_cluster_table_df[i, 5] <- "<0.001"
 #    aov_cluster_table_df[i, 5] <- kableExtra::cell_spec(aov_cluster_table_df[i, 5],  bold = T)
 #  } 
-  
+
 #  if(aov_cluster_table_df[i, 5]<0.05 & aov_cluster_table_df[i, 5]>0.001)     {  
 #    aov_cluster_table_df[i, 5] <- kableExtra::cell_spec(aov_cluster_table_df[i, 5],  bold = T)
 #  } 
-  
-  
-#}
+
+
+}
 
 #table_cluster_aov<-pixiedust::dust(aov_cluster_table_df) %>% 
 #  kableExtra::kable( booktabs = T, escape = F)%>% 
