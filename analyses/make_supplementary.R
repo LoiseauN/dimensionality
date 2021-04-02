@@ -58,7 +58,8 @@ ggplot(res_for_model,aes(x = Nb_dim_AUC_elbow,y = Nb_dim_AUC_0.7)) +
    theme(axis.title.y = element_text( face = "bold"), 
      axis.title.x = element_text( face = "bold"))
 
-
+lm(Nb_dim_AUC_0.7~Nb_dim_AUC_elbow,data=res_for_model)
+cor.test(res_for_model$Nb_dim_AUC_0.7,res_for_model$Nb_dim_AUC_elbow)
 ## Relation between AUC & MAD ----             
               
               files <- list.files(path = here::here("outputs"), pattern = "_dim.rds$",
@@ -80,11 +81,6 @@ ggplot(res_for_model,aes(x = Nb_dim_AUC_elbow,y = Nb_dim_AUC_0.7)) +
 
 
 ## Relation between AUC & Percentage of variance explained PCOA ---- 
-#Peut-on plutôt avoir le % des axes en X et non en Y avec une valeur 
-# de R2 pour savoir à combien il explique nos nouvelles métriques 
-#mais aussi mettre ces plots dans un repère orthonormé genre 10-10 
-#pour voir le décalage avec la diagonale de pente 1   
- 
               res_pcoa <- data.frame(do.call(rbind, lapply(1:length(list_res_pcoa),function(i){
                 
                 print(i)
@@ -121,7 +117,8 @@ ggplot(res_for_model,aes(x = Nb_dim_AUC_elbow,y = Nb_dim_AUC_0.7)) +
                 ylim(0, 7.5)+xlim(0, 7.5)+
                 geom_abline(slope = 1, intercept = 0)
               
-              #summary(lm(formatgg$Nb_dim_AUC_0.7 ~ formatgg$dim_varexplain0.5))
+              
+              #summary(lm(formatgg$Nb_dim_AUC_0.5 ~ formatgg$dim_varexplain0.5))
               b <- ggplot(formatgg,aes(y = Nb_dim_AUC_0.7,x = dim_varexplain0.5)) +
                 geom_point(size = 2, col = "#3D7688") + 
                 geom_smooth(method = lm, col = "#3D7688", fill = "#D6EBEC") + 
@@ -135,8 +132,8 @@ ggplot(res_for_model,aes(x = Nb_dim_AUC_elbow,y = Nb_dim_AUC_0.7)) +
                                y = 2.5, x = 11), size = 4, hjust = 0) +
                 ylim(0, 16)+xlim(0, 16) +
                 geom_abline(slope = 1, intercept = 0)
-              
-              #summary(lm(formatgg$Nb_dim_AUC_elbow ~ formatgg$dim_varexplain0.5))
+             
+              #summary(lm(formatgg$Nb_dim_AUC_0.7 ~ formatgg$dim_varexplain0.5))
               c <- ggplot(formatgg,aes(y = Nb_dim_AUC_elbow,x = dim_varexplain0.5)) +
                 geom_point(size = 2, col = "#3D7688") + 
                 geom_smooth(method = lm, col = "#3D7688", fill = "#D6EBEC") + 
@@ -151,9 +148,10 @@ ggplot(res_for_model,aes(x = Nb_dim_AUC_elbow,y = Nb_dim_AUC_0.7)) +
                 ylim(0, 7.5)+xlim(0, 7.5)+
                 geom_abline(slope = 1, intercept = 0)
               
-            
-              grid.arrange(a,b,c,nrow = 3)
               
+              #summary(lm(Nb_dim_AUC_elbow~dim_varexplain0.5,data=formatgg))
+              grid.arrange(a,b,c,nrow = 3)
+    
               
 
               #-----------------------------------------------------------------------------------------------  
