@@ -1,8 +1,7 @@
 # dimensionality
 
 Research Compendium of the paper _Mouillot et al. (2021) The dimensionality and
-structure of species trait spaces. Submitted to Ecology Letters_.
-
+structure of species trait spaces. Ecology Letters https://onlinelibrary.wiley.com/doi/full/10.1111/ele.13778
 
 
 ## Goal
