@@ -123,9 +123,9 @@ DPC <- function(X,metric = "euclidean", radius='automatic', fraction=0.01, mode=
     D=as.matrix(dist(X, method = metric))
   }
   else {
-    if(class(X)=="dist") { D=as.matrix(X) }
-    if(class(X)=="list") { D=X[[1]] }
-    if(class(X)=="data.frame") { D=as.matrix(X) }
+    if(inherits(X, "dist")) { D=as.matrix(X) }
+    if(inherits(X, "list")) { D=X[[1]] }
+    if(inherits(X, "data.frame")) { D=as.matrix(X) }
     if(removezeroes==TRUE) { D=removezeroes(D) }
   }
 
@@ -376,9 +376,9 @@ clean_clusters= function(D,rho,centers,cluster,density_filter,radius,rho_thresho
 
 removezeroes <- function(distances) {
 
-  if(class(distances)=="dist") { distances=as.matrix(distances) }
-  if(class(distances)=="list") { distances=distances[[1]] }
-  if(class(distances)=="data.frame") { distances=as.matrix(distances) }
+  if(inherits(distances, "dist")) { distances=as.matrix(distances) }
+  if(inherits(distances, "list")) { distances=distances[[1]] }
+  if(inherits(distances, "data.frame")) { distances=as.matrix(distances) }
 
 
   distances[is.nan(distances)] <- 1
